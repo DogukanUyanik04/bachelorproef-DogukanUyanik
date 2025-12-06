@@ -15,46 +15,63 @@
 \section{Inleiding}%
 \label{sec:inleiding}
 
-
+\subsection{Kaderen Thema en Doelgroep}
 Een hartstilstand is wereldwijd één van de meest voorkomende doodsoorzaken buiten het ziekenhuis. 
 De overlevingskans van een slachtoffer hangt in grote mate af van de kwaliteit van de reanimatie die in de eerste minuten wordt toegepast. 
-Het correct aanleren van deze vaardigheid aan zorgverleners is daarom cruciaal. Echter, de huidige trainingsmethodiek vertoont structurele beperkingen die een optimaal leerproces in de weg staan.
+Het correct aanleren van deze vaardigheid aan zorgverleners is daarom cruciaal.
 
-Probleemstelling In de huidige onderwijspraktijk, zoals bij de opleiding Verpleegkunde en partners zoals UZ Gent, 
-wordt vaak gebruikgemaakt van geconnecteerde oefenpoppen (zoals de Laerdal Little Anne). 
-Deze poppen sturen data via Bluetooth naar een extern scherm of tablet (bijv. een iPad), 
-waarop de student grafieken en scores kan aflezen. Hoewel deze technologie een stap vooruit is, 
-brengt deze opstelling twee fundamentele problemen met zich mee die het leerproces verstoren.
+De doelgroep van dit onderzoek bestaat specifiek uit bachelorstudenten Verpleegkunde en Geneeskunde die reanimatietechnieken moeten beoefenen.
 
-Ten eerste is er sprake van abstracte feedback. De tablet toont de prestaties vaak in de vorm van percentages, grafieken of algemene scores. Voor een student die een motorische vaardigheid aanleert, is deze data lastig te vertalen naar een fysieke correctie. De student ziet op het scherm wellicht een score van 60%, maar krijgt geen directe, ruimtelijke instructie over hoe de handpositie of drukhoek fysiek aangepast moet worden om die score te verhogen.
+\subsection{Probleemstelling}
+In de huidige onderwijspraktijk, zoals bij de opleiding Verpleegkunde en partners zoals UZ Gent, wordt vaak gebruikgemaakt van digitale oefenpoppen (zoals de Laerdal Little Anne). 
+Deze poppen sturen data via Bluetooth naar een extern scherm of tablet (bijv. een iPad), waarop de student grafieken en scores kan aflezen. Hoewel deze technologie een stap vooruit is in vergelijking met oude fysieke mannequins, 
+brengt deze oplossing twee concrete problemen met zich mee die het leerproces verstoren.
 
-Ten tweede veroorzaakt het gebruik van een extern scherm het zogenaamde split-attention effect. Om feedback te ontvangen wordt de student genoodzaakt om de blik af te wenden van de 'patiënt' (de pop) naar de tablet. Dit verbreekt niet alleen de concentratie, maar is ook niet representatief voor een realistische noodsituatie, waarbij de focus continu op het slachtoffer moet liggen.
+Ten eerste is er sprake van abstracte feedback. De tablet toont de prestaties van de student vaak in de vorm van percentages, grafieken of algemene scores. 
+Voor een student die een motorische vaardigheid aanleert, is deze data lastig te vertalen naar een fysieke correctie. 
+De student ziet op het scherm wellicht een score van 60\%, maar krijgt geen directe, ruimtelijke instructie over hoe de 
+handpositie of drukhoek fysiek aangepast moet worden om die score te verhogen.
 
-Deze problematiek staat in contrast met de bredere technologische evolutie binnen de zorgsector. De afgelopen jaren heeft 'Smart Healthcare' een vlucht genomen, waarbij technologieën zoals Augmented Reality (AR) en Mixed Reality (MR) steeds vaker hun weg vinden naar de klinische praktijk. We kunnen de technologieën terugvinden in chirurgische visualisaties tijdens operaties, of zelfs anatomische lessen in 3D. De meerwaarde van het verrijken van de werkelijkheid met digitale informatie is dus reeds aangetoond in andere medische domeinen. Het is dan een logische vervolgstap om dit toe te passen op reanimatietraining, om zo een dynamische leeromgeving te bekomen. 
+Ten tweede veroorzaakt het gebruik van een extern scherm het zogenaamde \textit{split-attention effect}. 
+Om feedback te ontvangen wordt de student genoodzaakt om de blik af te wenden van de 'patiënt' (de pop) naar de tablet. 
+Dit verbreekt niet alleen de concentratie, maar is ook niet representatief voor een realistische noodsituatie, waarbij de focus continu op het slachtoffer moet liggen.
 
-De tekortkomingen van huidige methodiek creëren een duidelijke opportuniteit voor het inzetten van Mixed Reality. In plaats van data op een los scherm, kan MR visuele instructies direct over de fysieke pop projecteren. Hierdoor kan de student autonoom trainen en wordt de abstracte data omgezet in intuïtieve, visuele guides.
+Deze problematiek staat in contrast met de bredere technologische evolutie binnen de zorgsector. 
+De afgelopen jaren heeft Augmented Reality (AR) en Mixed Reality (MR) steeds vaker zijn weg gevonden naar de klinische praktijk, 
+zoals bij chirurgische visualisaties of anatomische lessen. De meerwaarde van het verrijken van de werkelijkheid is in andere domeinen reeds aangetoond, 
+wat een logische basis vormt om dit toe te passen op reanimatietraining.
+\subsection{Centrale onderzoeksvraag}
+Op basis van de bovenstaande probleemstelling wordt de volgende centrale onderzoeksvraag geformuleerd:
 
-Het doel van deze bachelorproef is het ontwikkelen van een Proof of Concept (PoC) om de potentie van AR/MR binnen dit domein te valideren. Centraal staat de vraag of het integreren van real-time feedback in het gezichtsveld van de student leidt tot een betere gebruikerservaring en een efficiënter leerproces. Ongeacht de uitkomst zal dit onderzoek inzicht geven in de haalbaarheid van deze nieuwe technologie als hulpmiddel voor de huidige trainingsmethoden.
+\begin{quote}
+    \textit{In welke mate kan een Mixed Reality-applicatie de kwaliteit van feedback tijdens reanimatietraining verbeteren in vergelijking met de huidige tablet-gebaseerde methoden?}
+\end{quote}
 
-Op basis van de probleemstelling wordt de volgende centrale onderzoeksvraag geformuleerd: In welke mate kan een Mixed Reality-applicatie de 
-kwaliteit van feedback tijdens reanimatietraining verbeteren in vergelijking met de huidige tablet-gebaseerde methoden?
+\subsection{Deelvragen}
+Om een antwoord te geven op deze hoofdvraag, wordt het onderzoek gesplitst in meerdere deelaspecten. 
+Eerst wordt gefocust op het \textbf{probleemdomein} om de tekortkomingen van de huidige situatie in kaart te brengen:
 
-Om een antwoord te geven op deze hoofdvraag, wordt het onderzoek gesplitst in deelvragen. Eerst wordt gefocust op het \textbf{probleemdomein} om de tekortkomingen van de huidige situatie in kaart te brengen:
-
-\begin{enumerate}
+\begin{itemize}
     \item Welke veelvoorkomende reanimatiefouten worden door de huidige hardware niet of onvoldoende gedetecteerd tijdens een training?
     \item Hoe ervaren studenten de vertaalslag van de huidige abstracte vorm van feedback (zoals grafieken, cijfers en scores) naar de fysieke correctie van hun handeling?
     \item Welke specifieke feedback-parameters van hartcompressie worden door studenten als het meest problematisch of onduidelijk ervaren op de huidige dashboards?
-\end{enumerate}
+\end{itemize}
 
-Vervolgens richt het onderzoek zich op het oplossingsdomein, waarbij de focus ligt op de technische ontwikkeling en validatie van de applicatie:
+Vervolgens richt het onderzoek zich op het \textbf{oplossingsdomein}, waarbij de focus ligt op de technische ontwikkeling en validatie van de applicatie:
 
-\begin{enumerate}
+\begin{itemize}
     \item Hoe kan de sensordata van de oefenpop real-time uitgelezen en verwerkt worden binnen een Mixed Reality-omgeving?
     \item Op welke manier kan feedback visueel worden weergegeven zodat de student zijn vaardigheid autonoom kan verbeteren?
     \item In welke mate stelt de ontwikkelde Proof of Concept (PoC) studenten in staat om fouten sneller en accurater te corrigeren in vergelijking met de traditionele tablet-feedback?
-\end{enumerate}
+\end{itemize}
 
+\subsection{Onderzoeksdoelstelling}
+De tekortkomingen van de huidige methodiek creëren een duidelijke opportuniteit voor het inzetten van deze nieuwe opkomende technologie, Mixed Reality. 
+Het doel van deze bachelorproef is het ontwikkelen van een \textbf{Proof of Concept (PoC)} om de potentie van AR/MR binnen dit domein te valideren. 
+Centraal staat de vraag of het integreren van real-time feedback in het gezichtsveld van de student leidt tot een betere gebruikerservaring en een efficiënter leerproces.
+
+Het concrete eindresultaat van dit onderzoek bestaat uit twee delen: ten eerste een werkend prototype dat communiceert met de oefenpop en visuele feedback projecteert; 
+ten tweede een validatierapport waarin de effectiviteit van deze oplossing wordt vergeleken met de traditionele trainingsmethoden.
 
 %---------- Stand van zaken ---------------------------------------------------
 
