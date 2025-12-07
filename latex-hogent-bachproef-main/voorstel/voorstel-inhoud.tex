@@ -75,27 +75,63 @@ ten tweede een validatierapport waarin de effectiviteit van deze oplossing wordt
 
 %---------- Stand van zaken ---------------------------------------------------
 
-\section{Literatuurstudie}%
+\section{Literatuurstudie}
 \label{sec:literatuurstudie}
 
-Hier beschrijf je de \emph{state-of-the-art} rondom je gekozen onderzoeksdomein, d.w.z.\ een inleidende, doorlopende tekst over het onderzoeksdomein van je bachelorproef. Je steunt daarbij heel sterk op de professionele \emph{vakliteratuur}, en niet zozeer op populariserende teksten voor een breed publiek. Wat is de huidige stand van zaken in dit domein, en wat zijn nog eventuele open vragen (die misschien de aanleiding waren tot je onderzoeksvraag!)?
 
-Je mag de titel van deze sectie ook aanpassen (literatuurstudie, stand van zaken, enz.). Zijn er al gelijkaardige onderzoeken gevoerd? Wat concluderen ze? Wat is het verschil met jouw onderzoek?
+\subsection{Kwaliteitscriteria voor Reanimatie (CPR)}
+De doeltreffenheid van reanimatie wordt bepaald door de nauwkeurigheid van de uitgevoerde handelingen. 
+In Europa gebruikt men de \textit{European Resuscitation Council} (ERC) om zo een standaard vast te leggen omtrent reanimatie.
+In de meest recente richtlijnen benadrukken \textcite{Olasveengen2021} dat 'High-Quality CPR' essentieel is voor de overlevingskans van het slachtoffer.
 
-Verwijs bij elke introductie van een term of bewering over het domein naar de vakliteratuur, bijvoorbeeld~\autocite{Hykes2013}! Denk zeker goed na welke werken je refereert en waarom.
 
-Draag zorg voor correcte literatuurverwijzingen! Een bronvermelding hoort thuis \emph{binnen} de zin waar je je op die bron baseert, dus niet er buiten! Maak meteen een verwijzing als je gebruik maakt van een bron. Doe dit dus \emph{niet} aan het einde van een lange paragraaf. Baseer nooit teveel aansluitende tekst op eenzelfde bron.
+Voor de ontwikkeling van een feedback-systeem is het van groot belang dus om te specifiëren welke parameters nodig zijn om de kwaliteit van compressies te beoordelen:
+\begin{itemize}
+    \item \textbf{Compressiediepte:} De borstkas moet ingedrukt worden met een diepte van minimaal 5 cm en maximaal 6 cm. Compressies die ondieper zijn, 
+    genereren onvoldoende bloedstroom, terwijl diepere compressies het risico op letsel schade vergroten.
+    \item \textbf{Compressiefrequentie (Rate):} Het ritme van de compressies moet tussen de 100 en 120 slagen per minuut liggen.
+\item \textbf{Recoil (Leunen):} Na elke compressie moet de borstkas volledig de kans krijgen om terug te veren ('recoil'). 
+Het is cruciaal dat de hulpverlener niet op de borstkas blijft leunen, zodat het hart zich opnieuw kan vullen met bloed.
+    \item \textbf{Handpositie:} De handen dienen geplaatst te worden op de onderste helft van het sternum (borstbeen), in het midden van de borstkas.
+\end{itemize}
 
-Als je informatie over bronnen verzamelt in JabRef, zorg er dan voor dat alle nodige info aanwezig is om de bron terug te vinden (zoals uitvoerig besproken in de lessen Research Methods).
+Daarnaast schrijven de richtlijnen een verhouding voor van 30 compressies afgewisseld met 2 beademingen (30:2), 
+tenzij de hulpverlener niet in staat is om te beademen; in dat geval wordt continue hartmassage aanbevolen~\autocite{Olasveengen2021}.
 
-% Voor literatuurverwijzingen zijn er twee belangrijke commando's:
-% \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
-%   geen onderdeel is van de zin.
-% \textcite{KEY} => Auteur (jaartal)  Gebruik dit als de auteursnaam wel een
-%   functie heeft in de zin (bv. ``Uit onderzoek door Doll & Hill (1954) bleek
-%   ...'')
 
-Je mag deze sectie nog verder onderverdelen in subsecties als dit de structuur van de tekst kan verduidelijken.
+\subsection{Beperkingen van Traditionele Feedbackmethoden}
+De Laerdal QCPR-technologie representeert de huidige standaard voor objectieve feedback in reanimatietraining. 
+Het systeem maakt gebruik van geïntegreerde sensoren in de oefenpop die via Bluetooth verbinding maken met externe software. 
+Tijdens de reanimatie meet het systeem continu parameters zoals compressiediepte, frequentie en de mate van borstkas-recoil. 
+Deze data wordt real-time gevisualiseerd op een gekoppeld scherm, waardoor studenten hun motoriek direct kunnen corrigeren op basis van kwantitatieve gegevens.
+De effectiviteit van deze methode wordt ondersteund door \textcite{Cortegiani2017}, die aantoonden dat studenten die trainden met deze real-time QCPR-feedback 
+significant hogere compressiescores en betere technische vaardigheden behaalden dan studenten die enkel vertrouwden op verbale correcties van een instructeur.
+
+Er is echter een belangrijk nadeel aan het huidige onderzoek naar feedback.\textcite{Sigrist2013} geven aan dat veel studies gebaseerd zijn op hele simpele taken in een lab.
+Maar reanimeren is juist een heel complex vaardigheid waarbij je je hele lichaam moet gebruiken. 
+Het is dus een grote vraag of de resultaten van die simpele testen wel gelden voor het echte werk. Hierdoor duikt het zogezegde 
+'Guidance Hypothesis' tevoorschijn: studenten zullen zich puur focussen op het groen houden van de grafieken en worden afhankelijk van een scherm, 
+in plaats van dat ze moeten aanvoelen hoeveel kracht ze werkelijk moeten zetten \autocite{Sigrist2013}. Als het visuele hulpmiddel wegvalt missen ze dus 
+het benodigde spiergeheugen, hierdoor maken de auteurs de stelling dat simpele 2D-grafieken vaak tekortschieten en in de toekomst vervangen worden door 
+realistische simulaties binnen virtuele omgevingen om dit gat te dichten.
+
+
+\subsection{Cognitieve Belasting en het Split-Attention Effect}
+Recent onderzoek benadrukt de fysieke impact van display-modaliteit op de cognitieve belasting \autocite{Hurt2024}. In een studie naar motorische taken werd een signicant
+positieve correlatie gevonden tussen situational awareness en taakprestatie \autocite{Hurt2024}. Bij traditionele methodes met externe schermen moet de student echter steeds
+wegkijken, waardoor deze focus wordt verbroken. 
+Hoewel proefpersonen tablets soms als prettig ervaarden, komt dit volgens de auteur vooral door gewenning (familiarity bias) en niet door efficiëntie \autocite{Hurt2024}.
+Hurt concludeert dat Mixed Reality een betere oplossing is voor taken waarbij je je handen gebruikt. Informatie kan hierbij direct in het zicht worden geplaatst,
+waardoor waardoor het split-attention effect wordt voorkomen \autocite{Hurt2024}.
+
+\subsection{Mixed Reality in de Gezondheidszorg}
+% State-of-the-art: wat is MR, waar wordt MR al gebruikt? Werkt het?
+
+\subsection{Visualisatietechnieken voor Motorische Vaardigheden}
+% Hoe toon je feedback? Kleuren, pijlen, gamification?
+
+\subsection{Technische Aspecten: Connectiviteit en Latency}
+% Over Bluetooth protocollen, Unity integratie en vertraging.
 
 %---------- Methodologie ------------------------------------------------------
 \section{Methodologie}%
