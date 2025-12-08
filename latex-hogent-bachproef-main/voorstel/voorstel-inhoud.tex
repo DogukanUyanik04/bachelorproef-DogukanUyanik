@@ -153,18 +153,90 @@ zodat de gebruiker de illusie krijgt dat de feedback zich fysiek in de ruimte be
 %---------- Methodologie ------------------------------------------------------
 \section{Methodologie}%
 \label{sec:methodologie}
+Om de centrale onderzoeksvraag te beantwoorden, hanteert dit onderzoek een combinatie van methodiek voor aanpak. Het traject bestaat uit een ontwikkelingsfase waarin een \textit{Proof of Concept} (PoC) wordt
+gerealiseerd, gevolgd door een experimentele fase waarin de POC wordt gevalideerd aan de hand van een vergelijkende studie met proefpersonen.
 
-Hier beschrijf je hoe je van plan bent het onderzoek te voeren. Welke onderzoekstechniek ga je toepassen om elk van je onderzoeksvragen te beantwoorden? Gebruik je hiervoor literatuurstudie, interviews met belanghebbenden (bv.~voor requirements-analyse), experimenten, simulaties, vergelijkende studie, risico-analyse, PoC, \ldots?
+Het onderzoek is verdeeld in 4 concrete fases: Requirements Analyse, Selectie technologie (Long/Short list), Realisatie (POC) en Validatie.
 
-Valt je onderwerp onder één van de typische soorten bachelorproeven die besproken zijn in de lessen Research Methods (bv.\ vergelijkende studie of risico-analyse)? Zorg er dan ook voor dat we duidelijk de verschillende stappen terug vinden die we verwachten in dit soort onderzoek!
+\subsection{Fase 1: Requirements Analyse (Probleemdomein)}
+Voor het starten met de ontwikkeling, worden zowel de functionele als niet-functionele vereisten van de gewenste applicatie vastgelegd. Het doel hier is om op een objectieve manier
+te bepalen waaraan de oplossing moet voldoen om de in sectie \ref{sec:inleiding} beschreven problemen (abstracte feedback en \textit{split-attention}) op te lossen.
 
-Vermijd onderzoekstechnieken die geen objectieve, meetbare resultaten kunnen opleveren. Enquêtes, bijvoorbeeld, zijn voor een bachelorproef informatica meestal \textbf{niet geschikt}. De antwoorden zijn eerder meningen dan feiten en in de praktijk blijkt het ook bijzonder moeilijk om voldoende respondenten te vinden. Studenten die een enquête willen voeren, hebben meestal ook geen goede definitie van de populatie, waardoor ook niet kan aangetoond worden dat eventuele resultaten representatief zijn.
+\begin{itemize}
+    \item \textbf{Literatuurstudie:} De reeds uitgevoerde literatuurstudie (sectie \ref{sec:literatuurstudie}) 
+    fungeert als theoretisch kader voor de keuze van effectieve visualisatietechnieken (zoals de `Ghost Avatar').
+        \item \textbf{Interviews met belanghebbenden:} Er worden interviews afgenomen met CPR-instructeurs of domeinexperts. 
+        Het doel is om inzicht te krijgen in de specifieke parameters waar studenten het vaakst op falen (bijv. te ondiep drukken of niet volledig loslaten).
+        \item \textbf{MoSCoW-prioritering:} De verzamelde eisen worden gerangschikt volgens de MoSCoW-methode (\textit{Must have, Should have, Could have, Won't have}). 
+        Dit bakent de scope van de PoC af en garandeert dat de essentiële functionaliteiten (real-time feedback) als eerste worden gerealiseerd.
+\end{itemize}
 
-Uit dit onderdeel moet duidelijk naar voor komen dat je bachelorproef ook technisch voldoen\-de diepgang zal bevatten. Het zou niet kloppen als een bachelorproef informatica ook door bv.\ een student marketing zou kunnen uitgevoerd worden.
+\subsection{Fase 2: Technologie-selectie en Ontwerp (Oplossingsdomein)}
+In deze fase wordt bepaald hoe de requirements van fase 1, technisch worden ingevuld. Aangezien de hardware beschikbaar wordt gesteld door de opdrachtgever (Zorglab), focust deze fase op hardware-validatie
+en ontwerpkeuzes.
 
-Je beschrijft ook al welke tools (hardware, software, diensten, \ldots) je denkt hiervoor te gebruiken of te ontwikkelen.
+\subsubsection{Hardware Validatie}
+Er wordt een vergelijkende analyse uitgevoerd binnen het beschikbare spectrum van de opdrachtgever (Meta Quest 2 vs. Meta Quest 3). Het doel is hier om vast te stellen wat de minimale hardware-vereisten zijn voor een
+werkend MR-reanimatietraining applicatie.
+\begin{itemize}
+    \item \textbf{Passthrough Kwaliteit:} Er wordt onderzocht of de monochrome (zwart-wit) camera's van de Quest 2 voldoende detail bieden om de fysieke pop en handposities correct waar te nemen, of dat de \textit{Full Color Passthrough} van de Quest 3 een strikte vereiste is.
+    \item \textbf{Hand Tracking accuratesse:} Een korte validatietest bepaalt welke headset de handbewegingen tijdens snelle compressies het meest stabiel registreert.
+\end{itemize}
+De uitkomst van deze analyse bepaalt op welk device de PoC primair ontwikkeld wordt.
 
-Probeer ook een tijdschatting te maken. Hoe lang zal je met elke fase van je onderzoek bezig zijn en wat zijn de concrete \emph{deliverables} in elke fase?
+\subsubsection{Visualisatie Strategie (Long List / Short List)}
+Voor het ontwerp van de virtuele feedback wordt er ook een vergelijkende studie toegepast.
+\begin{itemize}
+    \item \textbf{Long List:} Op basis van de literatuurstudie (sectie \ref{sec:literatuurstudie}) en de survey van \textcite{Diller2024} wordt een brede lijst opgesteld van mogelijke 
+    feedback- (o.a. abstracte meters, tekstuele instructies, 3D-pijlen, \textit{Ghost Avatars}, en audio-feedback).
+    \item \textbf{Short List:} Deze opties worden getoetst aan de requirements uit Fase 1 (b.v. cognitieve belasting). 
+    Hieruit volgt een selectie van de 2 of 3 meest veelbelovende visualisatievormen (bijvoorbeeld: Ghost Avatar gecombineerd met kleurcodes) die daadwerkelijk in de PoC geïmplementeerd zullen worden.
+\end{itemize}
+
+\subsection{Fase 3: Proof of Concept (PoC)}
+Het technisch onderdeel van de bachelorproef is e ontwikkeling van de Mixed Reality-applicatie. De PoC wordt gebouwd in de \textbf{Unity} game-engine. Deze fase omvat de volgende technische stappen:
+
+\begin{enumerate}
+    \item \textbf{Bluetooth (BLE) Integratie:} Het reverse-engineeren van de communicatie met de Laerdal Little Anne pop. Hierbij wordt het GATT-protocol geïmplementeerd om real-time waarden (compressiediepte in mm, frequentie in cpm) uit te lezen in C\#.
+    \item \textbf{Kalibratie en Anchoring:} Het ontwikkelen van een mechanisme om de virtuele feedback exact op de fysieke pop te projecteren. Hierbij wordt gebruikgemaakt van \textit{Spatial Anchors} (via de Meta XR SDK) om te garanderen dat de hologrammen niet `wegdrijven' (drift) tijdens het reanimeren.
+    \item \textbf{Feedback Loop:} Het programmeren van de logica die de sensorwaarden omzet naar visuele cues (bijvoorbeeld: de virtuele borstkas kleurt groen bij een diepte van $>5$cm).
+\end{enumerate}
+
+\subsection{Fase 4: Experimentele Validatie (A/B Test)}
+Om de effectiviteit van de ontwikkelde PoC te meten, wordt een kwantitatief experiment uitgevoerd met een testgroep (studenten Verpleegkunde/Geneeskunde). 
+Deze fase is cruciaal om de onderzoeksvragen met meetbare feiten te kunnen beantwoorden.
+
+\subsubsection{Proefopzet}
+De participanten worden willekeurig verdeeld in twee groepen:
+\begin{itemize}
+    \item \textbf{Groep A (Controlegroep):} Voert een reanimatiesessie van 2 minuten uit op de pop, gebruikmakend van de traditionele tablet-applicatie (Laerdal QCPR app) voor feedback.
+    \item \textbf{Groep B (Interventiegroep):} Voert dezelfde sessie uit, maar maakt gebruik van de ontwikkelde MR-applicatie op de Meta Quest headset.
+\end{itemize}
+
+\subsubsection{Metrieken}
+De vergelijking vindt plaats op basis van objectieve en subjectieve data:
+\begin{enumerate}
+    \item \textbf{Reanimatie-prestaties (Objectief):} De sensoren in de pop registreren de kwaliteit van de CPR.
+    \begin{itemize}
+        \item Gemiddelde compressiescore (0-100\%).
+        \item Percentage correcte diepte.
+        \item Percentage correcte frequentie.
+    \end{itemize}
+    \item \textbf{Cognitieve Belasting (Subjectief):} Na afloop vullen beide groepen de gestandaardiseerde \textbf{NASA-TLX} vragenlijst in. 
+    Hiermee wordt gemeten hoeveel mentale inspanning de feedbackmethode vereiste en in welke mate de feedback als storend of helpend werd ervaren.
+\end{enumerate}
+
+\subsection{Tijdsplanning}
+De uitvoering van het onderzoek volgt onderstaande planning:
+\begin{itemize}
+    \item \textbf{Fase 1 (Analyse):} Literatuurstudie afronden en requirements vastleggen.
+    \item \textbf{Fase 2 \& 3 (Dev):} Technische realisatie van de Bluetooth-koppeling en Unity-app.
+    \item \textbf{Fase 4 (Test):} Uitvoeren van het experiment met proefpersonen.
+    \item \textbf{Afronding:} Data-analyse en schrijven van conclusies.
+\end{itemize}
+
+
+
 
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwacht resultaat, conclusie}%
