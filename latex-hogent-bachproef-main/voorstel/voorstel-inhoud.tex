@@ -113,7 +113,7 @@ Het is dus een grote vraag of de resultaten van die simpele testen wel gelden vo
 'Guidance Hypothesis' tevoorschijn: studenten zullen zich puur focussen op het groen houden van de grafieken en worden afhankelijk van een scherm, 
 in plaats van dat ze moeten aanvoelen hoeveel kracht ze werkelijk moeten zetten \autocite{Sigrist2013}. Als het visuele hulpmiddel wegvalt missen ze dus 
 het benodigde spiergeheugen, hierdoor maken de auteurs de stelling dat simpele 2D-grafieken vaak tekortschieten en in de toekomst vervangen worden door 
-realistische simulaties binnen virtuele omgevingen om dit gat te dichten.
+realistische simulaties binnen virtuele omgevingen om dit gat te dichten \autocite{Sigrist2013}.
 
 
 \subsection{Cognitieve Belasting en het Split-Attention Effect}
@@ -125,13 +125,42 @@ Hurt concludeert dat Mixed Reality een betere oplossing is voor taken waarbij je
 waardoor waardoor het split-attention effect wordt voorkomen \autocite{Hurt2024}.
 
 \subsection{Mixed Reality in de Gezondheidszorg}
-% State-of-the-art: wat is MR, waar wordt MR al gebruikt? Werkt het?
+Volgens \textcite{Gerup2020} is de betekenis van Mixed Reality (MR) het samensmelten van de werkelijkheid en de virtuele wereld. De technologie
+combineert zowel Virtual Reality (VR) als Augmented Reality (AR) technologie \autocite{Gerup2020}. 
+Het resultaat hiervan is een nieuwe omgeving waarin objecten van
+de reële wereld en de virtuele wereld op hetzelfde moment met elkaar kunnen interacteren \autocite{Carroll2020}.
+
+De opkomst van MR in de zorg antwoord meteen op de tekortkomingen van eerdere simulatiemethoden. \textcite{DAngelo2021} beschrijven dat pure Virtual Reality vaak
+tekortschiet door het gebrak aan haptische feedback (aanraking stimulatie), terwijl fysieke poppen juist de mogelijkheid missen om prestaties objectief te meten. 
+MR biedt hier een oplossing voor, het combineert de tastbare weerstand van een fysiek model met de digitale analyse van een computer. Hierdoor kunnen
+motorische vaardigheiden trainen op een fysieke object, terwijl de software direct meetbare feedback geeft over hun handelen \autocite{DAngelo2021}.
+Wel merken de auteurs op dat veel validatiestudies nog kleinschalig zijn, waardoor groter onderzoek nodig is om de klinische impact volledig te bevestigen.
 
 \subsection{Visualisatietechnieken voor Motorische Vaardigheden}
-% Hoe toon je feedback? Kleuren, pijlen, gamification?
+Om motorische vaardigheden effectief te ontwikkelen via Mixed Reality, is de keuze van visuele cue van groot belang. In een recente survey van 39 studies categoriseren 
+\textcite{Diller2024} de verschillende feedbackmethoden in drie hoofdgroepen.
+
+Ten eerste is er sprake van \textbf{positionele feedback}, waarbij het doel is dat de participant een specifieke houding aanneemt. Meest gebruikte techniek hiervoor is de Transparent
+Target Avatar of ook wel de 'Ghost': een doorzichtig virtueel model dat diens als spiegelbeeld voor de ideale houding \autocite{Diller2024}.
+
+Ten tweede onderscheidt men \textbf{directionele feedback}. Hier is de bedoeling de gebruiker naar de juiste positie te leiden. Dit kan variëren van eenvoudige 3D-pijlen tot complexere technieken
+zoals Rubber Bands (virtuele elastieken die de afstand tot het doel visualiseren) of Trajectories (lichtsporen die het bewegingspad aangeven) \autocite{Diller2024}. 
+
+Tot slot is er \textbf{abstracte feedback}, waarbij informatie zoveel mogelijk wordt versimpeld. Methodiek dat veel voorkomt is Color Coding, waarbij ledematen van de virtuele avatar rood of groen
+kleuren afhankelijk van de nauwkeurigheid van de uitvoering \autocite{Diller2024}. Uit de analyse van Diller blijkt dat positionele feedback (zoals de avatar) momenteel het meest wordt toegepast, omdat deze manier
+de gebruiker de meest complete informatie geeft over de lichaamsoriëntatie.
+
 
 \subsection{Technische Aspecten: Connectiviteit en Latency}
-% Over Bluetooth protocollen, Unity integratie en vertraging.
+De technische communicatie tussen de reanimatiepop en de MR-bril verloopt via Bluetooth Low Energy (BLE). Dit protocol is ideaal voor medische toepassingen door zijn lage energieverbruik.
+Het werkt via de GATT-profiel, waarbij de pop data-pakketten (zoals compressiediepte) verstuurt naar de bril \autocite{ChaariFourati2020}. Een kritische factor hierbij is latency:
+de vertraging tussen actie en feedback moet onder de 100ms blijven zodat de gebruiker de interactie als 'direct' ervaart \autocite{ChaariFourati2020}.
+Aangezien BLE een snelheid van minimaal 7,5ms aankan is het technisch mogelijk om in deze grens te blijven.
+
+Voor de visualisatie en interactie wordt gebruiktgemaakt van de Unity game engine. Aangezien de Meta Quest gebruikmaakt van Video Passthrough-technologie, dient Unity als de brug tussen
+de camerabeelden van de echte wereld en de virtuele feedback \autocite{Raymer2023}. Via de Meta XR Core SDK worden de beelden van de omgeving real-time ingeladen, waarna Unity de 
+BLE-data dat binnenkomt van de reanimatiepop vertaalt naar virtuele overlays \autocite{Glover2019}. De engine zorgt ervoor dat de hologrammen stabiel op de videofeed worden geprojecteerd 'anchoring', 
+zodat de gebruiker de illusie krijgt dat de feedback zich fysiek in de ruimte bevindt \autocite{Glover2019}. 
 
 %---------- Methodologie ------------------------------------------------------
 \section{Methodologie}%
