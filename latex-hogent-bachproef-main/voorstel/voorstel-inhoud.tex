@@ -10,29 +10,25 @@ correct aanleren van deze vaardigheid aan zorgverleners is daarom cruciaal \auto
 
 De doelgroep van dit onderzoek bestaat specifiek uit bachelorstudenten Verpleegkunde en Geneeskunde die reanimatietechnieken moeten beoefenen.
 
-\subsection{Probleemstelling}
-In de huidige onderwijspraktijk, zoals bij de opleiding Verpleegkunde en partners zoals UZ Gent, wordt vaak gebruikgemaakt van digitale oefenpoppen (zoals de Laerdal Little Anne). 
-Deze poppen sturen data via Bluetooth naar een extern scherm of tablet (bijv. een iPad), waarop de student grafieken en scores kan aflezen. Hoewel deze technologie een stap vooruit is in vergelijking met oude fysieke mannequins, 
-brengt deze oplossing twee concrete problemen met zich mee die het leerproces verstoren.
-
-Ten eerste is er sprake van abstracte feedback. De tablet toont de prestaties van de student vaak in de vorm van percentages, grafieken of algemene scores. 
+\textcolor{red}{Ten eerste is er sprake van abstracte feedback. De tablet toont de prestaties van de student vaak in de vorm van percentages, grafieken of algemene scores. 
 Voor een student die een motorische vaardigheid aanleert, is deze data lastig te vertalen naar een fysieke correctie \autocite{Sigrist2013}. 
 De student ziet op het scherm wellicht een score van 60\%, maar krijgt geen directe, ruimtelijke instructie over hoe de 
-handpositie of drukhoek fysiek aangepast moet worden om die score te verhogen.
+handpositie of drukhoek fysiek aangepast moet worden om die score te verhogen.}
 
-Ten tweede veroorzaakt het gebruik van een extern scherm het zogenaamde \textit{split-attention effect} \autocite{Sigrist2013}. 
+\textcolor{red}{Ten tweede veroorzaakt het gebruik van een extern scherm het zogenaamde \textit{split-attention effect} \autocite{Sigrist2013}. 
 Om feedback te ontvangen wordt de student genoodzaakt om de blik af te wenden van de 'patiënt' (de pop) naar de tablet. 
-Dit verbreekt niet alleen de concentratie, maar is ook niet representatief voor een realistische noodsituatie, waarbij de focus continu op het slachtoffer moet liggen.
+Dit verbreekt niet alleen de concentratie, maar is ook niet representatief voor een realistische noodsituatie, waarbij de focus continu op het slachtoffer moet liggen.}
 
 Deze problematiek staat in contrast met de bredere technologische evolutie binnen de zorgsector. 
 De afgelopen jaren heeft Augmented Reality (AR) en Mixed Reality (MR) steeds vaker zijn weg gevonden naar de klinische praktijk, 
 zoals bij chirurgische visualisaties of anatomische lessen\autocite{DAngelo2021}. De meerwaarde van het verrijken van de werkelijkheid is in andere domeinen reeds aangetoond, 
 wat een logische basis vormt om dit toe te passen op reanimatietraining.
+
 \subsection{Centrale onderzoeksvraag}
 Op basis van de bovenstaande probleemstelling wordt de volgende centrale onderzoeksvraag geformuleerd:
 
 \begin{quote}
-    \textit{In welke mate kan een Mixed Reality-applicatie de kwaliteit van feedback tijdens reanimatietraining verbeteren in vergelijking met de huidige tablet-gebaseerde methoden?}
+    \textcolor{blue}{\textit{In welke mate kan een Mixed Reality-applicatie de kwaliteit van feedback tijdens reanimatietraining verbeteren in vergelijking met de huidige tablet-gebaseerde methoden?}}
 \end{quote}
 
 \subsection{Deelvragen}
@@ -40,17 +36,17 @@ Om een antwoord te geven op deze hoofdvraag, wordt het onderzoek gesplitst in me
 Eerst wordt gefocust op het \textbf{probleemdomein} om de tekortkomingen van de huidige situatie in kaart te brengen:
 
 \begin{itemize}
-    \item Welke veelvoorkomende reanimatiefouten worden door de huidige hardware niet of onvoldoende gedetecteerd tijdens een training?
-    \item Hoe ervaren studenten de vertaalslag van de huidige abstracte vorm van feedback (zoals grafieken, cijfers en scores) naar de fysieke correctie van hun handeling?
-    \item Welke specifieke feedback-parameters van hartcompressie worden door studenten als het meest problematisch of onduidelijk ervaren op de huidige dashboards?
+    \item \textcolor{orange}{Welke veelvoorkomende reanimatiefouten worden door de huidige hardware niet of onvoldoende gedetecteerd tijdens een training?}
+    \item \textcolor{orange}{Hoe ervaren studenten de vertaalslag van de huidige abstracte vorm van feedback (zoals grafieken, cijfers en scores) naar de fysieke correctie van hun handeling?}
+    \item \textcolor{orange}{Welke specifieke feedback-parameters van hartcompressie worden door studenten als het meest problematisch of onduidelijk ervaren op de huidige dashboards?}
 \end{itemize}
 
 Vervolgens richt het onderzoek zich op het \textbf{oplossingsdomein}, waarbij de focus ligt op de technische ontwikkeling en validatie van de applicatie:
 
 \begin{itemize}
-    \item Hoe kan de sensordata van de oefenpop real-time uitgelezen en verwerkt worden binnen een Mixed Reality-omgeving?
-    \item Op welke manier kan feedback visueel worden weergegeven zodat de student zijn vaardigheid autonoom kan verbeteren?
-    \item In welke mate stelt de ontwikkelde Proof of Concept (PoC) studenten in staat om fouten sneller en accurater te corrigeren in vergelijking met de traditionele tablet-feedback?
+    \item \textcolor{green}{Hoe kan de sensordata van de oefenpop real-time uitgelezen en verwerkt worden binnen een Mixed Reality-omgeving?}
+    \item \textcolor{green}{Op welke manier kan feedback visueel worden weergegeven zodat de student zijn vaardigheid autonoom kan verbeteren?}
+    \item \textcolor{green}{In welke mate stelt de ontwikkelde Proof of Concept (PoC) studenten in staat om fouten sneller en accurater te corrigeren in vergelijking met de traditionele tablet-feedback?}
 \end{itemize}
 
 \subsection{Onderzoeksdoelstelling}
@@ -105,7 +101,7 @@ realistische simulaties binnen virtuele omgevingen om dit gat te dichten \autoci
 
 
 \subsection{Cognitieve Belasting en het Split-Attention Effect}
-Recent onderzoek benadrukt de fysieke impact van display-modaliteit op de cognitieve belasting \autocite{Hurt2024}. In een studie naar motorische taken werd een signicant
+Recent onderzoek benadrukt de fysieke impact van display-modaliteit op de cognitieve belasting \autocite{Hurt2024}. In een studie naar motorische taken werd een significant
 positieve correlatie gevonden tussen situational awareness en taakprestatie \autocite{Hurt2024}. Bij traditionele methodes met externe schermen moet de student echter steeds
 wegkijken, waardoor deze focus wordt verbroken. 
 Hoewel proefpersonen tablets soms als prettig ervaarden, komt dit volgens de auteur vooral door gewenning (familiarity bias) en niet door efficiëntie \autocite{Hurt2024}.
@@ -119,8 +115,8 @@ Het resultaat hiervan is een nieuwe omgeving waarin objecten van
 de reële wereld en de virtuele wereld op hetzelfde moment met elkaar kunnen interacteren \autocite{Carroll2020}.
 
 De opkomst van MR in de zorg antwoord meteen op de tekortkomingen van eerdere simulatiemethoden. \textcite{DAngelo2021} beschrijven dat pure Virtual Reality vaak
-tekortschiet door het gebrak aan haptische feedback (aanraking stimulatie), terwijl fysieke poppen juist de mogelijkheid missen om prestaties objectief te meten. 
-MR biedt hier een oplossing voor, het combineert de tastbare weerstand van een fysiek model met de digitale analyse van een computer. Hierdoor kunnen
+tekortschiet door het gebrek aan haptische feedback (aanraking stimulatie), terwijl fysieke poppen juist de mogelijkheid missen om prestaties objectief te meten. 
+MR biedt hier een oplossing voor, het combineert de tastbare weerstand van een fysiek model met de digitale analyse van een computer. Hierdoor kunnen studenten 
 motorische vaardigheiden trainen op een fysieke object, terwijl de software direct meetbare feedback geeft over hun handelen \autocite{DAngelo2021}.
 Wel merken de auteurs op dat veel validatiestudies nog kleinschalig zijn, waardoor groter onderzoek nodig is om de klinische impact volledig te bevestigen.
 
@@ -129,7 +125,7 @@ Om motorische vaardigheden effectief te ontwikkelen via Mixed Reality, is de keu
 \textcite{Diller2024} de verschillende feedbackmethoden in drie hoofdgroepen.
 
 Ten eerste is er sprake van \textbf{positionele feedback}, waarbij het doel is dat de participant een specifieke houding aanneemt. Meest gebruikte techniek hiervoor is de Transparent
-Target Avatar of ook wel de 'Ghost': een doorzichtig virtueel model dat diens als spiegelbeeld voor de ideale houding \autocite{Diller2024}.
+Target Avatar of ook wel de 'Ghost': een doorzichtig virtueel model dat dient als spiegelbeeld voor de ideale houding \autocite{Diller2024}.
 
 Ten tweede onderscheidt men \textbf{directionele feedback}. Hier is de bedoeling de gebruiker naar de juiste positie te leiden. Dit kan variëren van eenvoudige 3D-pijlen tot complexere technieken
 zoals Rubber Bands (virtuele elastieken die de afstand tot het doel visualiseren) of Trajectories (lichtsporen die het bewegingspad aangeven) \autocite{Diller2024}. 
@@ -145,7 +141,7 @@ Het werkt via de GATT-profiel, waarbij de pop data-pakketten (zoals compressiedi
 de vertraging tussen actie en feedback moet onder de 100ms blijven zodat de gebruiker de interactie als 'direct' ervaart \autocite{ChaariFourati2020}.
 Aangezien BLE een snelheid van minimaal 7,5ms aankan is het technisch mogelijk om in deze grens te blijven.
 
-Voor de visualisatie en interactie wordt gebruiktgemaakt van de Unity game engine. Aangezien de Meta Quest gebruikmaakt van Video Passthrough-technologie, dient Unity als de brug tussen
+Voor de visualisatie en interactie wordt gebruikgemaakt van de Unity game engine. Aangezien de Meta Quest gebruikmaakt van Video Passthrough-technologie, dient Unity als de brug tussen
 de camerabeelden van de echte wereld en de virtuele feedback \autocite{Raymer2023}. Via de Meta XR Core SDK worden de beelden van de omgeving real-time ingeladen, waarna Unity de 
 BLE-data dat binnenkomt van de reanimatiepop vertaalt naar virtuele overlays \autocite{Glover2019}. De engine zorgt ervoor dat de hologrammen stabiel op de videofeed worden geprojecteerd 'anchoring', 
 zodat de gebruiker de illusie krijgt dat de feedback zich fysiek in de ruimte bevindt \autocite{Glover2019}. 
@@ -288,7 +284,7 @@ De planning is opgedeeld in sprints met concrete opleverpunten (\textit{delivera
 \section{Verwacht resultaat, conclusie}%
 \label{sec:verwachte_resultaten}
 De centrale hypothese van dit onderzoek is dat de MR-applicatie de reanimatiekwaliteit verbetert door het elimineren van het \textit{split-attention effect} en aan 
-de hand van intuitieve real-time feedback. Verwacht wordt dat de interventiegroep significant beter scoort dan de tablet-groep. Dit zal visueel worden aangetoond 
+de hand van intuïtieve real-time feedback. Verwacht wordt dat de interventiegroep significant beter scoort dan de tablet-groep. Dit zal visueel worden aangetoond 
 in een staafdiagram waarin de gemiddelde QCPR-scores van de MR-groep de 70\% overstijgen. Daarnaast zal een spreidingsdiagram (\textit{scatter plot}) naar verwachting tonen 
 dat de compressies van de MR-gebruikers stabieler binnen de ideale waarden vallen (X-as: 100--120 cpm, Y-as: 50--60 mm). Tevens wordt een lagere subjectieve werkbelasting 
 verwacht op de NASA-TLX schaal.
