@@ -188,18 +188,20 @@ De uitkomst van deze analyse bepaalt op welk device de PoC primair ontwikkeld wo
 Voor het ontwerp van de virtuele feedback wordt er ook een vergelijkende studie toegepast.
 \begin{itemize}
     \item \textbf{Long List:} Op basis van de literatuurstudie (sectie \ref{sec:literatuurstudie}) en de survey van \textcite{Diller2024} wordt een brede lijst opgesteld van mogelijke 
-    feedback- (o.a. abstracte meters, tekstuele instructies, 3D-pijlen, \textit{Ghost Avatars}, en audio-feedback).
+    feedback-metaforen (o.a. abstracte meters, tekstuele instructies, 3D-pijlen, \textit{Ghost Avatars}, en audio-feedback).
     \item \textbf{Short List:} Deze opties worden getoetst aan de requirements uit Fase 1 (b.v. cognitieve belasting). 
     Hieruit volgt een selectie van de 2 of 3 meest veelbelovende visualisatievormen (bijvoorbeeld: Ghost Avatar gecombineerd met kleurcodes) die daadwerkelijk in de PoC geïmplementeerd zullen worden.
 \end{itemize}
 
 \subsection{Fase 3: Proof of Concept (PoC)}
-Het technisch onderdeel van de bachelorproef is e ontwikkeling van de Mixed Reality-applicatie. De PoC wordt gebouwd in de \textbf{Unity} game-engine. Deze fase omvat de volgende technische stappen:
+Het technisch onderdeel van de bachelorproef is de ontwikkeling van de Mixed Reality-applicatie. De PoC wordt gebouwd in de \textbf{Unity} game-engine. 
+Deze fase omvat de volgende technische stappen:
 
 \begin{enumerate}
     \item \textbf{Bluetooth (BLE) Integratie:} Het reverse-engineeren van de communicatie met de Laerdal Little Anne pop. Hierbij wordt het GATT-protocol geïmplementeerd om real-time waarden (compressiediepte in mm, frequentie in cpm) uit te lezen in C\#.
     \item \textbf{Kalibratie en Anchoring:} Het ontwikkelen van een mechanisme om de virtuele feedback exact op de fysieke pop te projecteren. Hierbij wordt gebruikgemaakt van \textit{Spatial Anchors} (via de Meta XR SDK) om te garanderen dat de hologrammen niet `wegdrijven' (drift) tijdens het reanimeren.
-    \item \textbf{Feedback Loop:} Het programmeren van de logica die de sensorwaarden omzet naar visuele cues (bijvoorbeeld: de virtuele borstkas kleurt groen bij een diepte van $>5$cm).
+    \item \textbf{Feedback Loop:} Het programmeren van de logica die sensorwaarden omzet naar visuele cues, 
+    inclusief het adaptieve mechanisme waarbij de 'Ghost Avatar' pas verschijnt bij aanhoudende fouten.
 \end{enumerate}
 
 \subsection{Fase 4: Experimentele Validatie (A/B Test)}
@@ -226,25 +228,72 @@ De vergelijking vindt plaats op basis van objectieve en subjectieve data:
     Hiermee wordt gemeten hoeveel mentale inspanning de feedbackmethode vereiste en in welke mate de feedback als storend of helpend werd ervaren.
 \end{enumerate}
 
-\subsection{Tijdsplanning}
-De uitvoering van het onderzoek volgt onderstaande planning:
+\subsection{Tijdsplanning en Mijlpalen}
+Het onderzoek hanteert een iteratieve aanpak waarbij technische risico's (zoals de BLE-connectiviteit) zo vroeg mogelijk worden gemitigeerd.
+
+De planning is opgedeeld in sprints met concrete opleverpunten (\textit{deliverables}):
+
 \begin{itemize}
-    \item \textbf{Fase 1 (Analyse):} Literatuurstudie afronden en requirements vastleggen.
-    \item \textbf{Fase 2 \& 3 (Dev):} Technische realisatie van de Bluetooth-koppeling en Unity-app.
-    \item \textbf{Fase 4 (Test):} Uitvoeren van het experiment met proefpersonen.
-    \item \textbf{Afronding:} Data-analyse en schrijven van conclusies.
+    \item \textbf{Fase 0: Technical Spike (30 jan -- 16 feb)} \\
+    \textit{Focus ligt op het elimineren van technische risico's.}
+    \begin{itemize}
+        \item \textbf{Actie:} Opzetten Unity-project en reverse-engineering van het Bluetooth GATT-protocol van de Laerdal pop.
+        \item \textbf{Deliverable 16/02:} Werkend prototype (console-only) waarin data van de pop real-time zichtbaar is in Unity.
+    \end{itemize}
+
+    \item \textbf{Fase 1: Requirements \& Basis Visualisatie (17 feb -- 10 mrt)} \\
+    \textit{Start stage. 1 dag per week focus op BP.}
+    \begin{itemize}
+        \item \textbf{Actie:} Afnemen interviews experts, opstellen MoSCoW-lijst \& implementeren van de basis `Ghost Avatar' in Unity.
+        \item \textbf{Deliverable 10/03:} Hoofdstuk `Requirements Analyse' geschreven + Eerste visuele versie applicatie (Alpha).
+    \end{itemize}
+
+    \item \textbf{Fase 2: Verfijning \& Adaptieve Logica (11 mrt -- 31 mrt)}
+    \begin{itemize}
+        \item \textbf{Actie:} Implementeren van \textit{Spatial Anchors} (voor positiebehoud) en de \textbf{Adaptieve Feedback-logica} (waarbij de Ghost pas verschijnt bij foutieve handelingen).
+        \item \textbf{Deliverable 31/03:} Definitieve Proof of Concept gereed voor testen.
+    \end{itemize}
+
+    \item \textbf{Fase 3: Experimentele Validatie (1 apr -- 21 apr)} \\
+    \textit{Testperiode (rekening houdend met paasvakantie).}
+    \begin{itemize}
+        \item \textbf{Actie:} Opzetten testomgeving, uitvoeren van A/B-tests met proefpersonen en data-export.
+        \item \textbf{Deliverable 21/04:} Alle testdata verzameld (CSV-exports van de pop en ingevulde NASA-TLX vragenlijsten).
+    \end{itemize}
+
+    \item \textbf{Fase 4: Analyse \& Conclusie (22 apr -- 12 mei)}
+    \begin{itemize}
+        \item \textbf{Actie:} Statistische verwerking van de resultaten (SPSS/Excel) en uitschrijven conclusies en discussie.
+        \item \textbf{Deliverable 12/05:} Eerste volledige conceptversie van de scriptie ter review.
+    \end{itemize}
+
+    \item \textbf{Fase 5: Finalisering (13 mei -- 24 mei)}
+    \begin{itemize}
+        \item \textbf{Actie:} Verwerken feedback promotor, spellingscontrole, layout-optimalisatie en indienen.
+        \item \textbf{Deliverable 24/05:} Definitieve indiening bachelorproef.
+    \end{itemize}
 \end{itemize}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1.0\textwidth]{graphics/planning.png}
+    \caption{Visuele weergave van de tijdsplanning en mijlpalen (2026).}
+    \label{fig:gantt_planning}
+\end{figure}
 
+\clearpage
 
 
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwacht resultaat, conclusie}%
 \label{sec:verwachte_resultaten}
+De centrale hypothese van dit onderzoek is dat de MR-applicatie de reanimatiekwaliteit verbetert door het elimineren van het \textit{split-attention effect} en aan 
+de hand van intuitieve real-time feedback. Verwacht wordt dat de interventiegroep significant beter scoort dan de tablet-groep. Dit zal visueel worden aangetoond 
+in een staafdiagram waarin de gemiddelde QCPR-scores van de MR-groep de 70\% overstijgen. Daarnaast zal een spreidingsdiagram (\textit{scatter plot}) naar verwachting tonen 
+dat de compressies van de MR-gebruikers stabieler binnen de ideale waarden vallen (X-as: 100--120 cpm, Y-as: 50--60 mm). Tevens wordt een lagere subjectieve werkbelasting 
+verwacht op de NASA-TLX schaal.
 
-Hier beschrijf je welke resultaten je verwacht. Als je metingen en simulaties uitvoert, kan je hier al mock-ups maken van de grafieken samen met de verwachte conclusies. Benoem zeker al je assen en de onderdelen van de grafiek die je gaat gebruiken. Dit zorgt ervoor dat je concreet weet welk soort data je moet verzamelen en hoe je die moet meten.
-
-Wat heeft de doelgroep van je onderzoek aan het resultaat? Op welke manier zorgt jouw bachelorproef voor een meerwaarde?
-
-Hier beschrijf je wat je verwacht uit je onderzoek, met de motivatie waarom. Het is \textbf{niet} erg indien uit je onderzoek andere resultaten en conclusies vloeien dan dat je hier beschrijft: het is dan juist interessant om te onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
+De meerwaarde van dit onderzoek voor studenten Verpleegkunde en Geneeskunde ligt in de directe, ruimtelijke feedback dat autonoom leren mogelijk maakt. De vaardigheden van 
+de studenten ontwikkelen sneller en zorgt op lang termijn voor een betere patiëntenzorg. Mochten de resultaten afwijken, zij het door ergonomische beperkingen van de headset of 
+andere onvoorziene parameters, dan levert dit onderzoek alsnog waardevolle inzichten op over de huidige haalbaarheid van XR-hardware binnen medisch onderwijs.
 
