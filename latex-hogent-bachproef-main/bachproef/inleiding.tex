@@ -5,46 +5,51 @@
 \chapter{\IfLanguageName{dutch}{Inleiding}{Introduction}}%
 \label{ch:inleiding}
 
-De inleiding moet de lezer net genoeg informatie verschaffen om het onderwerp te begrijpen en in te zien waarom de onderzoeksvraag de moeite waard is om te onderzoeken. In de inleiding ga je literatuurverwijzingen beperken, zodat de tekst vlot leesbaar blijft. Je kan de inleiding verder onderverdelen in secties als dit de tekst verduidelijkt. Zaken die aan bod kunnen komen in de inleiding~\autocite{Pollefliet2011}:
+\section{\IfLanguageName{dutch}{Context en urgentie}{Context and Urgency}}%
+\label{sec:context_en_urgentie}
 
-\begin{itemize}
-  \item context, achtergrond
-  \item afbakenen van het onderwerp
-  \item verantwoording van het onderwerp, methodologie
-  \item probleemstelling
-  \item onderzoeksdoelstelling
-  \item onderzoeksvraag
-  \item \ldots
-\end{itemize}
+Ondanks de enorme technologische vooruitgang gemaakt in de moderne geneeskunde de afgelopen decennia, blijven hart- en vaatziekten de absolute nummer één doodsoorzaak wereldwijd. Jaarlijks is deze groep aandoeningen verantwoordelijk voor ongeveer een derde van alle sterfgevallen, wat neerkomt op miljoenen levens die vroegtijdig eindigen \autocite{owid-causes-of-death}. Wanneer een hartstilstand buiten het ziekenhuis plaatsvindt, krimpt de marge tussen leven en dood tot enkele kritische minuten. In deze fractie van tijd is de overlevingskans van het slachtoffer bijna volledig afhankelijk van één variabele: de kwaliteit van de omstanders of zorgverleners toegepaste reanimatie (CPR).
+
+Hoewel het belang van kwaliteitsvolle reanimatie breed erkend wordt, blijft het effectief aanleren en onderhouden van deze motorische vaardigheid een grote uitdaging. De effectiviteit van een hulpverlener hangt af van uiterst precieze parameters, zoals een specifieke compressiediepte en een constant ritme. Het is net in deze educatieve fase, waar studenten de vertaalslag maken van theorie naar fysieke handeling, dat technologie een cruciale rol speelt.
 
 \section{\IfLanguageName{dutch}{Probleemstelling}{Problem Statement}}%
 \label{sec:probleemstelling}
 
-Uit je probleemstelling moet duidelijk zijn dat je onderzoek een meerwaarde heeft voor een concrete doelgroep. De doelgroep moet goed gedefinieerd en afgelijnd zijn. Doelgroepen als ``bedrijven,'' ``KMO's'', systeembeheerders, enz.~zijn nog te vaag. Als je een lijstje kan maken van de personen/organisaties die een meerwaarde zullen vinden in deze bachelorproef (dit is eigenlijk je steekproefkader), dan is dat een indicatie dat de doelgroep goed gedefinieerd is. Dit kan een enkel bedrijf zijn of zelfs één persoon (je co-promotor/opdrachtgever).
+De doelgroep van dit onderzoek is specifiek afgebakend tot bachelorstudenten in de opleiding Verpleegkunde en Geneeskunde aan HOGENT en partners zoals het UZ Gent en Zorglab. Voor deze toekomstige zorgverleners is het behalen van een hoge graad van bekwaamheid in CPR-technieken een essentieel onderdeel van het curriculum. In huidige onderwijsmethodiek wordt voor deze training vaak gebruikgemaakt van digitale oefenpoppen, zoals de Laerdal QCPR-serie. Deze poppen registreren via interne sensoren de kwaliteit van de handelingen, maar de wijze waarop deze informatie aan de student wordt teruggekoppeld vertoont enkele fundamentele tekortkomingen.
+
+Ten eerste is er de barrière van abstracte feedback. Huidige systemen vertalen fysieke compressies naar numerieke scores, percentages of 2D-grafieken op een extern scherm, zoals een iPad of tablet. Voor een student die een motorische vaardigheid aanleert is deze vorm van feedback erg abstract en ingewikkeld te vertalen naar een concrete fysieke correctie \textcite{Sigrist2013}. De student ziet op het scherm wellicht een score van 60\%, maar krijgt geen directe, ruimtelijke instructie over hoe de handpositie of de drukhoek in de driedimensionale ruimte moet worden aangepast zodat die score verhoogd kan worden. 
+
+Ten tweede veroorzaakt het gebruik van een extern scherm het zogenaamde split-attention effect \textcite{Sigrist2013}. Om de feedback te ontvangen wordt de student genoodzaakt de focus te verschuiven van de ‘patiënt’ (de oefenpop) naar de tablet. Dit verbreekt niet alleen de concentratie en de flow van de handeling, maar is ook niet representatief voor een realistische noodsituatie. In een werkelijke reanimatiesetting is een onafgebroken focus op het slachtoffer immer van levensbelang.
+
+Deze problematiek staat in schril contrast met de bredere technologische evolutie binnen de gezondheidszorg. Terwijl Mixed Reality (MR) en Augmented Reality (AR) reeds succesvol worden ingezet voor chirurgische visualisaties an anatomische lessen \autocite{DAngelo2021}, blijft reanimatietraining vooralsnog achter. Het verrijken van de werkelijkheid door feedback direct over de oefenpop te projecteren, biedt een logische oplossing om de hierboven beschreven cognitieve beperkingen weg te nemen.
 
 \section{\IfLanguageName{dutch}{Onderzoeksvraag}{Research question}}%
 \label{sec:onderzoeksvraag}
 
-Wees zo concreet mogelijk bij het formuleren van je onderzoeksvraag. Een onderzoeksvraag is trouwens iets waar nog niemand op dit moment een antwoord heeft (voor zover je kan nagaan). Het opzoeken van bestaande informatie (bv. ``welke tools bestaan er voor deze toepassing?'') is dus geen onderzoeksvraag. Je kan de onderzoeksvraag verder specifiëren in deelvragen. Bv.~als je onderzoek gaat over performantiemetingen, dan 
+Op basis van bovenstaande probleemstelling wordt de volgende centrale onderzoeksvraag geformuleerd: “In welke mate kan een Mixed Reality-applicatie de kwaliteit van feedback tijdens reanimatietraining verbeteren in vergelijking met de huidige tablet-gebaseerde methoden?”
+
+Om een onderbouwd antwoord te geven op deze hoofdvraag, wordt het onderzoek gesplitst in meerdere deelaspecten: 
+\begin{itemize}
+    \item \textbf{Probleemdomein:} Welke veelvoorkomende reanimatiefouten worden door de huidige hardware onvoldoende gevisualiseerd? En hoe ervaren studenten de vertaalslag van abstracte data naar fysieke handeling?
+    \item \textbf{Oplossingsdomein:} Welke visualisatietechnieken binnen Mixed Reality zijn het meest effectief voor het aanleren van motorische vaardigheden? Hoe kan sensordata van de oefenpop real-time verwerkt worden binnen een MR-omgeving?
+\end{itemize}
 
 \section{\IfLanguageName{dutch}{Onderzoeksdoelstelling}{Research objective}}%
 \label{sec:onderzoeksdoelstelling}
 
-Wat is het beoogde resultaat van je bachelorproef? Wat zijn de criteria voor succes? Beschrijf die zo concreet mogelijk. Gaat het bv.\ om een proof-of-concept, een prototype, een verslag met aanbevelingen, een vergelijkende studie, enz.
+Het doel van dit onderzoek is de ontwikkeling en validatie van een Proof of Concept (PoC) om de potentie van MR binnen reanimatietraining te staven. Het concrete resultaat bestaat uit twee delen:
+\begin{itemize}
+    \item Een werkend prototype ontwikkeld in Unity voor de Meta Quest 3, dat via Bluetooth communiceert met de oefenpop en visuele feedback (zoals de Ghost Avatar) projecteert.
+    \item Een validatierapport waarin de effectiviteit van deze oplossing wordt vergeleken met traditionele methoden, gebruikmakend van objectieve prestatiescores en de NASA-TLX schaal voor cognitieve belasting.
+\end{itemize}
 
 \section{\IfLanguageName{dutch}{Opzet van deze bachelorproef}{Structure of this bachelor thesis}}%
 \label{sec:opzet-bachelorproef}
 
-% Het is gebruikelijk aan het einde van de inleiding een overzicht te
-% geven van de opbouw van de rest van de tekst. Deze sectie bevat al een aanzet
-% die je kan aanvullen/aanpassen in functie van je eigen tekst.
-
 De rest van deze bachelorproef is als volgt opgebouwd:
 
-In Hoofdstuk~\ref{ch:stand-van-zaken} wordt een overzicht gegeven van de stand van zaken binnen het onderzoeksdomein, op basis van een literatuurstudie.
+In Hoofdstuk~\ref{ch:stand-van-zaken} wordt een overzicht gegeven van de stand van zaken binnen het onderzoeksdomein op basis van een literatuurstudie.
 
-In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht en worden de gebruikte onderzoekstechnieken besproken om een antwoord te kunnen formuleren op de onderzoeksvragen.
+In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht en worden de technische stappen voor de ontwikkeling van de PoC besproken om een antwoord te kunnen formuleren op de onderzoeksvragen.
 
-% TODO: Vul hier aan voor je eigen hoofstukken, één of twee zinnen per hoofdstuk
-
-In Hoofdstuk~\ref{ch:conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein.
+In Hoofdstuk 4 (Resultaten) behandelt de data-analyse van de experimenten, waarna in Hoofdstuk~\ref{ch:conclusie}, tenslotte, de conclusie wordt gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein.
