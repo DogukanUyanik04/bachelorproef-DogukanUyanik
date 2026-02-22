@@ -1,51 +1,72 @@
 \chapter{\IfLanguageName{dutch}{Stand van zaken}{State of the art}}%
 \label{ch:stand-van-zaken}
 
-% Tip: Begin elk hoofdstuk met een paragraaf inleiding die beschrijft hoe
-% dit hoofdstuk past binnen het geheel van de bachelorproef. Geef in het
-% bijzonder aan wat de link is met het vorige en volgende hoofdstuk.
+Dit hoofdstuk biedt een diepgaande analyse van de theoretische en technische fundamenten die noodzakelijk zijn voor de ontwikkeling van dit onderzoek. 
+Waar de inleiding de maatschappelijke relevantie van reanimatietraining schetste, spitst dit hoofdstuk zich toe op de medische standaarden, 
+de psychologische aspecten van motorisch leren en de technologische mogelijkheden van Mixed Reality. Deze literatuurstudie vormt de wetenschappelijke 
+basis voor de methodologie en de technische keuzes die in \autoref{ch:methodologie} worden toegelicht.
 
-% Pas na deze inleidende paragraaf komt de eerste sectiehoofding.
+\section{Reanimatie: Richtlijnen en Kwaliteitscriteria}
+\label{sec:reanimatie-richtlijnen}
 
-Dit hoofdstuk bevat je literatuurstudie. De inhoud gaat verder op de inleiding, maar zal het onderwerp van de bachelorproef *diepgaand* uitspitten. De bedoeling is dat de lezer na lezing van dit hoofdstuk helemaal op de hoogte is van de huidige stand van zaken (state-of-the-art) in het onderzoeksdomein. Iemand die niet vertrouwd is met het onderwerp, weet nu voldoende om de rest van het verhaal te kunnen volgen, zonder dat die er nog andere informatie moet over opzoeken \autocite{Pollefliet2011}.
+Om een effectief feedback-systeem te ontwerpen, moet eerst worden vastgesteld aan welke medische standaarden een kwalitatieve reanimatie moet voldoen. 
+De leidraad hiervoor wordt gevormd door de internationale protocollen van de European Resuscitation Council (ERC).
 
-Je verwijst bij elke bewering die je doet, vakterm die je introduceert, enz.\ naar je bronnen. In \LaTeX{} kan dat met het commando \texttt{$\backslash${textcite\{\}}} of \texttt{$\backslash${autocite\{\}}}. Als argument van het commando geef je de ``sleutel'' van een ``record'' in een bibliografische databank in het Bib\LaTeX{}-formaat (een tekstbestand). Als je expliciet naar de auteur verwijst in de zin (narratieve referentie), gebruik je \texttt{$\backslash${}textcite\{\}}. Soms is de auteursnaam niet expliciet een onderdeel van de zin, dan gebruik je \texttt{$\backslash${}autocite\{\}} (referentie tussen haakjes). Dit gebruik je bv.~bij een citaat, of om in het bijschrift van een overgenomen afbeelding, broncode, tabel, enz. te verwijzen naar de bron. In de volgende paragraaf een voorbeeld van elk.
+\subsection{De ERC Guidelines 2025}
+\label{subsec:erc-guidelines-2025}
 
-\textcite{Knuth1998} schreef een van de standaardwerken over sorteer- en zoekalgoritmen. Experten zijn het erover eens dat cloud computing een interessante opportuniteit vormen, zowel voor gebruikers als voor dienstverleners op vlak van informatietechnologie~\autocite{Creeger2009}.
+De meest recente standaarden voor reanimatie zijn vastgelegd in de \textit{ERC Guidelines 2025 for Adult Basic Life Support}. 
+Deze richtlijnen zijn gebaseerd op de wetenschappelijke consensus van de International Liaison Committee on Resuscitation (ILCOR) en 
+introduceren enkele cruciale verschuivingen ten opzichte van de voorgaande 2021-editie \autocite{Smyth2025}.
 
-Let er ook op: het \texttt{cite}-commando voor de punt, dus binnen de zin. Je verwijst meteen naar een bron in de eerste zin die erop gebaseerd is, dus niet pas op het einde van een paragraaf.
+De 2025-richtlijnen leggen een verhoogde nadruk op de snelheid van handelen en de ondersteunende rol van technologie in de overlevingsketen.
+ De belangrijkste wijzigingen en aandachtspunten zijn:
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\textwidth]{grail.jpg}
-  \caption[Voorbeeld figuur.]{\label{fig:grail}Voorbeeld van invoegen van een figuur. Zorg altijd voor een uitgebreid bijschrift dat de figuur volledig beschrijft zonder in de tekst te moeten gaan zoeken. Vergeet ook je bronvermelding niet!}
-\end{figure}
+\begin{itemize}
+    \item \textbf{Onmiddellijk alarmeren (Call First):} In tegenstelling tot eerdere protocollen wordt nu geadviseerd om de noodcentrale direct te bellen bij een niet-reageerbaar slachtoffer, nog vóór de volledige beoordeling van de ademhaling. De ademhalingscontrole vindt plaats terwijl de hulpverlener de dispatcher aan de lijn heeft \autocite{Smyth2025}.
+    \item \textbf{Herkenning van agonale ademhaling:} Er is een grotere focus op het herkennen van abnormale ademhalingspatronen zoals "gasping" (happen naar lucht) en "panting" (bij sporters), die vaak foutief als een teken van leven worden geïnterpreteerd \autocite{Smyth2025}.
+    \item \textbf{Integratie van technologie:} Voor het eerst worden digitale hulpmiddelen, variërend van video-instructies door dispatchers tot het gebruik van Virtual Reality (VR) en Augmented Reality (AR) in trainingen, expliciet ingebed in de relevante secties van de richtlijnen in plaats van als aparte categorie \autocite{Smyth2025}.
+\end{itemize}
 
-\begin{listing}
-  \begin{minted}{python}
-    import pandas as pd
-    import seaborn as sns
+Deze verschuiving naar technologische integratie legitimeert de inzet van Mixed Reality als trainingsinstrument. 
+Het systeem moet de gebruiker niet alleen instrueren over de techniek, maar ook ondersteunen in de kritieke besluitvorming die door de ERC 2025 wordt benadrukt.
 
-    penguins = sns.load_dataset('penguins')
-    sns.relplot(data=penguins, x="flipper_length_mm", y="bill_length_mm", hue="species")
-  \end{minted}
-  \caption[Voorbeeld codefragment]{Voorbeeld van het invoegen van een codefragment.}
-\end{listing}
+\subsection{Kwaliteitscriteria voor High-Quality CPR (HQ-CPR)}
+\label{subsec:kwaliteitscriteria-cpr}
 
-\lipsum[7-20]
+De effectiviteit van reanimatie wordt direct bepaald door de fysiologische impact van de handelingen op het lichaam van het slachtoffer. Om de overlevingskans te maximaliseren, 
+hanteert de \textcite{Smyth2025} strikte kwantitatieve criteria voor wat wordt gedefinieerd als 'High-Quality CPR'. 
+Voor de ontwikkeling van een Mixed Reality feedback-systeem zijn deze parameters de kernwaarden waarop de algoritmen en visuele cues worden gekalibreerd.
 
-\begin{table}
-  \centering
-  \begin{tabular}{lcr}
-    \toprule
-    \textbf{Kolom 1} & \textbf{Kolom 2} & \textbf{Kolom 3} \\
-    $\alpha$         & $\beta$          & $\gamma$         \\
-    \midrule
-    A                & 10.230           & a                \\
-    B                & 45.678           & b                \\
-    C                & 99.987           & c                \\
-    \bottomrule
-  \end{tabular}
-  \caption[Voorbeeld tabel]{\label{tab:example}Voorbeeld van een tabel.}
+De belangrijkste technische parameters zijn samengevat in \autoref{tab:cpr-metrics}:
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lll}
+        \toprule
+        \textbf{Parameter} & \textbf{Doelwaarde} & \textbf{Fysiologisch belang} \\
+        \midrule
+        Compressiediepte & 5 -- 6 cm & Genereren van voldoende bloedstroom \\
+        Compressiefrequentie & 100 -- 120 bpm & Optimaliseren van de coronaire perfusiedruk \\
+        Borstkas-recoil & Volledige ontlasting & Toelaten van ventriculaire vulling \\
+        Handpositie & Onderste helft sternum & Maximale compressie van de ventrikels \\
+        \bottomrule
+    \end{tabular}
+    \caption{Technische parameters voor kwalitatieve reanimatie conform ERC 2025 \autocite{Smyth2025}.}
+    \label{tab:cpr-metrics}
 \end{table}
 
+\paragraph{Compressiediepte}
+De richtlijnen schrijven een diepte voor van minimaal 5 cm, maar niet meer dan 6 cm. Compressies die ondieper zijn dan 5 cm resulteren in een 
+inadequate bloedstroom naar de hersenen en het hart. Omgekeerd vergroten compressies dieper dan 6 cm het risico op iatrogeen letsel, zoals ribfracturen of 
+interne bloedingen \autocite{Smyth2025}. In een MR-omgeving is dit de meest uitdagende parameter om te visualiseren door het gebrek aan diepteperceptie van bovenaf.
+
+\paragraph{Compressiefrequentie}
+Het ideale ritme ligt tussen de 100 en 120 compressies per minuut. Een te lage frequentie leidt tot een te lage gemiddelde perfusiedruk, terwijl een te hoge 
+frequentie (boven de 120 bpm) de borstkas onvoldoende tijd geeft voor recoil, wat de efficiëntie per compressie verlaagt.
+
+\paragraph{Recoil en Leunen (Leaning)}
+Een veelvoorkomende fout bij hulpverleners is het blijven 'leunen' op de borstkas na een compressie. De ERC benadrukt dat 
+volledige \textit{recoil} (terugslag) essentieel is zodat het intrathoracale volume herstelt en het hart zich opnieuw met 
+bloed kan vullen voor de volgende cyclus. Feedback-systemen moeten hier specifiek op controleren, aangezien dit een fout is 
+die door de hulpverlener vaak niet wordt gevoeld.
