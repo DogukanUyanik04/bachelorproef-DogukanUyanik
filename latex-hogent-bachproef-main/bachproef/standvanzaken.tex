@@ -70,3 +70,97 @@ Een veelvoorkomende fout bij hulpverleners is het blijven 'leunen' op de borstka
 volledige \textit{recoil} (terugslag) essentieel is zodat het intrathoracale volume herstelt en het hart zich opnieuw met 
 bloed kan vullen voor de volgende cyclus. Feedback-systemen moeten hier specifiek op controleren, aangezien dit een fout is 
 die door de hulpverlener vaak niet wordt gevoeld.
+
+\subsection{Manikin-gebaseerde Feedback: Laerdal QCPR}
+\label{subsec:laerdal-qcpr}
+
+De huidige standaard voor objectieve feedback in reanimatietraining wordt gevormd door intelligente oefenpoppen, waarvan de Laerdal 
+QCPR-technologie de meest wijdverspreide is. Dit systeem maakt gebruik van een draadloze verbinding (vaak Bluetooth) tussen sensoren in 
+de pop en externe software op een monitor of tablet \autocite{Cortegiani2017}.
+
+\paragraph{Werking van de sensoren}
+De sensoren in de pop meten continu de mechanische belasting op de borstkas. De belangrijkste gemeten parameters zijn de compressiediepte, 
+de frequentie, de handpositie en de mate van volledige ontlasting (\textit{recoil}). Volgens \textcite{Cortegiani2017} berekent de software op 
+basis van deze data een zogenaamde 'compression score': een gewogen gemiddelde (0--100\%) dat de algehele kwaliteit van de reanimatie uitdrukt. 
+In hun onderzoek bij middelbare scholieren bleek dat studenten die trainden met deze real-time feedback een significant hogere score behaalden (mediaan 90\%) 
+dan studenten die enkel vertrouwden op de instructies van een menselijke expert (mediaan 67\%) \autocite{Cortegiani2017}.
+
+\begin{figure}[H] 
+    \centering
+    \includegraphics[width=0.8\textwidth]{../graphics/littleAnnCPR} 
+    \caption{De Laerdal Little Anne QCPR pop in combinatie met de feedback-app op een tablet \autocite{Cortegiani2017}.}
+    \label{fig:littleann-cpr}
+\end{figure}
+
+\paragraph{Superieure herkenning van technische fouten}
+Een inzicht uit de studie van \textcite{Cortegiani2017} is dat softwarematige feedback vooral effectief is 
+voor parameters die voor het menselijk oog moeilijk waarneembaar zijn. Zo presteerde de QCPR-groep significant beter op het 
+gebied van \textit{chest recoil} (71\% correcte uitvoering versus 24\% in de controlegroep). Dit suggereert dat menselijke instructeurs 
+moeite hebben om minieme fouten in de ontlasting van de borstkas te zien, terwijl de sensoren in de pop dit feilloos registreren. 
+
+Hoewel dit systeem de technische vaardigheidsverwerving versnelt, blijft de interface beperkt tot een 2D-weergave op een extern scherm. 
+Zoals in de volgende sectie wordt toegelicht, creëert dit een nieuwe uitdaging op het gebied van aandacht en cognitieve belasting.
+
+\subsection{De beperkingen van 2D-displays en het Split-Attention Effect}
+\label{subsec:2d-beperkingen}
+
+Hoewel systemen zoals Laerdal QCPR objectieve data leveren, dwingen ze de gebruiker tot een onnatuurlijke werkhouding waarbij de aandacht verdeeld moet worden tussen de fysieke handeling en een extern scherm. Recent onderzoek van \textcite{Hurt2024} werpt een nieuw licht op de cognitieve nadelen van deze methode.
+
+\paragraph{Situational Awareness en Performance}
+Een cruciale bevinding in het onderzoek naar motorische taken is de sterke positieve correlatie tussen 
+\textit{situational awareness} (SA) en prestatie bij het gebruik van Mixed Reality. \textcite{Hurt2024} stelt dat het 
+beperken van \textit{split-attention} essentieel is: wanneer informatie direct in het gezichtsveld wordt geprojecteerd, 
+kunnen deelnemers hun focus volledig op de taak houden, wat leidt tot betere resultaten. Opvallend genoeg ontbrak deze correlatie 
+bij het gebruik van tablets. Dit suggereert dat de tablet-modaliteit de gebruiker dwingt om de aandacht zo onregelmatig te verdelen dat 
+de natuurlijke link tussen omgevingsbewustzijn en prestatie wordt verbroken \autocite{Hurt2024}.
+
+\paragraph{De Familiarity Bias en het TAM2-model}
+Een belangrijk punt voor dit onderzoek is waarom tablets momenteel de standaard zijn, ondanks de cognitieve nadelen. 
+\textcite{Hurt2024} verklaart dit aan de hand van het \textit{Technology Acceptance Model 2} (TAM2). Deelnemers rapporteren vaak een voorkeur voor tablets, 
+niet omdat ze efficiënter zijn, maar vanwege een \textit{familiarity bias}. Omdat studenten in hun dagelijks leven constant tablets gebruiken voor studie en 
+ontspanning, ervaren ze een lagere drempel in gebruiksgemak (\textit{perceived ease of use}), ongeacht de werkelijke taakbelasting \autocite{Hurt2024}. 
+Bij complexe, taakgerichte handelingen zoals CPR kan deze gewenning echter de technische tekortkomingen van de modaliteit maskeren.
+
+\paragraph{Task Load en Visuele Continuïteit}
+Aanvullend onderzoek toont aan dat de \textit{task load} — een maatstaf voor mentale, fysieke en temporele inspanning — significant lager is bij 
+Augmented Reality-instructies dan bij instructies op een monitor of tablet \autocite[Tang et al. in]{Hurt2024}. 
+Door informatie via een \textit{heads-up display} (HUD) aan te bieden, hoeft de gebruiker zijn ogen vrijwel nooit van de taak af te wenden. 
+Dit vermindert niet alleen de oog- en hoofdbewegingen, maar zorgt er ook voor dat informatie "in context" blijft \autocite[Haines et al. in]{Hurt2024}. 
+Voor reanimatietraining betekent dit dat de overgang van het observeren van de feedback naar het uitvoeren van de compressie naadloos verloopt, in tegenstelling 
+tot de gefragmenteerde ervaring bij 2D-schermen.
+
+
+\subsection{De Guidance Hypothesis en de Ontwikkeling van Interne Representaties}
+\label{subsec:guidance-hypothesis}
+
+Een fundamenteel risico bij het gebruik van real-time feedbacksystemen is de \textit{guidance hypothesis}. 
+Volgens \textcite{Sigrist2013} kan permanente externe feedback tijdens het leerproces leiden tot een afhankelijkheid 
+van deze informatiebron, wat de ontwikkeling van een autonoom spiergeheugen belemmert.
+
+\paragraph{Het mechanisme van afhankelijkheid}
+De kern van de \textit{guidance hypothesis} is dat de student de externe feedback (bijv. een balkje op een scherm) gebruikt als een kruk. 
+In plaats van te leren vertrouwen op \textit{intrinsic feedback}, de interne zintuiglijke waarneming van de eigen lichaamshouding en krachtoefening, 
+reageert de student puur op de \textit{augmented feedback} van het systeem \autocite{Sigrist2013}. Dit heeft tot gevolg dat de prestaties tijdens de training 
+uitstekend zijn, maar dat de vaardigheid onmiddellijk degradeert zodra de feedback wordt weggenomen (\textit{retention tests}). 
+De student heeft namelijk geen "interne bewegingsrepresentatie" opgebouwd die zonder hulp kan worden opgeroepen.
+
+
+
+\paragraph{Simpele versus complexe motorische taken}
+\textcite{Sigrist2013} maken een belangrijk onderscheid tussen simpele en complexe taken. Bij simpele taken is constante feedback vrijwel altijd schadelijk voor het 
+leerproces op lange termijn. Echter, bij complexe taken zoals reanimatie, waarbij houding, diepte, tempo en recoil simultaan moeten worden beheerst, 
+kan real-time feedback juist helpen om de cognitieve belasting te verlagen in de vroege leerfase. Het helpt de student om de "structuur" van de beweging te begrijpen 
+zonder overweldigd te raken.
+
+\paragraph{Strategieën voor effectief leren}
+Om de nadelen van de \textit{guidance hypothesis} te beperken, stelt de literatuur verschillende strategieën voor die relevant zijn voor het ontwerp van een 
+Mixed Reality PoC:
+\begin{itemize}
+    \item \textbf{Fading feedback:} De frequentie van de visuele cues moet afnemen naarmate het vaardigheidsniveau van de student toeneemt \autocite{Sigrist2013}.
+    \item \textbf{No-feedback trials:} Het inbouwen van oefensessies zonder hologrammen is essentieel om te controleren of de student de correcte diepte en frequentie op gevoel kan reproduceren.
+    \item \textbf{Bandwidth feedback:} Hierbij wordt alleen feedback gegeven wanneer de foutmarge een bepaalde drempel overschrijdt, wat de student dwingt om binnen de 
+    "veilige zone" zelfstandig te corrigeren.
+\end{itemize}
+
+Door de \textit{ghost avatar} in Mixed Reality niet constant, maar adaptief aan te bieden, kan het systeem de student begeleiden in de vroege fase zonder dat er een 
+permanente afhankelijkheid ontstaat die de inzetbaarheid in een echte noodsituatie ondermijnt.

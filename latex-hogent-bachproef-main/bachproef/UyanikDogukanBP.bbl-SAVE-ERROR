@@ -1,0 +1,1390 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{apa/apasortcite//global/global/global}
+    \entry{Carroll2020}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=66fa81f6ede8c2011d6f1022c38129a0}{%
+           family={Carroll},
+           familyi={C\bibinitperiod},
+           given={Whende\bibnamedelima M.},
+           giveni={W\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer Publishing Company}%
+      }
+      \strng{namehash}{66fa81f6ede8c2011d6f1022c38129a0}
+      \strng{fullhash}{66fa81f6ede8c2011d6f1022c38129a0}
+      \strng{fullhashraw}{66fa81f6ede8c2011d6f1022c38129a0}
+      \strng{bibnamehash}{66fa81f6ede8c2011d6f1022c38129a0}
+      \strng{authorbibnamehash}{66fa81f6ede8c2011d6f1022c38129a0}
+      \strng{authornamehash}{66fa81f6ede8c2011d6f1022c38129a0}
+      \strng{authorfullhash}{66fa81f6ede8c2011d6f1022c38129a0}
+      \strng{authorfullhashraw}{66fa81f6ede8c2011d6f1022c38129a0}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780826146496}
+      \field{title}{Emerging Technologies for Nurses: Implications for Practice}
+      \field{year}{2020}
+    \endentry
+    \entry{ChaariFourati2020}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=61dd6b38e454c85fa7932c3a54314fac}{%
+           family={Chaari\bibnamedelima Fourati},
+           familyi={C\bibinitperiod\bibinitdelim F\bibinitperiod},
+           given={Lamia},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6d5750c624ecf86f5f33ae33c666f30e}{%
+           family={Said},
+           familyi={S\bibinitperiod},
+           given={Sinda},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{a4b7e443b8b88f5adfe31b4f461ab318}
+      \strng{fullhash}{a4b7e443b8b88f5adfe31b4f461ab318}
+      \strng{fullhashraw}{a4b7e443b8b88f5adfe31b4f461ab318}
+      \strng{bibnamehash}{a4b7e443b8b88f5adfe31b4f461ab318}
+      \strng{authorbibnamehash}{a4b7e443b8b88f5adfe31b4f461ab318}
+      \strng{authornamehash}{a4b7e443b8b88f5adfe31b4f461ab318}
+      \strng{authorfullhash}{a4b7e443b8b88f5adfe31b4f461ab318}
+      \strng{authorfullhashraw}{a4b7e443b8b88f5adfe31b4f461ab318}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-030-51517-1}
+      \field{journaltitle}{Smart Homes and Health Telematics}
+      \field{series}{Lecture Notes in Computer Science}
+      \field{title}{Remote Health Monitoring Systems Based on Bluetooth Low Energy ({BLE}) Communication Systems}
+      \field{volume}{12157}
+      \field{year}{2020}
+      \field{pages}{41\bibrangedash 54}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1007/978-3-030-51517-1_4
+      \endverb
+    \endentry
+    \entry{Cortegiani2017}{article}{}{}
+      \name{author}{11}{}{%
+        {{un=0,uniquepart=base,hash=54445b1d5ad99165295c2c8313fcd26c}{%
+           family={Cortegiani},
+           familyi={C\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=105e4ab48e8303924af942d6d2f8d5c4}{%
+           family={Russotto},
+           familyi={R\bibinitperiod},
+           given={Vincenzo},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7619240d40b6828d54d95813b6c9469b}{%
+           family={Montalto},
+           familyi={M\bibinitperiod},
+           given={Francesca},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=da972dc3bf68b2ba5e32c464ee34ded8}{%
+           family={Iozzo},
+           familyi={I\bibinitperiod},
+           given={Pasquale},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f9666e13e5af141e1770c1643cb3fae8}{%
+           family={Meschis},
+           familyi={M\bibinitperiod},
+           given={Roberta},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dc8947d3f064029f09f0eed6f11cb1ad}{%
+           family={Pugliesi},
+           familyi={P\bibinitperiod},
+           given={Marinella},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b5b8d344bf491144187022bdfec63610}{%
+           family={Mariano},
+           familyi={M\bibinitperiod},
+           given={Dario},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3873dfa385d4181f37f3a1261fa2963c}{%
+           family={Benenati},
+           familyi={B\bibinitperiod},
+           given={Vincenzo},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c36f82754a75777e07ab1ed55d458c88}{%
+           family={Raineri},
+           familyi={R\bibinitperiod},
+           given={Santi\bibnamedelima Maurizio},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fb025ff8b32636499fc1ddd8cfa08024}{%
+           family={Gregoretti},
+           familyi={G\bibinitperiod},
+           given={Cesare},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=969c3429a1a711a524a220a434cb8c45}{%
+           family={Giarratano},
+           familyi={G\bibinitperiod},
+           given={Antonino},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f4ce33c00a6a5438db2f3f60ce00c93f}
+      \strng{fullhash}{d0052b48042558bc070020c26db7061d}
+      \strng{fullhashraw}{d0052b48042558bc070020c26db7061d}
+      \strng{bibnamehash}{d0052b48042558bc070020c26db7061d}
+      \strng{authorbibnamehash}{d0052b48042558bc070020c26db7061d}
+      \strng{authornamehash}{f4ce33c00a6a5438db2f3f60ce00c93f}
+      \strng{authorfullhash}{d0052b48042558bc070020c26db7061d}
+      \strng{authorfullhashraw}{d0052b48042558bc070020c26db7061d}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLOS ONE}
+      \field{number}{1}
+      \field{title}{Use of a Real-Time Training Software (Laerdal QCPR®) Compared to Instructor-Based Feedback for High-Quality Chest Compressions Acquisition in Secondary School Students: A Randomized Trial}
+      \field{volume}{12}
+      \field{year}{2017}
+      \field{pages}{e0169591}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1371/journal.pone.0169591
+      \endverb
+    \endentry
+    \entry{DAngelo2021}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=bc554e89bf5e3e92c9f79627dc459873}{%
+           family={D'Angelo},
+           familyi={D\bibinitperiod},
+           given={Giovanna},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7aed58ab31b6f5cdb20cd8a0b92058ea}{%
+           family={Rodio},
+           familyi={R\bibinitperiod},
+           given={Aurelio},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0810a1af883e8024bd59cadf217d3c7b}{%
+           family={Donati},
+           familyi={D\bibinitperiod},
+           given={Marcello\bibnamedelima E.},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f0e9240bb51cbf9626d8cc27a7bd21fa}{%
+           family={Paternostro},
+           familyi={P\bibinitperiod},
+           given={Ferdinando},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=37ec5877b74d9b64fbd09bf49930e014}{%
+           family={Gulisano},
+           familyi={G\bibinitperiod},
+           given={Massimo},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=61f20a5560446ac72c0a26c6ef11dba3}{%
+           family={Marella},
+           familyi={M\bibinitperiod},
+           given={Gianluca},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MDPI}%
+      }
+      \strng{namehash}{b394c1cbf4233f93499ee0a241602d6f}
+      \strng{fullhash}{d658210ec5ae4b1a42d2e0e7ab67fe77}
+      \strng{fullhashraw}{d658210ec5ae4b1a42d2e0e7ab67fe77}
+      \strng{bibnamehash}{d658210ec5ae4b1a42d2e0e7ab67fe77}
+      \strng{authorbibnamehash}{d658210ec5ae4b1a42d2e0e7ab67fe77}
+      \strng{authornamehash}{b394c1cbf4233f93499ee0a241602d6f}
+      \strng{authorfullhash}{d658210ec5ae4b1a42d2e0e7ab67fe77}
+      \strng{authorfullhashraw}{d658210ec5ae4b1a42d2e0e7ab67fe77}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Sciences}
+      \field{number}{5}
+      \field{title}{A Systematic Review of Simulation Techniques Based on Augmented Reality and Hybrid Simulators in Healthcare}
+      \field{volume}{11}
+      \field{year}{2021}
+      \field{pages}{2338}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/app11052338
+      \endverb
+    \endentry
+    \entry{Diller2024}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=5afa1aa068a500798d45328819f2ba7b}{%
+           family={Diller},
+           familyi={D\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ee8eeb8e8be0f2b6963ffb9c3c0f254c}{%
+           family={Scheuermann},
+           familyi={S\bibinitperiod},
+           given={Gerik},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1f990c58d6516b62de74ff0437c2ed43}{%
+           family={Wiebel},
+           familyi={W\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d197849a7cfb3bed61fe72ae1f0af8a5}
+      \strng{fullhash}{4da9576345ecb1ece28853048a66bffc}
+      \strng{fullhashraw}{4da9576345ecb1ece28853048a66bffc}
+      \strng{bibnamehash}{4da9576345ecb1ece28853048a66bffc}
+      \strng{authorbibnamehash}{4da9576345ecb1ece28853048a66bffc}
+      \strng{authornamehash}{d197849a7cfb3bed61fe72ae1f0af8a5}
+      \strng{authorfullhash}{4da9576345ecb1ece28853048a66bffc}
+      \strng{authorfullhashraw}{4da9576345ecb1ece28853048a66bffc}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Visualization and Computer Graphics}
+      \field{number}{7}
+      \field{title}{Visual Cue Based Corrective Feedback for Motor Skill Training in Mixed Reality: A Survey}
+      \field{volume}{30}
+      \field{year}{2024}
+      \field{pages}{3121\bibrangedash 3134}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1109/TVCG.2022.3227999
+      \endverb
+      \keyw{Visualization;Mixed reality;Augmented reality;Training;Task analysis;Sports;Feedback loop;Human-centered computing;visualization;visualization techniques and methodologies;interaction techniques;virtual and augmented reality}
+    \endentry
+    \entry{Gerup2020}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=3f8ef4f630e170e755418982c01a09ad}{%
+           family={Gerup},
+           familyi={G\bibinitperiod},
+           given={Jørgen},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=69be0c449372f7cc6555408b8ca18ce7}{%
+           family={Soerensen},
+           familyi={S\bibinitperiod},
+           given={Camilla\bibnamedelima B.},
+           giveni={C\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d76bed40a3a8de710943ccedf2833aa3}{%
+           family={Dieckmann},
+           familyi={D\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{011cc1567e8c3f404d8b00a4e46e068d}
+      \strng{fullhash}{7bb730170254eaa86c6c7e44dfdca2d6}
+      \strng{fullhashraw}{7bb730170254eaa86c6c7e44dfdca2d6}
+      \strng{bibnamehash}{7bb730170254eaa86c6c7e44dfdca2d6}
+      \strng{authorbibnamehash}{7bb730170254eaa86c6c7e44dfdca2d6}
+      \strng{authornamehash}{011cc1567e8c3f404d8b00a4e46e068d}
+      \strng{authorfullhash}{7bb730170254eaa86c6c7e44dfdca2d6}
+      \strng{authorfullhashraw}{7bb730170254eaa86c6c7e44dfdca2d6}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Medical Education}
+      \field{title}{Augmented reality and mixed reality for healthcare education beyond surgery: an integrative review}
+      \field{volume}{11}
+      \field{year}{2020}
+      \field{pages}{1\bibrangedash 18}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.5116/ijme.5e01.eb1a
+      \endverb
+    \endentry
+    \entry{Glover2019}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=81b6881ae476e42df94b5ae099736456}{%
+           family={Glover},
+           familyi={G\bibinitperiod},
+           given={Jesse},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=521bdaaca308b0353d627d490a3780fc}{%
+           family={Linowes},
+           familyi={L\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Birmingham}%
+      }
+      \list{publisher}{1}{%
+        {Packt Publishing}%
+      }
+      \strng{namehash}{b07e8722ea2f00934d35a653561f3dca}
+      \strng{fullhash}{b07e8722ea2f00934d35a653561f3dca}
+      \strng{fullhashraw}{b07e8722ea2f00934d35a653561f3dca}
+      \strng{bibnamehash}{b07e8722ea2f00934d35a653561f3dca}
+      \strng{authorbibnamehash}{b07e8722ea2f00934d35a653561f3dca}
+      \strng{authornamehash}{b07e8722ea2f00934d35a653561f3dca}
+      \strng{authorfullhash}{b07e8722ea2f00934d35a653561f3dca}
+      \strng{authorfullhashraw}{b07e8722ea2f00934d35a653561f3dca}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-1838648183}
+      \field{title}{Complete Virtual Reality and Augmented Reality Development with Unity: Leverage the power of Unity and become a pro at creating mixed reality applications}
+      \field{year}{2019}
+    \endentry
+    \entry{Hurt2024}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4d67ad74a586d6c1b03652f0d705f29d}{%
+           family={Hurt},
+           familyi={H\bibinitperiod},
+           given={Griffin\bibnamedelima J.},
+           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {University of Pittsburgh}%
+      }
+      \strng{namehash}{4d67ad74a586d6c1b03652f0d705f29d}
+      \strng{fullhash}{4d67ad74a586d6c1b03652f0d705f29d}
+      \strng{fullhashraw}{4d67ad74a586d6c1b03652f0d705f29d}
+      \strng{bibnamehash}{4d67ad74a586d6c1b03652f0d705f29d}
+      \strng{authorbibnamehash}{4d67ad74a586d6c1b03652f0d705f29d}
+      \strng{authornamehash}{4d67ad74a586d6c1b03652f0d705f29d}
+      \strng{authorfullhash}{4d67ad74a586d6c1b03652f0d705f29d}
+      \strng{authorfullhashraw}{4d67ad74a586d6c1b03652f0d705f29d}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Untethered Displays: The Effects of Mixed Reality on Split-Attention in Fine-Motor Tasks}
+      \field{type}{Bachelor of Philosophy Thesis}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb http://d-scholarship.pitt.edu/46363/
+      \endverb
+      \verb{url}
+      \verb http://d-scholarship.pitt.edu/46363/
+      \endverb
+    \endentry
+    \entry{Olasveengen2021}{article}{}{}
+      \name{author}{12}{}{%
+        {{un=0,uniquepart=base,hash=8965a1764e06d207351bf3e141cffe01}{%
+           family={Olasveengen},
+           familyi={O\bibinitperiod},
+           given={Theresa\bibnamedelima M.},
+           giveni={T\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d39d4826b80b63739c8f59072c406a08}{%
+           family={Semeraro},
+           familyi={S\bibinitperiod},
+           given={Federico},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a69f79ed9e5355278926ac9a589d2d52}{%
+           family={Ristagno},
+           familyi={R\bibinitperiod},
+           given={Giuseppe},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f4ef0c859f043e801dce18903201269f}{%
+           family={Castren},
+           familyi={C\bibinitperiod},
+           given={Maaret},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ff10eab04a041c0cae447d167dcba198}{%
+           family={Handley},
+           familyi={H\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=071e8e5e90e1636cf088dd05df6d0e3a}{%
+           family={Kuzovlev},
+           familyi={K\bibinitperiod},
+           given={Artem},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c2c59dccd63bd66b335fc86c815819f8}{%
+           family={Monsieurs},
+           familyi={M\bibinitperiod},
+           given={Koenraad\bibnamedelima G.},
+           giveni={K\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=df1dac9bf084671fdd0f79e6efbe5ecf}{%
+           family={Raffay},
+           familyi={R\bibinitperiod},
+           given={Violetta},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=974fe6b91d5ba71ea6a495eaf67d3df7}{%
+           family={Smyth},
+           familyi={S\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2734a03d65fc2c8db6e5b685b0304d68}{%
+           family={Soar},
+           familyi={S\bibinitperiod},
+           given={Jasmeet},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b6b246ed1c08b92d3d754307cddac65a}{%
+           family={Svavarsdottir},
+           familyi={S\bibinitperiod},
+           given={Hildigunnur},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b50270377290ae4e6f0802de64fe2104}{%
+           family={Perkins},
+           familyi={P\bibinitperiod},
+           given={Gavin\bibnamedelima D.},
+           giveni={G\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a2153720edf259ee8dddb52eab409bff}
+      \strng{fullhash}{c40912b4f07c78aadd562013c1cf7f87}
+      \strng{fullhashraw}{c40912b4f07c78aadd562013c1cf7f87}
+      \strng{bibnamehash}{c40912b4f07c78aadd562013c1cf7f87}
+      \strng{authorbibnamehash}{c40912b4f07c78aadd562013c1cf7f87}
+      \strng{authornamehash}{a2153720edf259ee8dddb52eab409bff}
+      \strng{authorfullhash}{c40912b4f07c78aadd562013c1cf7f87}
+      \strng{authorfullhashraw}{c40912b4f07c78aadd562013c1cf7f87}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Resuscitation}
+      \field{title}{European Resuscitation Council Guidelines 2021: Basic Life Support}
+      \field{volume}{161}
+      \field{year}{2021}
+      \field{pages}{98\bibrangedash 114}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1016/j.resuscitation.2021.02.009
+      \endverb
+      \verb{urlraw}
+      \verb https://semicyuc.org/wp-content/uploads/2021/09/RCP-Guias-ERC-2021-04-SVB-Resuscitation-2021.pdf
+      \endverb
+      \verb{url}
+      \verb https://semicyuc.org/wp-content/uploads/2021/09/RCP-Guias-ERC-2021-04-SVB-Resuscitation-2021.pdf
+      \endverb
+    \endentry
+    \entry{Raymer2023}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=32e2fc2edb4af23160845c41d58367c3}{%
+           family={Raymer},
+           familyi={R\bibinitperiod},
+           given={Emma},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=285aa18f47b177371611acab66f595f1}{%
+           family={MacDermott},
+           familyi={M\bibinitperiod},
+           given={Áine},
+           giveni={Á\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=40230d8eaf0a8eaecbdc063e04123762}{%
+           family={Akinbi},
+           familyi={A\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5f42b85ac0b0556d9345fff53bc42571}
+      \strng{fullhash}{f1563eee580d88da3ae66a861b21eadb}
+      \strng{fullhashraw}{f1563eee580d88da3ae66a861b21eadb}
+      \strng{bibnamehash}{f1563eee580d88da3ae66a861b21eadb}
+      \strng{authorbibnamehash}{f1563eee580d88da3ae66a861b21eadb}
+      \strng{authornamehash}{5f42b85ac0b0556d9345fff53bc42571}
+      \strng{authorfullhash}{f1563eee580d88da3ae66a861b21eadb}
+      \strng{authorfullhashraw}{f1563eee580d88da3ae66a861b21eadb}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The Meta Quest 2 is one of the most popular Virtual Reality (VR) entertainment headsets to date. The headset, developed by Meta Platforms Inc., immerses the user in a completely simulated environment. Some VR environments can be shared over the Internet to allow users to communicate and interact with one another and share their experiences. Unfortunately, the safety of these VR environments cannot always be guaranteed, generating a risk that users may be exposed to illicit online behaviour in the form of online harassment, grooming, and cyberbullying. Therefore, forensic examiners must be able to conduct sound forensic analysis of VR headsets to investigate these criminal investigations. In this study, we conduct digital forensic acquisition and analysis of the Meta Quest 2 VR headset. Analysis of the forensic image exemplified that there were several digital artefacts relating to user activities, device information and stored digital artefacts that can be extracted in a forensically sound manner. The main contributions of this study include a detailed description of the forensic acquisition process, identification of internal file storage locations, and recovery and analysis of digital artefacts that can be used to aid VR forensic investigations.}
+      \field{issn}{2666-2817}
+      \field{journaltitle}{Forensic Science International: Digital Investigation}
+      \field{title}{Virtual reality forensics: Forensic analysis of Meta Quest 2}
+      \field{volume}{47}
+      \field{year}{2023}
+      \field{pages}{301658}
+      \range{pages}{1}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.fsidi.2023.301658
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S2666281723001774
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S2666281723001774
+      \endverb
+      \keyw{Virtual reality,Meta Quest 2,VR Forensics,Digital forensics}
+    \endentry
+    \entry{Sigrist2013}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=db9ffad90a44060433bd533e957c6775}{%
+           family={Sigrist},
+           familyi={S\bibinitperiod},
+           given={Roland},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8c6a235f9b8b04a8f60b025217e01dd4}{%
+           family={Rauter},
+           familyi={R\bibinitperiod},
+           given={Georg},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=49162a7f3a8fe4b81a0d28a70c9e81a7}{%
+           family={Riener},
+           familyi={R\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6ea08b4eb1e704e09cd0d742e8d07049}{%
+           family={Wolf},
+           familyi={W\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{eea46d824cbe23ce5eeae7cd8c427446}
+      \strng{fullhash}{690056456412dc14f71b9a337bc31288}
+      \strng{fullhashraw}{690056456412dc14f71b9a337bc31288}
+      \strng{bibnamehash}{690056456412dc14f71b9a337bc31288}
+      \strng{authorbibnamehash}{690056456412dc14f71b9a337bc31288}
+      \strng{authornamehash}{eea46d824cbe23ce5eeae7cd8c427446}
+      \strng{authorfullhash}{690056456412dc14f71b9a337bc31288}
+      \strng{authorfullhashraw}{690056456412dc14f71b9a337bc31288}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Psychonomic Bulletin \& Review}
+      \field{number}{1}
+      \field{title}{Augmented visual, auditory, haptic, and multimodal feedback in motor learning: A review}
+      \field{volume}{20}
+      \field{year}{2013}
+      \field{pages}{21\bibrangedash 53}
+      \range{pages}{33}
+      \verb{doi}
+      \verb 10.3758/s13423-012-0333-8
+      \endverb
+    \endentry
+    \entry{Smyth2025}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=0dfa1724fd78017e80a7b54f6c487f5a}{%
+           family={Smyth},
+           familyi={S\bibinitperiod},
+           given={Michael\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cab272b31cf7d40d530be00265c42ca1}{%
+           family={Goor},
+           familyi={G\bibinitperiod},
+           given={Sander},
+           giveni={S\bibinitperiod},
+           givenun=0,
+           prefix={van},
+           prefixi={v\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=d379ac9ff3ecf4dd9cfc305ee1442204}{%
+           family={Hansen},
+           familyi={H\bibinitperiod},
+           given={Carolina\bibnamedelima Malta},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{48a0b5ddb6b8b055382da887b884f5e8}
+      \strng{fullhash}{c632ba986dd6b90baa30b5cd0ae81e8f}
+      \strng{fullhashraw}{c632ba986dd6b90baa30b5cd0ae81e8f}
+      \strng{bibnamehash}{c632ba986dd6b90baa30b5cd0ae81e8f}
+      \strng{authorbibnamehash}{c632ba986dd6b90baa30b5cd0ae81e8f}
+      \strng{authornamehash}{48a0b5ddb6b8b055382da887b884f5e8}
+      \strng{authorfullhash}{c632ba986dd6b90baa30b5cd0ae81e8f}
+      \strng{authorfullhashraw}{c632ba986dd6b90baa30b5cd0ae81e8f}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0300-9572}
+      \field{journaltitle}{Resuscitation}
+      \field{title}{European Resuscitation Council Guidelines 2025: Adult Basic Life Support}
+      \field{volume}{215}
+      \field{year}{2025}
+      \field{pages}{110771}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.resuscitation.2025.110771
+      \endverb
+    \endentry
+  \enddatalist
+  \datalist[entry]{apa/global//global/global/global}
+    \entry{Carroll2020}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=66fa81f6ede8c2011d6f1022c38129a0}{%
+           family={Carroll},
+           familyi={C\bibinitperiod},
+           given={Whende\bibnamedelima M.},
+           giveni={W\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer Publishing Company}%
+      }
+      \strng{namehash}{66fa81f6ede8c2011d6f1022c38129a0}
+      \strng{fullhash}{66fa81f6ede8c2011d6f1022c38129a0}
+      \strng{fullhashraw}{66fa81f6ede8c2011d6f1022c38129a0}
+      \strng{bibnamehash}{66fa81f6ede8c2011d6f1022c38129a0}
+      \strng{authorbibnamehash}{66fa81f6ede8c2011d6f1022c38129a0}
+      \strng{authornamehash}{66fa81f6ede8c2011d6f1022c38129a0}
+      \strng{authorfullhash}{66fa81f6ede8c2011d6f1022c38129a0}
+      \strng{authorfullhashraw}{66fa81f6ede8c2011d6f1022c38129a0}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780826146496}
+      \field{title}{Emerging Technologies for Nurses: Implications for Practice}
+      \field{year}{2020}
+    \endentry
+    \entry{ChaariFourati2020}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=61dd6b38e454c85fa7932c3a54314fac}{%
+           family={Chaari\bibnamedelima Fourati},
+           familyi={C\bibinitperiod\bibinitdelim F\bibinitperiod},
+           given={Lamia},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6d5750c624ecf86f5f33ae33c666f30e}{%
+           family={Said},
+           familyi={S\bibinitperiod},
+           given={Sinda},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{a4b7e443b8b88f5adfe31b4f461ab318}
+      \strng{fullhash}{a4b7e443b8b88f5adfe31b4f461ab318}
+      \strng{fullhashraw}{a4b7e443b8b88f5adfe31b4f461ab318}
+      \strng{bibnamehash}{a4b7e443b8b88f5adfe31b4f461ab318}
+      \strng{authorbibnamehash}{a4b7e443b8b88f5adfe31b4f461ab318}
+      \strng{authornamehash}{a4b7e443b8b88f5adfe31b4f461ab318}
+      \strng{authorfullhash}{a4b7e443b8b88f5adfe31b4f461ab318}
+      \strng{authorfullhashraw}{a4b7e443b8b88f5adfe31b4f461ab318}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-030-51517-1}
+      \field{journaltitle}{Smart Homes and Health Telematics}
+      \field{series}{Lecture Notes in Computer Science}
+      \field{title}{Remote Health Monitoring Systems Based on Bluetooth Low Energy ({BLE}) Communication Systems}
+      \field{volume}{12157}
+      \field{year}{2020}
+      \field{pages}{41\bibrangedash 54}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1007/978-3-030-51517-1_4
+      \endverb
+    \endentry
+    \entry{Cortegiani2017}{article}{}{}
+      \name{author}{11}{}{%
+        {{un=0,uniquepart=base,hash=54445b1d5ad99165295c2c8313fcd26c}{%
+           family={Cortegiani},
+           familyi={C\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=105e4ab48e8303924af942d6d2f8d5c4}{%
+           family={Russotto},
+           familyi={R\bibinitperiod},
+           given={Vincenzo},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7619240d40b6828d54d95813b6c9469b}{%
+           family={Montalto},
+           familyi={M\bibinitperiod},
+           given={Francesca},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=da972dc3bf68b2ba5e32c464ee34ded8}{%
+           family={Iozzo},
+           familyi={I\bibinitperiod},
+           given={Pasquale},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f9666e13e5af141e1770c1643cb3fae8}{%
+           family={Meschis},
+           familyi={M\bibinitperiod},
+           given={Roberta},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dc8947d3f064029f09f0eed6f11cb1ad}{%
+           family={Pugliesi},
+           familyi={P\bibinitperiod},
+           given={Marinella},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b5b8d344bf491144187022bdfec63610}{%
+           family={Mariano},
+           familyi={M\bibinitperiod},
+           given={Dario},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3873dfa385d4181f37f3a1261fa2963c}{%
+           family={Benenati},
+           familyi={B\bibinitperiod},
+           given={Vincenzo},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c36f82754a75777e07ab1ed55d458c88}{%
+           family={Raineri},
+           familyi={R\bibinitperiod},
+           given={Santi\bibnamedelima Maurizio},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fb025ff8b32636499fc1ddd8cfa08024}{%
+           family={Gregoretti},
+           familyi={G\bibinitperiod},
+           given={Cesare},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=969c3429a1a711a524a220a434cb8c45}{%
+           family={Giarratano},
+           familyi={G\bibinitperiod},
+           given={Antonino},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f4ce33c00a6a5438db2f3f60ce00c93f}
+      \strng{fullhash}{d0052b48042558bc070020c26db7061d}
+      \strng{fullhashraw}{d0052b48042558bc070020c26db7061d}
+      \strng{bibnamehash}{d0052b48042558bc070020c26db7061d}
+      \strng{authorbibnamehash}{d0052b48042558bc070020c26db7061d}
+      \strng{authornamehash}{f4ce33c00a6a5438db2f3f60ce00c93f}
+      \strng{authorfullhash}{d0052b48042558bc070020c26db7061d}
+      \strng{authorfullhashraw}{d0052b48042558bc070020c26db7061d}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLOS ONE}
+      \field{number}{1}
+      \field{title}{Use of a Real-Time Training Software (Laerdal QCPR®) Compared to Instructor-Based Feedback for High-Quality Chest Compressions Acquisition in Secondary School Students: A Randomized Trial}
+      \field{volume}{12}
+      \field{year}{2017}
+      \field{pages}{e0169591}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1371/journal.pone.0169591
+      \endverb
+    \endentry
+    \entry{DAngelo2021}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=bc554e89bf5e3e92c9f79627dc459873}{%
+           family={D'Angelo},
+           familyi={D\bibinitperiod},
+           given={Giovanna},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7aed58ab31b6f5cdb20cd8a0b92058ea}{%
+           family={Rodio},
+           familyi={R\bibinitperiod},
+           given={Aurelio},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0810a1af883e8024bd59cadf217d3c7b}{%
+           family={Donati},
+           familyi={D\bibinitperiod},
+           given={Marcello\bibnamedelima E.},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f0e9240bb51cbf9626d8cc27a7bd21fa}{%
+           family={Paternostro},
+           familyi={P\bibinitperiod},
+           given={Ferdinando},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=37ec5877b74d9b64fbd09bf49930e014}{%
+           family={Gulisano},
+           familyi={G\bibinitperiod},
+           given={Massimo},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=61f20a5560446ac72c0a26c6ef11dba3}{%
+           family={Marella},
+           familyi={M\bibinitperiod},
+           given={Gianluca},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MDPI}%
+      }
+      \strng{namehash}{b394c1cbf4233f93499ee0a241602d6f}
+      \strng{fullhash}{d658210ec5ae4b1a42d2e0e7ab67fe77}
+      \strng{fullhashraw}{d658210ec5ae4b1a42d2e0e7ab67fe77}
+      \strng{bibnamehash}{d658210ec5ae4b1a42d2e0e7ab67fe77}
+      \strng{authorbibnamehash}{d658210ec5ae4b1a42d2e0e7ab67fe77}
+      \strng{authornamehash}{b394c1cbf4233f93499ee0a241602d6f}
+      \strng{authorfullhash}{d658210ec5ae4b1a42d2e0e7ab67fe77}
+      \strng{authorfullhashraw}{d658210ec5ae4b1a42d2e0e7ab67fe77}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Sciences}
+      \field{number}{5}
+      \field{title}{A Systematic Review of Simulation Techniques Based on Augmented Reality and Hybrid Simulators in Healthcare}
+      \field{volume}{11}
+      \field{year}{2021}
+      \field{pages}{2338}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/app11052338
+      \endverb
+    \endentry
+    \entry{Diller2024}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=5afa1aa068a500798d45328819f2ba7b}{%
+           family={Diller},
+           familyi={D\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ee8eeb8e8be0f2b6963ffb9c3c0f254c}{%
+           family={Scheuermann},
+           familyi={S\bibinitperiod},
+           given={Gerik},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1f990c58d6516b62de74ff0437c2ed43}{%
+           family={Wiebel},
+           familyi={W\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d197849a7cfb3bed61fe72ae1f0af8a5}
+      \strng{fullhash}{4da9576345ecb1ece28853048a66bffc}
+      \strng{fullhashraw}{4da9576345ecb1ece28853048a66bffc}
+      \strng{bibnamehash}{4da9576345ecb1ece28853048a66bffc}
+      \strng{authorbibnamehash}{4da9576345ecb1ece28853048a66bffc}
+      \strng{authornamehash}{d197849a7cfb3bed61fe72ae1f0af8a5}
+      \strng{authorfullhash}{4da9576345ecb1ece28853048a66bffc}
+      \strng{authorfullhashraw}{4da9576345ecb1ece28853048a66bffc}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Visualization and Computer Graphics}
+      \field{number}{7}
+      \field{title}{Visual Cue Based Corrective Feedback for Motor Skill Training in Mixed Reality: A Survey}
+      \field{volume}{30}
+      \field{year}{2024}
+      \field{pages}{3121\bibrangedash 3134}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1109/TVCG.2022.3227999
+      \endverb
+      \keyw{Visualization;Mixed reality;Augmented reality;Training;Task analysis;Sports;Feedback loop;Human-centered computing;visualization;visualization techniques and methodologies;interaction techniques;virtual and augmented reality}
+    \endentry
+    \entry{Gerup2020}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=3f8ef4f630e170e755418982c01a09ad}{%
+           family={Gerup},
+           familyi={G\bibinitperiod},
+           given={Jørgen},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=69be0c449372f7cc6555408b8ca18ce7}{%
+           family={Soerensen},
+           familyi={S\bibinitperiod},
+           given={Camilla\bibnamedelima B.},
+           giveni={C\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d76bed40a3a8de710943ccedf2833aa3}{%
+           family={Dieckmann},
+           familyi={D\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{011cc1567e8c3f404d8b00a4e46e068d}
+      \strng{fullhash}{7bb730170254eaa86c6c7e44dfdca2d6}
+      \strng{fullhashraw}{7bb730170254eaa86c6c7e44dfdca2d6}
+      \strng{bibnamehash}{7bb730170254eaa86c6c7e44dfdca2d6}
+      \strng{authorbibnamehash}{7bb730170254eaa86c6c7e44dfdca2d6}
+      \strng{authornamehash}{011cc1567e8c3f404d8b00a4e46e068d}
+      \strng{authorfullhash}{7bb730170254eaa86c6c7e44dfdca2d6}
+      \strng{authorfullhashraw}{7bb730170254eaa86c6c7e44dfdca2d6}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Medical Education}
+      \field{title}{Augmented reality and mixed reality for healthcare education beyond surgery: an integrative review}
+      \field{volume}{11}
+      \field{year}{2020}
+      \field{pages}{1\bibrangedash 18}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.5116/ijme.5e01.eb1a
+      \endverb
+    \endentry
+    \entry{Glover2019}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=81b6881ae476e42df94b5ae099736456}{%
+           family={Glover},
+           familyi={G\bibinitperiod},
+           given={Jesse},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=521bdaaca308b0353d627d490a3780fc}{%
+           family={Linowes},
+           familyi={L\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Birmingham}%
+      }
+      \list{publisher}{1}{%
+        {Packt Publishing}%
+      }
+      \strng{namehash}{b07e8722ea2f00934d35a653561f3dca}
+      \strng{fullhash}{b07e8722ea2f00934d35a653561f3dca}
+      \strng{fullhashraw}{b07e8722ea2f00934d35a653561f3dca}
+      \strng{bibnamehash}{b07e8722ea2f00934d35a653561f3dca}
+      \strng{authorbibnamehash}{b07e8722ea2f00934d35a653561f3dca}
+      \strng{authornamehash}{b07e8722ea2f00934d35a653561f3dca}
+      \strng{authorfullhash}{b07e8722ea2f00934d35a653561f3dca}
+      \strng{authorfullhashraw}{b07e8722ea2f00934d35a653561f3dca}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-1838648183}
+      \field{title}{Complete Virtual Reality and Augmented Reality Development with Unity: Leverage the power of Unity and become a pro at creating mixed reality applications}
+      \field{year}{2019}
+    \endentry
+    \entry{Hurt2024}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4d67ad74a586d6c1b03652f0d705f29d}{%
+           family={Hurt},
+           familyi={H\bibinitperiod},
+           given={Griffin\bibnamedelima J.},
+           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {University of Pittsburgh}%
+      }
+      \strng{namehash}{4d67ad74a586d6c1b03652f0d705f29d}
+      \strng{fullhash}{4d67ad74a586d6c1b03652f0d705f29d}
+      \strng{fullhashraw}{4d67ad74a586d6c1b03652f0d705f29d}
+      \strng{bibnamehash}{4d67ad74a586d6c1b03652f0d705f29d}
+      \strng{authorbibnamehash}{4d67ad74a586d6c1b03652f0d705f29d}
+      \strng{authornamehash}{4d67ad74a586d6c1b03652f0d705f29d}
+      \strng{authorfullhash}{4d67ad74a586d6c1b03652f0d705f29d}
+      \strng{authorfullhashraw}{4d67ad74a586d6c1b03652f0d705f29d}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Untethered Displays: The Effects of Mixed Reality on Split-Attention in Fine-Motor Tasks}
+      \field{type}{Bachelor of Philosophy Thesis}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb http://d-scholarship.pitt.edu/46363/
+      \endverb
+      \verb{url}
+      \verb http://d-scholarship.pitt.edu/46363/
+      \endverb
+    \endentry
+    \entry{Olasveengen2021}{article}{}{}
+      \name{author}{12}{}{%
+        {{un=0,uniquepart=base,hash=8965a1764e06d207351bf3e141cffe01}{%
+           family={Olasveengen},
+           familyi={O\bibinitperiod},
+           given={Theresa\bibnamedelima M.},
+           giveni={T\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d39d4826b80b63739c8f59072c406a08}{%
+           family={Semeraro},
+           familyi={S\bibinitperiod},
+           given={Federico},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a69f79ed9e5355278926ac9a589d2d52}{%
+           family={Ristagno},
+           familyi={R\bibinitperiod},
+           given={Giuseppe},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f4ef0c859f043e801dce18903201269f}{%
+           family={Castren},
+           familyi={C\bibinitperiod},
+           given={Maaret},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ff10eab04a041c0cae447d167dcba198}{%
+           family={Handley},
+           familyi={H\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=071e8e5e90e1636cf088dd05df6d0e3a}{%
+           family={Kuzovlev},
+           familyi={K\bibinitperiod},
+           given={Artem},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c2c59dccd63bd66b335fc86c815819f8}{%
+           family={Monsieurs},
+           familyi={M\bibinitperiod},
+           given={Koenraad\bibnamedelima G.},
+           giveni={K\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=df1dac9bf084671fdd0f79e6efbe5ecf}{%
+           family={Raffay},
+           familyi={R\bibinitperiod},
+           given={Violetta},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=974fe6b91d5ba71ea6a495eaf67d3df7}{%
+           family={Smyth},
+           familyi={S\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2734a03d65fc2c8db6e5b685b0304d68}{%
+           family={Soar},
+           familyi={S\bibinitperiod},
+           given={Jasmeet},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b6b246ed1c08b92d3d754307cddac65a}{%
+           family={Svavarsdottir},
+           familyi={S\bibinitperiod},
+           given={Hildigunnur},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b50270377290ae4e6f0802de64fe2104}{%
+           family={Perkins},
+           familyi={P\bibinitperiod},
+           given={Gavin\bibnamedelima D.},
+           giveni={G\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a2153720edf259ee8dddb52eab409bff}
+      \strng{fullhash}{c40912b4f07c78aadd562013c1cf7f87}
+      \strng{fullhashraw}{c40912b4f07c78aadd562013c1cf7f87}
+      \strng{bibnamehash}{c40912b4f07c78aadd562013c1cf7f87}
+      \strng{authorbibnamehash}{c40912b4f07c78aadd562013c1cf7f87}
+      \strng{authornamehash}{a2153720edf259ee8dddb52eab409bff}
+      \strng{authorfullhash}{c40912b4f07c78aadd562013c1cf7f87}
+      \strng{authorfullhashraw}{c40912b4f07c78aadd562013c1cf7f87}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Resuscitation}
+      \field{title}{European Resuscitation Council Guidelines 2021: Basic Life Support}
+      \field{volume}{161}
+      \field{year}{2021}
+      \field{pages}{98\bibrangedash 114}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1016/j.resuscitation.2021.02.009
+      \endverb
+      \verb{urlraw}
+      \verb https://semicyuc.org/wp-content/uploads/2021/09/RCP-Guias-ERC-2021-04-SVB-Resuscitation-2021.pdf
+      \endverb
+      \verb{url}
+      \verb https://semicyuc.org/wp-content/uploads/2021/09/RCP-Guias-ERC-2021-04-SVB-Resuscitation-2021.pdf
+      \endverb
+    \endentry
+    \entry{Raymer2023}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=32e2fc2edb4af23160845c41d58367c3}{%
+           family={Raymer},
+           familyi={R\bibinitperiod},
+           given={Emma},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=285aa18f47b177371611acab66f595f1}{%
+           family={MacDermott},
+           familyi={M\bibinitperiod},
+           given={Áine},
+           giveni={Á\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=40230d8eaf0a8eaecbdc063e04123762}{%
+           family={Akinbi},
+           familyi={A\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5f42b85ac0b0556d9345fff53bc42571}
+      \strng{fullhash}{f1563eee580d88da3ae66a861b21eadb}
+      \strng{fullhashraw}{f1563eee580d88da3ae66a861b21eadb}
+      \strng{bibnamehash}{f1563eee580d88da3ae66a861b21eadb}
+      \strng{authorbibnamehash}{f1563eee580d88da3ae66a861b21eadb}
+      \strng{authornamehash}{5f42b85ac0b0556d9345fff53bc42571}
+      \strng{authorfullhash}{f1563eee580d88da3ae66a861b21eadb}
+      \strng{authorfullhashraw}{f1563eee580d88da3ae66a861b21eadb}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The Meta Quest 2 is one of the most popular Virtual Reality (VR) entertainment headsets to date. The headset, developed by Meta Platforms Inc., immerses the user in a completely simulated environment. Some VR environments can be shared over the Internet to allow users to communicate and interact with one another and share their experiences. Unfortunately, the safety of these VR environments cannot always be guaranteed, generating a risk that users may be exposed to illicit online behaviour in the form of online harassment, grooming, and cyberbullying. Therefore, forensic examiners must be able to conduct sound forensic analysis of VR headsets to investigate these criminal investigations. In this study, we conduct digital forensic acquisition and analysis of the Meta Quest 2 VR headset. Analysis of the forensic image exemplified that there were several digital artefacts relating to user activities, device information and stored digital artefacts that can be extracted in a forensically sound manner. The main contributions of this study include a detailed description of the forensic acquisition process, identification of internal file storage locations, and recovery and analysis of digital artefacts that can be used to aid VR forensic investigations.}
+      \field{issn}{2666-2817}
+      \field{journaltitle}{Forensic Science International: Digital Investigation}
+      \field{title}{Virtual reality forensics: Forensic analysis of Meta Quest 2}
+      \field{volume}{47}
+      \field{year}{2023}
+      \field{pages}{301658}
+      \range{pages}{1}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.fsidi.2023.301658
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S2666281723001774
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S2666281723001774
+      \endverb
+      \keyw{Virtual reality,Meta Quest 2,VR Forensics,Digital forensics}
+    \endentry
+    \entry{Sigrist2013}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=db9ffad90a44060433bd533e957c6775}{%
+           family={Sigrist},
+           familyi={S\bibinitperiod},
+           given={Roland},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8c6a235f9b8b04a8f60b025217e01dd4}{%
+           family={Rauter},
+           familyi={R\bibinitperiod},
+           given={Georg},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=49162a7f3a8fe4b81a0d28a70c9e81a7}{%
+           family={Riener},
+           familyi={R\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6ea08b4eb1e704e09cd0d742e8d07049}{%
+           family={Wolf},
+           familyi={W\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{eea46d824cbe23ce5eeae7cd8c427446}
+      \strng{fullhash}{690056456412dc14f71b9a337bc31288}
+      \strng{fullhashraw}{690056456412dc14f71b9a337bc31288}
+      \strng{bibnamehash}{690056456412dc14f71b9a337bc31288}
+      \strng{authorbibnamehash}{690056456412dc14f71b9a337bc31288}
+      \strng{authornamehash}{eea46d824cbe23ce5eeae7cd8c427446}
+      \strng{authorfullhash}{690056456412dc14f71b9a337bc31288}
+      \strng{authorfullhashraw}{690056456412dc14f71b9a337bc31288}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Psychonomic Bulletin \& Review}
+      \field{number}{1}
+      \field{title}{Augmented visual, auditory, haptic, and multimodal feedback in motor learning: A review}
+      \field{volume}{20}
+      \field{year}{2013}
+      \field{pages}{21\bibrangedash 53}
+      \range{pages}{33}
+      \verb{doi}
+      \verb 10.3758/s13423-012-0333-8
+      \endverb
+    \endentry
+    \entry{Smyth2025}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=0dfa1724fd78017e80a7b54f6c487f5a}{%
+           family={Smyth},
+           familyi={S\bibinitperiod},
+           given={Michael\bibnamedelima A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cab272b31cf7d40d530be00265c42ca1}{%
+           family={Goor},
+           familyi={G\bibinitperiod},
+           given={Sander},
+           giveni={S\bibinitperiod},
+           givenun=0,
+           prefix={van},
+           prefixi={v\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=d379ac9ff3ecf4dd9cfc305ee1442204}{%
+           family={Hansen},
+           familyi={H\bibinitperiod},
+           given={Carolina\bibnamedelima Malta},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{48a0b5ddb6b8b055382da887b884f5e8}
+      \strng{fullhash}{c632ba986dd6b90baa30b5cd0ae81e8f}
+      \strng{fullhashraw}{c632ba986dd6b90baa30b5cd0ae81e8f}
+      \strng{bibnamehash}{c632ba986dd6b90baa30b5cd0ae81e8f}
+      \strng{authorbibnamehash}{c632ba986dd6b90baa30b5cd0ae81e8f}
+      \strng{authornamehash}{48a0b5ddb6b8b055382da887b884f5e8}
+      \strng{authorfullhash}{c632ba986dd6b90baa30b5cd0ae81e8f}
+      \strng{authorfullhashraw}{c632ba986dd6b90baa30b5cd0ae81e8f}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0300-9572}
+      \field{journaltitle}{Resuscitation}
+      \field{title}{European Resuscitation Council Guidelines 2025: Adult Basic Life Support}
+      \field{volume}{215}
+      \field{year}{2025}
+      \field{pages}{110771}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.resuscitation.2025.110771
+      \endverb
+    \endentry
+  \enddatalist
+  \missing{owid-causes-of-death}
+\endrefsection
+\endinput
+
