@@ -35,7 +35,8 @@ Het onderzoek is onderverdeeld in de volgende vier-fasen:
 \subsection{Fase 1: Requirements Analyse en Stakeholder-validatie}
 \label{subsec:fase1-requirements}
 
-In de eerste fase van het onderzoek worden de functionele en niet-functionele vereisten van de Mixed Reality-applicatie gedefinieerd. Het doel is om een objectief kader te scheppen waaraan de \textit{Proof of Concept} (PoC) moet voldoen om de geidentificeerde problemen, zoals het \textit{split-attention effect}, effectief aan te pakken.
+In de eerste fase van het onderzoek worden de functionele en niet-functionele vereisten van de Mixed Reality-applicatie gedefinieerd. 
+Het doel is om een objectief kader te scheppen waaraan de \textit{Proof of Concept} (PoC) moet voldoen om de geidentificeerde problemen effectief aan te pakken.
 
 \begin{itemize}
     \item \textbf{Doelstelling:} Het vastleggen van de technische en medische randvoorwaarden voor een effectieve reanimatietraining in MR.
@@ -49,10 +50,58 @@ In de eerste fase van het onderzoek worden de functionele en niet-functionele ve
     \item \textbf{Verantwoording:} Deze fase is essentieel om te garanderen dat de ontwikkelde oplossing aansluit bij de behoeften van de medische sector en dat de technische realisatie gericht is op de meest kritieke leerparameters \autocite{Sigrist2013}.
 \end{itemize}
 
+\subsection{Fase 2: Architectuur en "Simulation First" Ontwikkeling}
+\label{subsec:fase2-architectuur}
 
-\subsection{}
-\subsection{}
-\subsection{}
+In de tweede fase wordt de technische fundering van de applicatie gelegd binnen de Unity game-engine. Vanwege de afhankelijkheid van externe hardware wordt gekozen voor een architectuur die de softwarelogica loskoppelt van de fysieke sensoren.
 
+\begin{itemize}
+    \item \textbf{Doelstelling:} Het ontwerpen van een robuuste, hardware-agnostische omgeving waarin de visuele feedback-mechanismen onafhankelijk ontwikkeld en getest kunnen worden.
+    \item \textbf{Onderzoeksmethoden:}
+    \begin{itemize}
+        \item \textit{Prototyping:} Ontwikkeling van de \textit{Data Abstraction Layer} in C\#, die een uniforme interface biedt voor zowel gesimuleerde als reële sensordata.
+        \item \textit{Simulatie:} Implementatie van een \textit{Mock Data Provider} die reanimatieparameters (zoals diepte en frequentie) genereert om de reactiviteit van de visuele cues te valideren.
+        \item \textit{Visualisatie-ontwerp:} Realisatie van de \textit{Ghost Avatar} en kleurgebaseerde feedback op basis van de aanbevelingen uit de literatuur.
+    \end{itemize}
+    \item \textbf{Deliverables:} Een functioneel Unity-project waarin de visuele feedback-loop operationeel is op basis van gesimuleerde data, inclusief de initiële configuratie voor \textit{spatial anchoring}.
+    \item \textbf{Verantwoording:} Deze "Simulation First"-benadering minimaliseert technische vertragingen door hardware-afhankelijkheden en verhoogt de code-kwaliteit door een modulaire opbouw. Bovendien maakt dit vroege evaluatie van de cognitieve belasting mogelijk via de Unity XR Simulator.
+\end{itemize}
+
+
+
+\subsection{Fase 3: Technical Spike en Hardware-integratie}
+\label{subsec:fase3-integratie}
+
+In de derde fase vindt de transitie plaats van de gesimuleerde omgeving naar de fysieke testopstelling. De kern van deze fase is het overbruggen van de communicatiekloof tussen de reanimatiepop en de XR-headset.
+
+\begin{itemize}
+    \item \textbf{Doelstelling:} Het realiseren van een stabiele, real-time dataverbinding tussen de Laerdal Little Anne-pop en de Meta Quest 3.
+    \item \textbf{Onderzoeksmethoden:}
+    \begin{itemize}
+        \item \textit{Technical Spike:} Het reverse-engineeren van het Bluetooth Low Energy (BLE) GATT-protocol van de pop om parameters zoals compressiediepte (mm) en frequentie (cpm) uit te lezen in C\#.
+        \item \textit{Integratie:} Het vervangen van de \textit{Mock Data Provider} uit fase 2 door de actuele BLE-datastroom, waarbij de visuele feedback-logica wordt gekoppeld aan fysieke sensoren.
+        \item \textit{Spatial Anchoring:} Het implementeren van \textit{Spatial Anchors} via de Meta XR SDK om te garanderen dat de hologrammen exact gepositioneerd blijven op de fysieke pop, zonder 'drift' tijdens de oefening.
+    \end{itemize}
+    \item \textbf{Deliverables:} Een volledig functionele \textit{Proof of Concept} die in real-time reageert op fysieke reanimatiehandelingen met een totale latentie van minder dan 100 ms.
+    \item \textbf{Verantwoording:} Deze fase mitigeert het grootste technische risico van het project: de propriëtaire aard van de hardware-communicatie. Door dit als een aparte 'spike' te behandelen, 
+    blijft de rest van de ontwikkeling beschermd tegen onvoorziene verbindingsproblemen.
+\end{itemize}
+
+\subsection{Fase 4: Experimentele Validatie (A/B-test)}
+\label{subsec:fase4-validatie}
+
+De laatste fase toetst de effectiviteit van de MR-oplossing ten opzichte van de huidige standaard. Dit gebeurt via een kwantitatief experiment met een testgroep van studenten uit de gezondheidszorg.
+
+\begin{itemize}
+    \item \textbf{Doelstelling:} Het objectief en subjectief evalueren van de meerwaarde van Mixed Reality-feedback op de reanimatiekwaliteit en de cognitieve belasting.
+    \item \textbf{Onderzoeksmethoden:}
+    \begin{itemize}
+        \item \textit{A/B-testing:} Een vergelijkende studie waarbij de controlegroep (tablet-feedback via Laerdal QCPR) wordt getoetst tegen de interventiegroep (MR-feedback).
+        \item \textit{Objectieve Metrieken:} Analyse van de sensordata uit de pop (gemiddelde compressiescore, percentage correcte diepte en frequentie).
+        \item \textit{Subjectieve Metrieken:} Afname van de NASA-TLX vragenlijst om de mentale inspanning en het \textit{split-attention effect} te kwantificeren.
+    \end{itemize}
+    \item \textbf{Deliverables:} Een dataset met testresultaten en een statistische analyse die de basis vormt voor de conclusies van de bachelorproef.
+    \item \textbf{Verantwoording:} Deze methode is noodzakelijk om wetenschappelijk te bewijzen of de overgang van 2D-schermen naar MR-hologrammen daadwerkelijk leidt tot een verbetering in de leerervaring en uitvoering van CPR.
+\end{itemize}
 
 
