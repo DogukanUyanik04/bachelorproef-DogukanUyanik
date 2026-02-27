@@ -118,8 +118,8 @@ de natuurlijke link tussen omgevingsbewustzijn en prestatie wordt verbroken \aut
 Een belangrijk punt voor dit onderzoek is waarom tablets momenteel de standaard zijn, ondanks de cognitieve nadelen. 
 \textcite{Hurt2024} verklaart dit aan de hand van het \textit{Technology Acceptance Model 2} (TAM2). Deelnemers rapporteren vaak een voorkeur voor tablets, 
 niet omdat ze efficiënter zijn, maar vanwege een \textit{familiarity bias}. Omdat studenten in hun dagelijks leven constant tablets gebruiken voor studie en 
-ontspanning, ervaren ze een lagere drempel in gebruiksgemak (\textit{perceived ease of use}), ongeacht de werkelijke taakbelasting \autocite{Hurt2024}. 
-Bij complexe, taakgerichte handelingen zoals CPR kan deze gewenning echter de technische tekortkomingen van de modaliteit maskeren.
+ontspanning, ervaren ze een lagere drempel in gebruiksgemak, ongeacht de werkelijke taakbelasting \autocite{Hurt2024}. 
+Bij complexe, taakgerichte handelingen zoals CPR kan deze gewoonte echter de technische tekortkomingen van de modaliteit maskeren.
 
 \paragraph{Task Load en Visuele Continuïteit}
 Aanvullend onderzoek toont aan dat de \textit{task load} — een maatstaf voor mentale, fysieke en temporele inspanning — significant lager is bij 
@@ -164,3 +164,203 @@ Mixed Reality PoC:
 
 Door de \textit{ghost avatar} in Mixed Reality niet constant, maar adaptief aan te bieden, kan het systeem de student begeleiden in de vroege fase zonder dat er een 
 permanente afhankelijkheid ontstaat die de inzetbaarheid in een echte noodsituatie ondermijnt.
+
+
+\section{Cognitieve Belasting en Motorisch Leren}
+\label{sec:cognitieve-belasting}
+
+In deze sectie wordt de psychologische rechtvaardiging voor de overstap naar Mixed Reality toegelicht. De effectiviteit van een trainingstool wordt niet alleen bepaald door de technische accuraatheid van de sensoren, maar vooral door de manier waarop de menselijke hersenen informatie verwerken tijdens een fysiek veeleisende taak zoals reanimatie.
+
+\subsection{Het Split-Attention Effect}
+\label{subsec:split-attention}
+
+Het \textit{split-attention effect} treedt op wanneer een leerling gedwongen wordt om de aandacht te verdelen tussen twee of meer informatiebronnen die essentieel zijn voor de taak, maar die fysiek van elkaar gescheiden zijn. Volgens \textcite{Hurt2024} leidt dit bij traditionele CPR-trainingen met externe schermen tot een "cognitieve boete". 
+
+De student moet herhaaldelijk de blik afwenden van de borstkas van de pop (de plaats van actie) naar een tablet of monitor (de plaats van feedback). Volgens de \textit{Cognitive Load Theory} zorgt dit voor een overbelasting van het werkgeheugen: de hersenen moeten de visuele context van de pop telkens mentaal loslaten om de abstracte data op het scherm te verwerken en vervolgens weer terug te koppelen naar de fysieke handeling. Mixed Reality elimineert deze barrière door de feedback direct over de pop te projecteren, wat de visuele continuïteit herstelt en de mentale verwerkingscapaciteit volledig beschikbaar maakt voor de motorische uitvoering.
+
+\subsection{Situational Awareness (SA)}
+\label{subsec:situational-awareness}
+
+\textit{Situational Awareness} (SA) is het vermogen om elementen in de omgeving waar te nemen, de betekenis ervan te begrijpen en te voorspellen hoe deze de taak in de nabije toekomst zullen beïnvloeden. In een reële reanimatiesituatie is SA van vitaal belang om adequaat te reageren op de AED-instructies, de toestand van het slachtoffer en de veiligheid van de omgeving.
+
+Uit het onderzoek van \textcite{Hurt2024} blijkt dat er bij Mixed Reality een significante positieve correlatie bestaat tussen SA en de uiteindelijke prestatie. 
+Bij tablet-gebaseerde modaliteiten ontbrak dit verband echter. Gebruikers van externe schermen vertonen vaak een vorm van "tunnelvisie" op de grafische feedback, 
+waardoor zij het contact met de pop en de omgeving verliezen. Hurt wijst hierbij ook op de \textit{familiarity bias}: omdat studenten zeer gewend zijn aan tablets, 
+onderschatten zij vaak de hoeveelheid aandacht die het schakelen tussen scherm en pop werkelijk opeist.
+
+\subsection{Proprioceptie en Haptiek}
+\label{subsec:proprioceptie-haptiek}
+
+Een uniek aspect van reanimatie is de noodzaak van haptische feedback: de fysieke weerstand van de borstkas die de hulpverlener moet voelen om de juiste kracht 
+te kalibreren. \textcite{Sigrist2013} maken hierbij onderscheid tussen twee vormen van perceptie:
+
+\begin{itemize}
+    \item \textbf{Haptiek:} De combinatie van tactiele perceptie (druk op de huid) en kinesthetische perceptie (het gevoel van de pose en beweging via receptoren 
+    in spieren en pezen).
+    \item \textbf{Proprioceptie:} Het interne vermogen van het lichaam om de eigen positie en beweging in de ruimte waar te nemen zonder visuele controle.
+\end{itemize}
+
+Motorisch leren is volgens \textcite{Sigrist2013} het meest effectief wanneer externe feedback de interne zintuiglijke waarneming "kalibreert". In een traditionele 
+setting voelen de handen de weerstand, maar de ogen zien een abstracte 2D-meter. In een Mixed Reality-omgeving vallen de visuele referentie (de \textit{ghost avatar}) 
+en de haptische ervaring (de fysieke weerstand van de pop) ruimtelijk samen. Dit zorgt voor een snellere neurologische koppeling: de hersenen leren de gevoelde 
+spierspanning direct te associëren met de correcte diepte van 5--6 cm.
+
+
+
+\section{Mixed Reality in de Gezondheidszorg}
+\label{sec:mr-gezondheidszorg}
+
+In deze sectie worden de technologische kaders van Mixed Reality (MR) geschetst. 
+Er wordt dieper ingegaan op de hardwarematige verschillen tussen huidige systemen en hoe deze van invloed zijn op de nauwkeurigheid van medische simulaties.
+
+\subsection{Definities: Het Reality-Virtuality Continuum}
+\label{subsec:definities-mr}
+
+Om de positie van Mixed Reality te begrijpen, wordt vaak verwezen naar het \textit{Reality-Virtuality Continuum} van Milgram. 
+Volgens \textcite{Gerup2020} is Mixed Reality de overkoepelende term voor omgevingen waarin fysieke en digitale objecten in real-time naast elkaar bestaan en met elkaar interageren. 
+
+\begin{itemize}
+    \item \textbf{Augmented Reality (AR):} Voegt digitale elementen toe aan een verder ongewijzigde fysieke wereld, vaak via een smartphone of transparante bril \autocite{Carroll2020}.
+    \item \textbf{Virtual Reality (VR):} Sluit de gebruiker volledig af van de fysieke wereld en vervangt deze door een volledig gesimuleerde omgeving \autocite{Raymer2023}.
+    \item \textbf{Mixed Reality (MR):} De samensmelting waarbij virtuele objecten (zoals de \textit{ghost avatar}) niet alleen bovenop de werkelijkheid worden getoond, maar ook verankerd lijken aan fysieke objecten (zoals de reanimatiepop) \autocite{DAngelo2021}.
+\end{itemize}
+
+
+
+\subsection{Video Passthrough versus Optical See-Through}
+\label{subsec:passthrough-vs-optical}
+
+Bij het ontwerpen van een reanimatietrainer is de keuze van de visuele weergave cruciaal. Er bestaan twee dominante technologieën:
+
+\begin{enumerate}
+    \item \textbf{Optical See-Through (bijv. Microsoft HoloLens 2):} Maakt gebruik van transparante glazen waar hologrammen op geprojecteerd worden. Het voordeel is een natuurlijke weergave van de omgeving, maar het nadeel is een beperkt gezichtsveld (\textit{Field of View}) en transparante hologrammen die bij fel licht moeilijk zichtbaar zijn \autocite{Diller2024}.
+    \item \textbf{Video Passthrough (bijv. Meta Quest 3):} De headset is volledig gesloten (zoals VR), maar gebruikt hoge-resolutie camera's om de buitenwereld in real-time te filmen en op de schermen te tonen. 
+\end{enumerate}
+
+Voor dit onderzoek is gekozen voor de Meta Quest 3 vanwege de superieure \textbf{diepteperceptie} en \textbf{occlusie}. 
+Bij reanimatie bevinden de handen zich tussen de ogen van de hulpverlener en de pop. Video Passthrough staat toe dat virtuele feedback 
+(zoals diepte-indicators) correct achter of rondom de fysieke handen getoond kan worden, wat bij optische systemen vaak problematisch is \autocite{Glover2019}.
+
+
+
+\subsection{Spatial Computing en Verankering (Anchoring)}
+\label{subsec:spatial-anchoring}
+
+Een essentieel aspect van de Proof of Concept is dat de \textit{ghost avatar} exact gepositioneerd blijft op de fysieke reanimatiepop, 
+ongeacht de bewegingen van de gebruiker. Dit proces wordt gefaciliteerd door \textit{Spatial Computing}.
+
+Volgens \textcite{Glover2019} maakt de headset gebruik van \textit{Simultaneous Localization and Mapping} (SLAM) om de kamer in kaart te brengen.
+Door middel van \textbf{Spatial Anchors} kan de Unity-applicatie een digitaal coördinatensysteem koppelen aan een specifiek punt in de fysieke ruimte. 
+Voor de reanimatiepop betekent dit dat de software de pop herkent als een vast ankerpunt, waardoor de feedback-overlay stabiel blijft en de student de 
+haptische weerstand van de pop exact op de locatie van het hologram ervaart.
+
+
+
+
+
+\section{Visualisatietechnieken voor Motorische Feedback}
+\label{sec:visualisatietechnieken}
+
+De effectiviteit van een Mixed Reality-reanimatietrainer hangt grotendeels af van de manier waarop de verzamelde sensordata 
+wordt vertaald naar begrijpelijke visuele instructies. 
+In deze sectie worden de verschillende technieken voor visuele ondersteuning besproken, gebaseerd op de classificatie van \textcite{Diller2024}.
+
+\subsection{Positionele Feedback: De Ghost Avatar}
+\label{subsec:positionele-feedback}
+
+Positionele feedback heeft als doel de gebruiker te informeren over de gewenste lichaamshouding of de positie van de ledematen. 
+De meest gebruikte techniek hiervoor is de \textit{Transparent Target Avatar}, ook wel bekend als de 'Ghost Avatar'.
+
+Volgens de uitgebreide survey van \textcite{Diller2024} biedt een transparante avatar het grote voordeel dat het dient als een direct ruimtelijk spiegelbeeld. 
+In de context van reanimatie kan een Ghost Avatar de ideale handpositie en de volledige compressiecyclus (van de startpositie tot de maximale diepte van 5--6 cm) 
+visualiseren. Doordat het hologram direct over de eigen handen en de pop wordt geprojecteerd, hoeft de student geen mentale rotatie of 
+vertaalslag te maken vanaf een extern 2D-scherm. Dit minimaliseert de cognitieve belasting en maximaliseert de nauwkeurigheid van de positionering op het sternum.
+
+
+
+\subsection{Directionele en Abstracte Feedback}
+\label{subsec:directionele-abstracte-feedback}
+
+Hoewel een Ghost Avatar de doelpositie aangeeft, zijn aanvullende cues vaak nodig om de gebruiker in real-time te corrigeren wanneer deze van het ideale pad afwijkt.
+
+\begin{itemize}
+    \item \textbf{Directionele Feedback:} Deze cues leiden de gebruiker actief naar de juiste positie. \textcite{Diller2024} identificeert hierbij technieken zoals 
+    3D-pijlen die de richting van de benodigde kracht aangeven, of 'Rubber Bands' (virtuele elastieken) die de afstand tussen de huidige handpositie en de doelpositie 
+    visualiseren. Voor CPR-training zijn pijlen bijzonder nuttig om aan te geven dat een compressie dieper moet zijn of dat de handen volledig ontlast moeten worden 
+    (recoil).
+    \item \textbf{Abstracte Feedback:} Hierbij wordt informatie versimpeld tot symbolen of kleuren. De meest effectieve methode is \textit{Color Coding}. 
+    In een Mixed Reality-omgeving kan de Ghost Avatar of de reanimatiepop groen oplichten bij een correcte uitvoering, en rood verkleuren bij een foutieve 
+    diepte of frequentie. Dit biedt onmiddellijke bevestiging zonder dat de gebruiker tekstuele instructies hoeft te lezen.
+\end{itemize}
+
+\subsection{Feedforward versus Feedback}
+\label{subsec:feedforward-vs-feedback}
+
+Een cruciaal conceptueel onderscheid in motorisch leren is het verschil tussen \textit{feedforward} en \textit{feedback} informatie.
+
+\textcite{Sigrist2013} legt uit dat \textbf{feedback} informatie geeft over een actie die al heeft plaatsgevonden 
+(bijv. "de vorige compressie was te ondiep"). \textbf{Feedforward} daarentegen toont de gewenste actie vóór of tijdens de uitvoering 
+(bijv. de Ghost Avatar die de beweging voordoet). 
+
+In dit onderzoek wordt gestreefd naar een synergie tussen beide:
+\begin{enumerate}
+    \item De Ghost Avatar fungeert als een \textbf{feedforward-mechanisme} door continu het ideale pad en tempo aan te geven.
+    \item De Color Coding en directionele pijlen fungeren als \textbf{concurrent feedback} door de afwijking van dat ideale pad in real-time te markeren.
+\end{enumerate}
+
+Volgens \textcite{Sigrist2013} is deze combinatie in de vroege leerfase van complexe taken essentieel om een correcte 'interne representatie' 
+van de beweging op te bouwen, op voorwaarde dat de hulp later geleidelijk wordt afgebouwd om afhankelijkheid te voorkomen (zie \autoref{subsec:guidance-hypothesis}).
+
+
+\section{Technische Infrastructuur en Communicatie}
+\label{sec:technische-infrastructuur}
+
+De betrouwbaarheid van een Mixed Reality-reanimatietrainer valt of staat bij de technische integratie tussen de fysieke pop en de digitale interface. 
+In deze sectie worden de protocollen voor datatransmissie, de impact van latentie en de rol van de ontwikkelomgeving toegelicht.
+
+\subsection{Bluetooth Low Energy (BLE) en GATT-profielen}
+\label{subsec:ble-gatt}
+
+Voor de draadloze communicatie tussen de reanimatiepop en de Meta Quest 3 is \textit{Bluetooth Low Energy} (BLE) het aangewezen protocol. 
+Volgens \textcite{ChaariFourati2020} is BLE bij uitstek geschikt voor medische sensoren vanwege het lage energieverbruik en de geoptimaliseerde 
+overdracht van kleine datapakketten.
+
+
+
+De pop fungeert binnen dit netwerk als een \textit{GATT-server} (Generic Attribute Profile). De data (zoals compressiediepte in millimeters) 
+wordt georganiseerd in \textit{characteristics}, die gegroepeerd zijn onder specifieke \textit{services}. De Mixed Reality-headset treedt op als 
+\textit{client} en maakt gebruik van een 'subscribe'-mechanisme. Hierdoor hoeft de headset niet constant om data te vragen (polling), maar verstuurt 
+de pop automatisch een update zodra er een verandering in de sensordata optreedt. Dit draagt bij aan een efficiëntere verwerking en een langere batterijduur 
+van de apparatuur \autocite{ChaariFourati2020}.
+
+\subsection{Latency en Gebruikerservaring}
+\label{subsec:latency-ux}
+
+In een real-time feedbacksysteem is \textit{latency} - de vertraging tussen de fysieke actie en de visuele reactie - 
+een kritieke factor voor het motorisch leerproces. Wanneer de visuele cue niet synchroon loopt met de haptische ervaring (het indrukken van de pop), 
+
+ontstaat er een cognitieve dissonantie die de leercurve negatief beïnvloedt.
+
+Volgens het klassieke onderzoek van \textcite{Miller1968} ligt de grens voor een 'onmiddellijke' systeemreactie rond de $100$ ms. 
+Boven deze grens ervaart de menselijke hersenpan een merkbare vertraging, wat bij fijn-motorische taken zoals CPR kan leiden tot een over- of 
+ondercorrectie van de diepte en frequentie. Voor een optimale Mixed Reality-ervaring is de ambitie echter om de \textit{motion-to-photon latency} 
+(de tijd tussen beweging en de update van de pixels in de bril) nog lager te houden, idealiter onder de $20$ ms, om misselijkheid en desoriëntatie te 
+voorkomen \autocite{Glover2019}.
+
+\subsection{De Unity Engine en Meta XR SDK}
+\label{subsec:unity-meta-sdk}
+
+De softwarematige brug tussen de ruwe sensordata en de \textit{ghost avatar} wordt gevormd door de Unity game engine in combinatie met de \textit{Meta XR Core SDK}. 
+
+
+
+Unity dient als de \textit{rendering engine} die de 3D-modellen en visuele feedback in real-time berekent. De \textit{Meta XR SDK} is 
+essentieel voor de \textit{spatial awareness} van het systeem. Het biedt de benodigde API's voor:
+\begin{itemize}
+    \item \textbf{Video Passthrough:} Het streamen van de camerabeelden van de werkelijkheid naar de displays van de headset met minimale vertraging.
+    \item \textbf{Spatial Anchoring:} Het vastzetten van het digitale coördinatensysteem op een fysiek punt (de pop), zodat de Ghost Avatar stabiel 
+    blijft ongeacht de hoofdbewegingen van de gebruiker \autocite{Glover2019}.
+\end{itemize}
+
+Door deze technologieën te combineren, wordt de abstracte data van de BLE-verbinding omgezet in een tastbare, ruimtelijke ervaring die de student helpt 
+bij het internaliseren van de correcte reanimatietechniek.
