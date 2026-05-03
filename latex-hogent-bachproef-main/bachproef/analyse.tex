@@ -1,0 +1,61 @@
+\chapter{Analyse en Requirements}
+\label{ch:analyse}
+
+In dit hoofdstuk worden de functionele en technische vereisten van de Proof of Concept (PoC) gedefinieerd. 
+Waar de literatuurstudie in Hoofdstuk 2 de theoretische noodzaak voor Mixed Reality (MR) binnen de zorg vaststelde, 
+vertaalt dit hoofdstuk die noodzaak naar concrete systeemeisen. De focus ligt op het overbruggen van de kloof tussen de fysieke hardware van de 
+reanimatiepop en de digitale omgeving van de Meta Quest 3.
+
+\section{Probleemcontext}
+De huidige reanimatietrainingen lijden onder het zogenaamde \textit{split-attention effect}, waarbij de cursist de aandacht moet verdelen tussen de 
+pop en een extern feedbackscherm. De voorgestelde oplossing beoogt deze cognitieve belasting te verlagen door data direct in het gezichtsveld van de 
+verpleegkundige te projecteren. De technische uitdaging is echter dat de gebruikte Laerdal Little Anne QCPR pop een gesloten systeem is zonder publiek toegankelijke API.
+
+\section{Functionele Requirements}
+De functionele eisen beschrijven wat de applicatie moet kunnen om als een effectieve trainingstool te dienen.
+
+\begin{itemize}
+    \item \textbf{Draadloze Data-acquisitie:} De applicatie moet via Bluetooth Low Energy (BLE) verbinding maken met de reanimatiepop.
+    \item \textbf{Real-time Feedback-lus:} Elke compressie moet onmiddellijk resulteren in een visuele verandering in de MR-omgeving.
+    \item \textbf{Visuele Indicatoren:} Het systeem moet conform de ERC 2025 richtlijnen aangeven of de compressiediepte (5--6 cm) en de frequentie (100--120 bpm) correct zijn.
+    \item \textbf{Ghost Avatar:} Een transparante referentie-avatar moet het ideale bewegingspatroon demonstreren om de student te begeleiden (\textit{feedforward}).
+\end{itemize}
+
+\section{Niet-functionele Requirements}
+De niet-functionele eisen bepalen de kwaliteit en de bruikbaarheid van de software.
+
+\begin{itemize}
+    \item \textbf{Robuustheid:} De BLE-verbinding moet stabiel blijven in een omgeving met potentieel veel interferentie (zoals een ziekenhuis- of klasomgeving).
+    \item \textbf{Intuïtieve UI:} De interface moet de \textit{situational awareness} van de verpleegkundige versterken in plaats van deze te belemmeren met complexe menu's.
+\end{itemize}
+
+\section{Technische Randvoorwaarden}
+Voor de ontwikkeling van deze PoC zijn de volgende hardware- en softwarekeuzes gemaakt:
+
+\begin{description}
+    \item[Meta Quest 3:] Gekozen vanwege de hoge-resolutie \textit{video passthrough} en de krachtige \textit{spatial computing} mogelijkheden voor hand-tracking.
+    \item[Unity Engine:] Gebruikt als primaire ontwikkelomgeving vanwege de volwassenheid van de Meta XR SDK en de flexibiliteit in het afhandelen van ruwe datastromen.
+    \item[Android-gebaseerd OS:] Aangezien de Quest 3 op Android draait, moet de communicatielaag compatibel zijn met de Android Bluetooth-stack.
+\end{description}
+
+\section{MoSCoW-Prioritering}
+Gezien de beperkte tijdspanne van de bachelorproef en de complexiteit van de hardware-integratie, is de scope vastgelegd middels de MoSCoW-methode:
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|p{10cm}|}
+        \hline
+        \textbf{Prioriteit} & \textbf{Eis} \\ \hline
+        \textbf{Must-have} & Stabiele BLE-datastroom, visualisatie van diepte en tempo, correcte ruimtelijke verankering op de pop. \\ \hline
+        \textbf{Should-have} & Implementatie van de Ghost Avatar, kleurcodering bij foutieve handelingen. \\ \hline
+        \textbf{Could-have} & Loggen van sessiedata voor latere evaluatie, ondersteuning voor verschillende reanimatie-scenario's. \\ \hline
+        \textbf{Won't-have} & Volledige integratie met ziekenhuis-informatiesystemen of multi-player functionaliteit. \\ \hline
+    \end{tabular}
+    \caption{MoSCoW-prioritering voor de Proof of Concept.}
+    \label{tab:moscow_analyse}
+\end{table}
+
+\section{Conclusie van de analyse}
+De analyse toont aan dat de grootste bottleneck niet de visualisatie in MR is, maar de acquisitie van de live data. Zonder een gedocumenteerde API van de fabrikant is 
+een standaard implementatie onmogelijk. Dit noodzaakt een diepgaand onderzoek naar het communicatieprotocol van de pop, wat in het volgende hoofdstuk (Reverse Engineering) 
+technisch zal worden uitgewerkt.

@@ -1,48 +1,25 @@
-%%=============================================================================
-%% Samenvatting
-%%=============================================================================
-
-% TODO: De "abstract" of samenvatting is een kernachtige (~ 1 blz. voor een
-% thesis) synthese van het document.
-%
-% Een goede abstract biedt een kernachtig antwoord op volgende vragen:
-%
-% 1. Waarover gaat de bachelorproef?
-% 2. Waarom heb je er over geschreven?
-% 3. Hoe heb je het onderzoek uitgevoerd?
-% 4. Wat waren de resultaten? Wat blijkt uit je onderzoek?
-% 5. Wat betekenen je resultaten? Wat is de relevantie voor het werkveld?
-%
-% Daarom bestaat een abstract uit volgende componenten:
-%
-% - inleiding + kaderen thema
-% - probleemstelling
-% - (centrale) onderzoeksvraag
-% - onderzoeksdoelstelling
-% - methodologie
-% - resultaten (beperk tot de belangrijkste, relevant voor de onderzoeksvraag)
-% - conclusies, aanbevelingen, beperkingen
-%
-% LET OP! Een samenvatting is GEEN voorwoord!
-
-%%---------- Nederlandse samenvatting -----------------------------------------
-%
-% TODO: Als je je bachelorproef in het Engels schrijft, moet je eerst een
-% Nederlandse samenvatting invoegen. Haal daarvoor onderstaande code uit
-% commentaar.
-% Wie zijn bachelorproef in het Nederlands schrijft, kan dit negeren, de inhoud
-% wordt niet in het document ingevoegd.
-
-\IfLanguageName{english}{%
-\selectlanguage{dutch}
-\chapter*{Samenvatting}
-\lipsum[1-4]
-\selectlanguage{english}
-}{}
-
-%%---------- Samenvatting -----------------------------------------------------
-% De samenvatting in de hoofdtaal van het document
-
 \chapter*{\IfLanguageName{dutch}{Samenvatting}{Abstract}}
 
-\lipsum[1-4]
+Traditionele reanimatietraining voor verpleegkundigen steunt vaak op externe 2D-interfaces voor feedback, wat leidt tot het \textit{split-attention effect}. 
+De hulpverlener moet hierbij de aandacht verdelen tussen de fysieke handeling op de reanimatiepop en een extern scherm, wat de cognitieve belasting verhoogt en de 
+leercurve belemmert. Deze bachelorproef onderzoekt hoe Mixed Reality (MR) technologie dit proces kan optimaliseren door real-time, intuïtieve feedback direct in het 
+gezichtsveld van de gebruiker te projecteren.
+
+Het doel van dit onderzoek was de ontwikkeling van een Proof of Concept (PoC) op de Meta Quest 3, 
+waarbij sensordata van een reanimatiepop in real-time wordt gevisualiseerd via een Unity-applicatie. 
+Een significante technische barrière in dit proces was de gesloten aard van de beschikbare communicatieprotocollen.
+Hoewel de fabrikant eigen ecosystemen aanbiedt, ontbreekt een publiek toegankelijke en gedocumenteerde SDK die directe 
+integratie met de Meta Quest 3 en de Unity-omgeving mogelijk maakt. Daarnaast vormt de beperkte native ondersteuning voor Bluetooth Low Energy (BLE) 
+binnen de standaard Unity-ontwikkelomgeving voor Android-gebaseerde headsets een extra hindernis.
+
+Om dit probleem te overbruggen, is een diepgaand technisch onderzoek uitgevoerd naar het communicatieprotocol van de pop. 
+Door middel van \textit{reverse engineering} technieken waaronder het decompileren van officiële software en het analyseren van 
+Bluetooth Low Energy (BLE) pakketjes via \textit{HCI snoop logs} en Wireshark op een gerouteerd Android-toestel zijn de verborgen 
+handshakes en data-characteristics ontcijferd. 
+
+Het resultaat is een werkend prototype dat live sensordata (zoals compressiediepte en frequentie) vertaalt naar ruimtelijke 
+visualisaties, waaronder een \textit{ghost avatar} en een dynamisch reagerend hartmodel. De voorlopige resultaten van deze PoC 
+tonen aan dat MR in staat is om de kloof tussen haptische ervaring en visuele feedback te dichten. Dit onderzoek legt hiermee de 
+technische fundamenten voor een nieuwe generatie medische simulatietools die verpleegkundigen effectiever kunnen voorbereiden op kritieke levensreddende situaties.
+
+\textbf{Trefwoorden:} Mixed Reality, Meta Quest 3, Reanimatietraining, Reverse Engineering, Bluetooth Low Energy, Unity, Zorginnovatie.
