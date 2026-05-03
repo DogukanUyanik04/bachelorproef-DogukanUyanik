@@ -10,21 +10,19 @@ Het onderzoek naar het protocol werd opgedeeld in drie fasen:
 \begin{enumerate}
     \item \textbf{Statische Analyse:} Het decompileren van de officiële Android-applicatie om de broncode te bestuderen.
     \item \textbf{Dynamische Analyse:} Het onderscheppen van live Bluetooth-verkeer tussen de pop en een smartphone via HCI-sniffing.
-    \item \textbf{Protocol Mapping:} Het correleren van onderschepte bytes aan fysieke handelingen op de pop en het implementeren van deze logica in C#.
+    \item \textbf{Protocol Mapping:} Het correleren van onderschepte bytes aan fysieke handelingen op de pop en het implementeren van deze logica in C\#.
 \end{enumerate}
 
 \section{Statische Analyse en de barrière van Obfuscatie}
 De eerste poging tot het begrijpen van het protocol bestond uit het decompileren van de officiële Laerdal QCPR-app (APK-bestand) middels tools zoals \textit{Jadx-GUI}. 
 
-Hoewel de decompilatie succesvol was in het herstellen van de mappenstructuur, stuitte het onderzoek direct op \textit{code obfuscation}. 
-De fabrikant heeft de broncode behandeld met tools die variabele- en methodenamen vervangen door nietszeggende karakters (bijv. \texttt{a.b(c, d)}). 
-Hierdoor was het onmogelijk om de logica achter de Bluetooth-handshake of de data-interpretatie puur uit de broncode af te leiden. Deze doodlopende weg 
-bevestigde de noodzaak voor een \textit{black-box} benadering via netwerkanalyse op de hardware-interface.
+Hoewel de decompilatie succesvol was in het herstellen van de mappenstructuur, stuitte het onderzoek op een fundamentele barrière. Uit de decompilatie (zie Figuur \ref{fig:jadx_obfuscation}) bleek dat de applicatie is gebouwd op het cross-platform Xamarin/Mono framework (te zien aan de \texttt{IGCUserPeer} implementaties). De zichtbare Java-code fungeert uitsluitend als een \textit{wrapper} die de datastromen via \texttt{native} methoden direct doorstuurt naar onderliggende gecompileerde C\#-assemblies (.dll).
+Hierdoor was het onmogelijk om de logica achter de Bluetooth-handshake of de data-interpretatie puur uit de Java-broncode af te leiden. Deze doodlopende weg bevestigde de noodzaak voor een \textit{black-box} benadering via netwerkanalyse op de hardware-interface.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.8\textwidth]{jadx_obfuscation.png} % Zorg dat je screenshot zo heet in je graphics map
-    \caption{Degecompileerde broncode in Jadx-GUI vertoont zware obfuscatie (variabelen hernoemd naar a, b, c).}
+    \includegraphics[width=0.8\textwidth]{jadx.png}
+    \caption{Degecompileerde broncode in Jadx-GUI waarbij de overgang naar \texttt{native} methoden de verdere statische analyse blokkeert.}
     \label{fig:jadx_obfuscation}
 \end{figure}
 
@@ -37,16 +35,15 @@ Daarom werd een gerouteerd (\textit{rooted}) Android-toestel ingezet. Dit bood d
 elk pakket vast dat door de Bluetooth-controller van het toestel wordt verwerkt op de \textit{Host Controller Interface} (HCI) laag.
 
 \subsection{Data-acquisitie via Wireshark}
+Na een reanimatiesessie met de officiële app werd het gegenereerde logbestand (\texttt{btsnoop\_hci.log}) geanalyseerd met \textit{Wireshark}. In deze fase werd 
+gezocht naar \textit{GATT (Generic Attribute Profile)} transacties. Voorafgaand aan de analyse werden de specifieke GATT-services in kaart gebracht via nRF Connect (zie Figuur \ref{fig:nrf_uuids}).
+
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.6\textwidth]{nrf_connect_uuids.png}
-    \caption{Overzicht van de gevonden GATT-services en characteristics in nRF Connect.}
+    \includegraphics[width=0.45\textwidth]{nrf.jpg}
+    \caption{Overzicht van de geselecteerde GATT-service (UUID eindigend op 0126) en de bijbehorende characteristics in nRF Connect.}
     \label{fig:nrf_uuids}
 \end{figure}
-
-Na een reanimatiesessie met de officiële app werd het gegenereerde logbestand (\texttt{btsnoop\_hci.log}) geanalyseerd met \textit{Wireshark}. In deze fase werd 
-gezocht naar \textit{GATT (Generic Attribute Profile)} transacties. De focus lag op het identificeren van de \textit{Write Requests} die de initiële verbinding 
-tot stand brachten en de \textit{Handle Value Notifications} die de live sensordata bevatten.
 
 \section{Ontcijfering van het Protocol}
 Door de Wireshark-logs te correleren met de uiteindelijke Unity-implementatie, zijn de volgende technische specificaties achterhaald:
@@ -60,29 +57,33 @@ Er werd vastgesteld dat de pop communiceert via een specifiek Service-UUID-patro
 \end{description}
 
 \subsection{De "Handshake" en Authentificatie}
-Een cruciale ontdekking was dat de pop beveiligd is met een authenticatie-mechanisme. Zonder het versturen van een specifieke \textit{Auth Key} naar de pop,
-weigert de hardware sensordata te verzenden. De geanalyseerde handshake bestaat uit drie stappen:
+Een cruciale ontdekking was dat de pop beveiligd is met een authenticatie-mechanisme. Zonder het versturen van een specifieke \textit{Auth Key} naar de pop, weigert de hardware sensordata te verzenden. De geanalyseerde handshake bestaat uit drie stappen:
 \begin{enumerate}
     \item \textbf{Authenticatie:} Het schrijven van een 20-byte array (startend met \texttt{0x5C 0x0E...}) naar het \textit{Auth-UUID}.
     \item \textbf{Activatie 1:} Een write-opdracht met payload \texttt{0x03} naar UUID \texttt{...012b}.
-    \item \textbf{Activatie 2:} Een write-opdracht met payload \texttt{0x03 0xFF 0x00} naar UUID \texttt{...0127}.
+    \item \textbf{Activatie 2:} Een write-opdracht met payload \texttt{0x03 0xFF 0x00} naar UUID \texttt{...0127} (zie Figuur \ref{fig:wireshark_handshake}).
 \end{enumerate}
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=1\textwidth]{wireshark_packet.png}
-    \caption{Wireshark analyse van een Bluetooth HCI snoop log waarbij de authenticatie-bytes worden verzonden.}
+    \includegraphics[width=1\textwidth]{wireshark.png}
+    \caption{Wireshark analyse van de HCI snoop log waarbij de activatie-bytes (\texttt{03ff00}) van de handshake worden verzonden.}
     \label{fig:wireshark_handshake}
 \end{figure}
 
 \section{Data Mapping: Van Bytes naar Millimeters}
-Na de succesvolle handshake begint de pop met het uitzenden van \textit{notifications} op het \textit{Wave}-kanaal. De data wordt verzonden als een byte-array. 
-Uit de implementatie in C\# blijkt dat de relevante informatie over de compressiediepte zich in de laatste byte van het pakket bevindt (\texttt{bytes[bytes.Length - 1]}).
+Na de succesvolle handshake begint de pop met het uitzenden van \textit{notifications} op het \textit{Wave}-kanaal (zie Figuur \ref{fig:wireshark_wave}). De data wordt verzonden als een byte-array. 
+Uit de implementatie in C\# blijkt dat de relevante informatie over de compressiediepte zich bevindt in de payload van deze pakketten.
 
-De ruwe waarde in deze byte correleert direct met de fysieke indrukking van de borstkas, waarbij een hexadecimale waarde van \texttt{0x4A} (decimaal 74) 
-het maximale meetbereik vertegenwoordigt. In de Unity-omgeving wordt deze waarde genormaliseerd en vertaald naar een procentuele diepte voor de visuele 
-feedback-elementen.
+De ruwe waarde in deze bytes correleert direct met de fysieke indrukking van de borstkas. In de Unity-omgeving wordt deze waarde genormaliseerd en vertaald naar een procentuele diepte voor de visuele feedback-elementen in de Mixed Reality-ervaring.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{notification.png}
+    \caption{Onderschepping van een live \textit{Handle Value Notification} met de ruwe sensordata op de \textit{Wave} characteristic.}
+    \label{fig:wireshark_wave}
+\end{figure}
 
 \section{Conclusie}
-Het succesvol \textit{reverse engineeren} van dit protocol heeft de afhankelijkheid van een officiële SDK weggenomen. Door het omzeilen van de obfuscatie 
-via \textit{packet sniffing} en het handmatig implementeren van de handshake in C\#, is een stabiele databrug geslagen tussen de medische hardware en de Meta Quest 3.
+Het succesvol \textit{reverse engineeren} van dit protocol heeft de afhankelijkheid van een officiële SDK weggenomen. Door het omzeilen van de obfuscatie via 
+\textit{packet sniffing} en het handmatig implementeren van de handshake in C\#, is een stabiele databrug geslagen tussen de medische hardware en de Meta Quest 3.  TESTEESTTESTTESTTEST
