@@ -261,6 +261,53 @@
       \verb 10.3390/app11052338
       \endverb
     \endentry
+    \entry{owid-causes-of-death}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=72e39f6fbf1c6fa199e6a3650839c77d}{%
+           family={Dattani},
+           familyi={D\bibinitperiod},
+           given={Saloni},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fd22cae92b7bbfb8433a65215135f9e0}{%
+           family={Spooner},
+           familyi={S\bibinitperiod},
+           given={Fiona},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a6d904a648976069036f5eddb4ad0151}{%
+           family={Ritchie},
+           familyi={R\bibinitperiod},
+           given={Hannah},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c0e5ce1b546c571edc443f6a4f166170}{%
+           family={Roser},
+           familyi={R\bibinitperiod},
+           given={Max},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{187e3bb1933df6bbf9d67cb432ab8679}
+      \strng{fullhash}{2462f8980378f9a588490973bc0a5d80}
+      \strng{fullhashraw}{2462f8980378f9a588490973bc0a5d80}
+      \strng{bibnamehash}{2462f8980378f9a588490973bc0a5d80}
+      \strng{authorbibnamehash}{2462f8980378f9a588490973bc0a5d80}
+      \strng{authornamehash}{187e3bb1933df6bbf9d67cb432ab8679}
+      \strng{authorfullhash}{2462f8980378f9a588490973bc0a5d80}
+      \strng{authorfullhashraw}{2462f8980378f9a588490973bc0a5d80}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Our World in Data}
+      \field{note}{https://ourworldindata.org/causes-of-death}
+      \field{title}{Causes of Death}
+      \field{year}{2023}
+    \endentry
     \entry{Diller2024}{article}{}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=5afa1aa068a500798d45328819f2ba7b}{%
@@ -430,6 +477,39 @@
       \endverb
       \verb{url}
       \verb http://d-scholarship.pitt.edu/46363/
+      \endverb
+    \endentry
+    \entry{Miller1968}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9b4d9f2ad3334629311ab6027c1cfd93}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={Robert\bibnamedelima B.},
+           giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9b4d9f2ad3334629311ab6027c1cfd93}
+      \strng{fullhash}{9b4d9f2ad3334629311ab6027c1cfd93}
+      \strng{fullhashraw}{9b4d9f2ad3334629311ab6027c1cfd93}
+      \strng{bibnamehash}{9b4d9f2ad3334629311ab6027c1cfd93}
+      \strng{authorbibnamehash}{9b4d9f2ad3334629311ab6027c1cfd93}
+      \strng{authornamehash}{9b4d9f2ad3334629311ab6027c1cfd93}
+      \strng{authorfullhash}{9b4d9f2ad3334629311ab6027c1cfd93}
+      \strng{authorfullhashraw}{9b4d9f2ad3334629311ab6027c1cfd93}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{AFIPS '68 (Fall, part I): Proceedings of the December 9-11, 1968, fall joint computer conference}
+      \field{title}{Response time in man-computer conversational transactions}
+      \field{year}{1968}
+      \field{pages}{267\bibrangedash 277}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1145/1476589.1476628
       \endverb
     \endentry
     \entry{Olasveengen2021}{article}{}{}
@@ -944,6 +1024,53 @@
       \verb 10.3390/app11052338
       \endverb
     \endentry
+    \entry{owid-causes-of-death}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=72e39f6fbf1c6fa199e6a3650839c77d}{%
+           family={Dattani},
+           familyi={D\bibinitperiod},
+           given={Saloni},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fd22cae92b7bbfb8433a65215135f9e0}{%
+           family={Spooner},
+           familyi={S\bibinitperiod},
+           given={Fiona},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a6d904a648976069036f5eddb4ad0151}{%
+           family={Ritchie},
+           familyi={R\bibinitperiod},
+           given={Hannah},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c0e5ce1b546c571edc443f6a4f166170}{%
+           family={Roser},
+           familyi={R\bibinitperiod},
+           given={Max},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{187e3bb1933df6bbf9d67cb432ab8679}
+      \strng{fullhash}{2462f8980378f9a588490973bc0a5d80}
+      \strng{fullhashraw}{2462f8980378f9a588490973bc0a5d80}
+      \strng{bibnamehash}{2462f8980378f9a588490973bc0a5d80}
+      \strng{authorbibnamehash}{2462f8980378f9a588490973bc0a5d80}
+      \strng{authornamehash}{187e3bb1933df6bbf9d67cb432ab8679}
+      \strng{authorfullhash}{2462f8980378f9a588490973bc0a5d80}
+      \strng{authorfullhashraw}{2462f8980378f9a588490973bc0a5d80}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Our World in Data}
+      \field{note}{https://ourworldindata.org/causes-of-death}
+      \field{title}{Causes of Death}
+      \field{year}{2023}
+    \endentry
     \entry{Diller2024}{article}{}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=5afa1aa068a500798d45328819f2ba7b}{%
@@ -1113,6 +1240,39 @@
       \endverb
       \verb{url}
       \verb http://d-scholarship.pitt.edu/46363/
+      \endverb
+    \endentry
+    \entry{Miller1968}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9b4d9f2ad3334629311ab6027c1cfd93}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={Robert\bibnamedelima B.},
+           giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9b4d9f2ad3334629311ab6027c1cfd93}
+      \strng{fullhash}{9b4d9f2ad3334629311ab6027c1cfd93}
+      \strng{fullhashraw}{9b4d9f2ad3334629311ab6027c1cfd93}
+      \strng{bibnamehash}{9b4d9f2ad3334629311ab6027c1cfd93}
+      \strng{authorbibnamehash}{9b4d9f2ad3334629311ab6027c1cfd93}
+      \strng{authornamehash}{9b4d9f2ad3334629311ab6027c1cfd93}
+      \strng{authorfullhash}{9b4d9f2ad3334629311ab6027c1cfd93}
+      \strng{authorfullhashraw}{9b4d9f2ad3334629311ab6027c1cfd93}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{AFIPS '68 (Fall, part I): Proceedings of the December 9-11, 1968, fall joint computer conference}
+      \field{title}{Response time in man-computer conversational transactions}
+      \field{year}{1968}
+      \field{pages}{267\bibrangedash 277}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1145/1476589.1476628
       \endverb
     \endentry
     \entry{Olasveengen2021}{article}{}{}
@@ -1384,7 +1544,6 @@
       \endverb
     \endentry
   \enddatalist
-  \missing{owid-causes-of-death}
 \endrefsection
 \endinput
 

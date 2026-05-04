@@ -1,0 +1,13 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// Berekening van het interval op basis van de gewenste BPM}
+\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{interval}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m}{60f}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{n}{perfecteBPM}\PYG{p}{;}
+\PYG{n}{audioTimer}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{n}{Time}\PYG{p}{.}\PYG{n}{deltaTime}\PYG{p}{;}
+
+\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{audioTimer}\PYG{+w}{ }\PYG{o}{\PYGZgt{}=}\PYG{+w}{ }\PYG{n}{interval}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{// Volume neemt af naarmate de patient stabiliseert (0.0 = stilte)}
+\PYG{+w}{    }\PYG{n}{metronoomAudio}\PYG{p}{.}\PYG{n}{volume}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m}{1f}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{huidigeHartVulling}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{metronoomAudio}\PYG{p}{.}\PYG{n}{PlayOneShot}\PYG{p}{(}\PYG{n}{metronoomAudio}\PYG{p}{.}\PYG{n}{clip}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{audioTimer}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m}{0f}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

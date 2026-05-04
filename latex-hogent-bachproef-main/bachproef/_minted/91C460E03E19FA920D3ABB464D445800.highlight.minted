@@ -1,0 +1,14 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// Sequentiële handshake met pauzes voor hardware\PYGZhy{}stabiliteit}
+\PYG{n}{BluetoothLEHardwareInterface}\PYG{p}{.}\PYG{n}{WriteCharacteristic}\PYG{p}{(}\PYG{n}{address}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{authSvc}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{authUUID}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{authKey}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{authKey}\PYG{p}{.}\PYG{n}{Length}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{true}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{id}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{Debug}\PYG{p}{.}\PYG{n}{Log}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}RADAR\PYGZbs{}\PYGZus{}LOG: [OK] Wachtwoord geaccepteerd.\PYGZdq{}}\PYG{p}{);}
+\PYG{p}{\PYGZcb{});}
+
+\PYG{k}{yield}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n+nf}{WaitForSeconds}\PYG{p}{(}\PYG{l+m}{0.5f}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{// Noodzakelijke pauze}
+
+\PYG{n}{BluetoothLEHardwareInterface}\PYG{p}{.}\PYG{n}{WriteCharacteristic}\PYG{p}{(}\PYG{n}{address}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{act1Svc}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{act1UUID}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{act1Key}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{act1Key}\PYG{p}{.}\PYG{n}{Length}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{true}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{id}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{Debug}\PYG{p}{.}\PYG{n}{Log}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}RADAR\PYGZbs{}\PYGZus{}LOG: [OK] Act\PYGZhy{}1 geaccepteerd.\PYGZdq{}}\PYG{p}{);}
+\PYG{p}{\PYGZcb{});}
+\end{MintedVerbatim}

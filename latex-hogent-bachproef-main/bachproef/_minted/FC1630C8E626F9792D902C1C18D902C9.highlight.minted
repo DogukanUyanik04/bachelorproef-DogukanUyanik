@@ -1,0 +1,15 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{KalibreerEnStart}\PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{// 1. Verplaats de hele simulatie naar de fysieke plek van de controller}
+\PYG{+w}{    }\PYG{n}{simulatieParent}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{position}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{controllerRechts}\PYG{p}{.}\PYG{n}{position}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{c+c1}{// 2. Draai de simulatie horizontaal (Y\PYGZhy{}as) gelijk aan de controller}
+\PYG{+w}{    }\PYG{c+c1}{// De X en Z as worden genegeerd om kanteling te voorkomen}
+\PYG{+w}{    }\PYG{n}{Vector3}\PYG{+w}{ }\PYG{n}{nieuweRotatie}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{controllerRechts}\PYG{p}{.}\PYG{n}{eulerAngles}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{simulatieParent}\PYG{p}{.}\PYG{n}{transform}\PYG{p}{.}\PYG{n}{rotation}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Quaternion}\PYG{p}{.}\PYG{n}{Euler}\PYG{p}{(}\PYG{l+m}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{nieuweRotatie}\PYG{p}{.}\PYG{n}{y}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m}{0}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{c+c1}{// 3. Start de trainingssessie via de flowManager}
+\PYG{+w}{    }\PYG{n}{flowManager}\PYG{p}{.}\PYG{n}{FinalStartTraining}\PYG{p}{();}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

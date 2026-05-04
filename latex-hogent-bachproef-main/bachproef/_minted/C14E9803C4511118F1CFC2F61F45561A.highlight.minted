@@ -1,0 +1,14 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// Afbouw van visuele hulp op basis van prestaties}
+\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{huidigeHartVulling}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{hulpAfbouwDrempel}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{percentage}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{huidigeHartVulling}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{hulpAfbouwDrempel}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{p}{(}\PYG{l+m}{1f}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{hulpAfbouwDrempel}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{hulpAlpha}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Mathf}\PYG{p}{.}\PYG{n}{Lerp}\PYG{p}{(}\PYG{l+m}{0.8f}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m}{0f}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{percentage}\PYG{p}{);}\PYG{+w}{ }\PYG{c+c1}{// Faden van 80\PYGZpc{} naar 0\PYGZpc{} opacity}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// Toepassing op de renderer}
+\PYG{k}{foreach}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Renderer}\PYG{+w}{ }\PYG{n}{r}\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{n}{ghostRenderers}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{r}\PYG{p}{.}\PYG{n}{material}\PYG{p}{.}\PYG{n}{SetColor}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZus{}BaseColor\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Color}\PYG{p}{(}\PYG{n}{r}\PYG{p}{.}\PYG{n}{material}\PYG{p}{.}\PYG{n}{color}\PYG{p}{.}\PYG{n}{r}\PYG{p}{,}
+\PYG{+w}{        }\PYG{n}{r}\PYG{p}{.}\PYG{n}{material}\PYG{p}{.}\PYG{n}{color}\PYG{p}{.}\PYG{n}{g}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{.}\PYG{n}{material}\PYG{p}{.}\PYG{n}{color}\PYG{p}{.}\PYG{n}{b}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{hulpAlpha}\PYG{p}{));}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

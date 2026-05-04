@@ -1,0 +1,13 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{UpdateTimerUI}\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{restTijd}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Mathf}\PYG{p}{.}\PYG{n}{Max}\PYG{p}{(}\PYG{l+m}{0f}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{maxTrainingTijd}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{trainingTimer}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{minuten}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Mathf}\PYG{p}{.}\PYG{n}{FloorToInt}\PYG{p}{(}\PYG{n}{restTijd}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{l+m}{60F}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{seconden}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Mathf}\PYG{p}{.}\PYG{n}{FloorToInt}\PYG{p}{(}\PYG{n}{restTijd}\PYG{+w}{ }\PYG{o}{\PYGZpc{}}\PYG{+w}{ }\PYG{l+m}{60F}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{timerTekst}\PYG{p}{.}\PYG{n}{text}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kt}{string}\PYG{p}{.}\PYG{n}{Format}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZob{}0:00\PYGZcb{}:\PYGZob{}1:00\PYGZcb{}\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{minuten}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{seconden}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{c+c1}{// Visuele urgentie bij de laatste 15 seconden}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{restTijd}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m}{15f}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{timerTekst}\PYG{p}{.}\PYG{n}{color}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Color}\PYG{p}{.}\PYG{n}{red}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{else}\PYG{+w}{ }\PYG{n}{timerTekst}\PYG{p}{.}\PYG{n}{color}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Color}\PYG{p}{.}\PYG{n}{white}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

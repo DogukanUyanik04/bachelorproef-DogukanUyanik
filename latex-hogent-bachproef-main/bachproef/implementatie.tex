@@ -1,0 +1,353 @@
+\section{Applicatie-architectuur en State Management}
+Om de verschillende fasen van de training (scannen, kalibreren, oefenen en evalueren) vloeiend te laten verlopen, is een centrale \texttt{AppFlowManager} geïmplementeerd. Deze component fungeert als een \textit{finite state machine} die de actieve gebruikersinterface (UI) en de status van de simulatie beheert.
+
+De \texttt{AppFlowManager} zorgt voor de transitie tussen de volgende \textit{states}:
+\begin{itemize}
+    \item \textbf{Lobby:} Het initialiseren van de Bluetooth-scan via de \texttt{ScannerTestScript}.
+    \item \textbf{Calibration:} Het activeren van de \textit{Passthrough}-view en het inschakelen van de \texttt{VRKalibratie}-logica.
+    \item \textbf{Training:} Het starten van de \texttt{MockSimulator}, de timer en de live Bluetooth-datastroom.
+    \item \textbf{Results:} Het aggregeren van de data en het tonen van het eindrapport.
+\end{itemize}
+
+Door deze gecentraliseerde aanpak blijven de individuele scripts (zoals de Bluetooth-handler en de simulator) ontkoppeld, wat de stabiliteit en onderhoudbaarheid van de code ten goede komt.
+
+\section{Protocol-implementatie en Data-verwerking}
+Nadat de stabiele communicatielaag was opgezet, is de logica uit de \textit{reverse engineering} fase (Hoofdstuk \ref{ch:reverse_engineering}) 
+geïmplementeerd in een centrale \texttt{ScannedItemScript}-component. Deze component fungeert als de functionele brug tussen de Bluetooth-stack en de Unity-omgeving.
+
+\subsection{De Geautomatiseerde Handshake}
+Zoals vastgesteld in de dynamische analyse, vereist de reanimatiepop een specifieke opeenvolging van commando's voordat deze sensordata begint te verzenden. 
+Omdat de Bluetooth-hardware op de pop een beperkte verwerkingscapaciteit heeft, bleek uit de testfase dat het simpelweg achter elkaar versturen van commando's 
+leidde tot overbelasting en kritieke crashes van de Bluetooth-chip.
+
+Om dit op te lossen, is de handshake geïmplementeerd middels een \texttt{IEnumerator} (\texttt{ConnectionFlow}). Dit stelt de applicatie in staat om asynchroon te 
+wachten tussen de verschillende schrijfacties zonder de hoofd-thread van Unity te blokkeren. De sequentie verloopt als volgt:
+
+\begin{enumerate}
+    \item \textbf{Authenticatie:} De 20-byte \texttt{authKey} wordt naar de \textit{Auth Characteristic} geschreven.
+    \item \textbf{Activatie Fase 1:} Een activatie-byte (\texttt{0x03}) wordt naar UUID \texttt{...012b} verstuurd.
+    \item \textbf{Activatie Fase 2:} De finale activatie-bytes (\texttt{0x03 0xFF 0x00}) worden naar UUID \texttt{...0127} geschreven.
+\end{enumerate}
+
+Tussen elke stap is een pauze van 0,5 seconden ingebouwd middels \texttt{yield return new WaitForSeconds(0.5f)}. Deze vertraging is cruciaal voor de 
+stabiliteit van het systeem; het geeft de hardware van de pop de nodige tijd om de inkomende bytes te verwerken en de interne status aan te passen voordat het 
+volgende commando arriveert.
+
+\begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
+// Sequentiële handshake met pauzes voor hardware-stabiliteit
+BluetoothLEHardwareInterface.WriteCharacteristic(address, authSvc, authUUID, 
+    authKey, authKey.Length, true, (id) => { 
+    Debug.Log("RADAR\_LOG: [OK] Wachtwoord geaccepteerd.");
+});
+
+yield return new WaitForSeconds(0.5f); // Noodzakelijke pauze
+
+BluetoothLEHardwareInterface.WriteCharacteristic(address, act1Svc, act1UUID, 
+    act1Key, act1Key.Length, true, (id) => { 
+    Debug.Log("RADAR\_LOG: [OK] Act-1 geaccepteerd.");
+});
+\end{minted}
+
+\subsection{Realtime Data Parsing}
+Zodra de handshake succesvol is afgerond, begint de reanimatiepop met het verzenden van \textit{notifications} op de \textit{Wave Characteristic}. In tegenstelling 
+tot \textit{polling}, waarbij de applicatie constant data opvraagt, zorgt dit \textit{publish-subscribe} model ervoor dat de pop autonoom data verstuurt 
+bij elke gedetecteerde beweging. Dit is essentieel voor de lage latentie die vereist is binnen een Mixed Reality-ervaring.
+
+De binnenkomende data wordt ontvangen als een \texttt{byte}-array. Uit de correlatie-analyse in de \textit{reverse engineering} fase bleek dat de actuele 
+compressiediepte zich bevindt in de laatste byte van deze array. In de C\#-implementatie wordt deze waarde geëxtraheerd en opgeslagen in de variabele 
+\texttt{huidigeDiepte}.
+
+\begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
+// Callback-methode die wordt aangeroepen bij elke nieuwe notification
+BluetoothLEHardwareInterface.SubscribeCharacteristic(address, sUUID, cUUID, 
+    (notification) => { /* Actie bij statuswijziging */ },
+    (characteristic, bytes) => {
+        if (bytes != null && bytes.Length > 0)
+        {
+            // Filter specifiek op het 'Wave' data-kanaal (...0027)
+            if (characteristic.ToLower().Contains("00000027"))
+            {
+                // De ruwe sensorwaarde bevindt zich in de laatste byte
+                int diepte = bytes[bytes.Length - 1];
+                huidigeDiepte = diepte; 
+            }
+        }
+    }
+);
+\end{minted}
+
+De ruwe waarde die op deze manier wordt verkregen, is een integer variërend van 0 (geen compressie) tot circa 74 (maximale compressie, overeenkomend met hex 
+\texttt{0x4A}). Deze waarde vormt de basis voor de visuele representatie. Door deze data direct in de \texttt{Update}-loop van Unity beschikbaar te maken,
+kan de visuele feedback zonder merkbare vertraging reageren op de fysieke handelingen van de student.
+
+
+
+
+\section{Multisensorische Feedback en MR-Integratie}
+De kernwaarde van deze applicatie ligt in de vertaling van passieve sensordata naar actieve, didactische sturing. 
+In plaats van een numerieke weergave, maakt de applicatie gebruik van multisensorische feedback om de student intuïtief naar de 
+perfecte reanimatietechniek te begeleiden. Dit proces wordt centraal beheerd door de \texttt{MockSimulator}.
+
+\subsection{Visuele Begeleiding: Ghost Hands en Passthrough}
+Door de \textit{Passthrough}-technologie van de Meta Quest 3 blijft de student verbonden met de fysieke realiteit, terwijl een \textit{ghost avatar} 
+van handen over de reanimatiepop wordt geprojecteerd. Deze avatar fungeert als een dynamische visuele gids voor zowel het tempo als de diepte.
+
+\subsubsection{Animatie en Bewegingslogica}
+De beweging van de gids wordt niet aangestuurd door een statische animatieclip, maar door een procedureel script (\texttt{GhostAnimator}). 
+Om een realistisch compressieritme te simuleren, is gekozen voor een lineaire beweging in plaats van een vloeiende sinusgolf. Dit is gerealiseerd met de \texttt{Mathf.PingPong}-functie.
+
+\begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
+// Berekening van de gids-beweging (110 BPM, 6 cm diepte)
+float pingPongWaarde = Mathf.PingPong(Time.time * snelheid, 1f);
+
+// Vertaling naar verticale positie (Y-as)
+float nieuweY = rustPositie.y - (pingPongWaarde * ideaalDiepte);
+transform.localPosition = new Vector3(rustPositie.x, nieuweY, rustPositie.z);
+\end{minted}
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{onderkant_ghost.png}
+        \caption{Onderaanzicht van de ghost-hands.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{zijkant_ghost.png}
+        \caption{Zijaanzicht van de compressiepositie.}
+    \end{subfigure}
+    \caption{Visuele representatie van de ghost-hands in de Unity-omgeving.}
+    \label{fig:ghost_hands_view}
+\end{figure}
+
+\subsubsection{Realtime Kleurfeedback en Emissie}
+De belangrijkste indicator voor de student is de kleur van de gids. De \texttt{MockSimulator} berekent bij elke compressie of de cursist binnen de 
+marges van 50-60 mm diepte en 100-120 BPM valt. De overgang tussen de kleuren gebeurt vloeiend via \texttt{Color.Lerp} om visuele onrust te voorkomen.
+
+\begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
+// Bepaling van de feedbackkleur op basis van prestaties
+Color doelKleur = (goedeDiepte && goedeBPM) ? Color.green : Color.red;
+huidigeKleur = Color.Lerp(huidigeKleur, doelKleur, Time.deltaTime * 3f);
+
+// Toepassing op het materiaal met emissie voor een "glow" effect
+foreach (Renderer r in ghostRenderers) {
+    r.material.SetColor("\_BaseColor", huidigeKleur);
+    r.material.SetColor("\_EmissionColor", huidigeKleur * emissieKracht);
+}
+\end{minted}
+
+De emissiewaarde zorgt ervoor dat de handen oplichten in de Mixed Reality-omgeving, waardoor ze ook bij fel omgevingslicht (via Passthrough) duidelijk 
+zichtbaar blijven voor de student.
+
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{good.jpg}
+        \caption{Correcte uitvoering: de gids kleurt groen.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{bad.jpg}
+        \caption{Foutieve uitvoering: de gids kleurt rood met een corrigerende tip.}
+    \end{subfigure}
+    \caption{Realtime visuele feedback via Passthrough. De kleur van de handen en de HUD-instructies passen zich aan op basis van de Bluetooth-data.}
+    \label{fig:live_feedback_comparison}
+\end{figure}
+
+
+\subsection{Auditieve Feedback: De Adaptieve Metronoom}
+Om de cognitieve belasting te verlagen en de student te ondersteunen bij het aanhouden van het juiste ritme, bevat de applicatie een adaptieve metronoom. 
+In plaats van een statisch geluidsfragment, is het volume van het getik dynamisch gekoppeld aan de voortgang van de reanimatie.
+
+\subsubsection{Implementatie van de Adaptieve Audio}
+In de \texttt{MockSimulator} wordt een timer bijgehouden die gebaseerd is op de \texttt{perfecteBPM} (110 BPM). Elke keer dat het interval wordt bereikt, 
+wordt het volume van de \texttt{AudioSource} opnieuw berekend op basis van de \texttt{huidigeHartVulling}. Dit zorgt ervoor dat het geluid luider is wanneer 
+de patiënt in kritieke toestand verkeert, en wegsterft naarmate de stabilisatie vordert.
+
+\begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
+// Berekening van het interval op basis van de gewenste BPM
+float interval = 60f / perfecteBPM;
+audioTimer += Time.deltaTime;
+
+if (audioTimer >= interval)
+{
+    // Volume neemt af naarmate de patient stabiliseert (0.0 = stilte)
+    metronoomAudio.volume = 1f - huidigeHartVulling;
+    metronoomAudio.PlayOneShot(metronoomAudio.clip);
+    audioTimer = 0f;
+}
+\end{minted}
+
+\subsubsection{Didactisch Nut}
+Deze vorm van feedback maakt gebruik van \textit{negative reinforcement}: het storende, luide getik fungeert als een prikkel die de student motiveert om de 
+techniek te verbeteren. Zodra de student de juiste diepte en frequentie aanhoudt, vult het virtuele hart zich en neemt de auditieve druk af. Dit creëert een 
+instinctieve drang om de patiënt naar een "stille" en stabiele toestand te brengen, wat de focus op de kwaliteit van de compressies verhoogt zonder dat de student 
+constant naar een UI-scherm hoeft te kijken.
+
+
+
+\subsection{Het Vullende Hart en Gamificatie}
+Het centrale feedback-element van de applicatie is een \textit{World Space UI} in de vorm van een hart, gepositioneerd in de nabijheid van de pop. 
+De vulgraad (\texttt{fillAmount}) van dit hart fungeert als een metafoor voor de overlevingskans van de patiënt.
+
+\subsubsection{Dynamische Vullogica}
+De variabele \texttt{huidigeHartVulling} wordt realtime berekend op basis van de kwaliteit van de uitgevoerde compressies. Wanneer de student zowel het juiste tempo als de juiste diepte aanhoudt, stijgt de waarde. Bij inactiviteit of foutieve handelingen treedt er een "leegloop-effect" op, wat de urgentie van de handeling benadrukt.
+
+\begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
+// Logica voor het vullen en leeglopen van het hart
+if (goedeDiepte && goedeBPM) 
+{
+    huidigeHartVulling += vulSnelheid; // Beloning voor correcte techniek
+} 
+else 
+{
+    huidigeHartVulling -= 0.05f; // Strafpunt voor foutieve techniek
+}
+
+// Passieve leegloop bij inactiviteit (BPM < 10)
+if (huidigeBPMCursist < 10f) 
+{
+    huidigeHartVulling -= leegloopSnelheid * Time.deltaTime;
+}
+
+// UI-update
+hartVullingImage.fillAmount = huidigeHartVulling;
+\end{minted}
+
+\subsubsection{Didactische Scaffolding: Hulpafbouw}
+Een uniek kenmerk van de applicatie is de implementatie van \textit{scaffolding}. Dit houdt in dat de visuele ondersteuning (de \textit{ghost hands}) 
+geleidelijk wordt afgebouwd naarmate de student aantoont de techniek te beheersen. Dit dwingt de cursist om te vertrouwen op het eigen spiergeheugen 
+in plaats van enkel de gids te volgen.
+
+Via de \texttt{hulpAfbouwDrempel} wordt de transparantie (alfa-waarde) van de gids aangepast. Zodra de hartvulling boven de 50\% stijgt, worden de 
+handen minder zichtbaar.
+
+\begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
+// Afbouw van visuele hulp op basis van prestaties
+if (huidigeHartVulling > hulpAfbouwDrempel) 
+{
+    float percentage = (huidigeHartVulling - hulpAfbouwDrempel) / (1f - hulpAfbouwDrempel);
+    hulpAlpha = Mathf.Lerp(0.8f, 0f, percentage); // Faden van 80% naar 0% opacity
+}
+
+// Toepassing op de renderer
+foreach (Renderer r in ghostRenderers) {
+    r.material.SetColor("\_BaseColor", new Color(r.material.color.r, 
+        r.material.color.g, r.material.color.b, hulpAlpha));
+}
+\end{minted}
+
+Dit mechanisme zorgt voor een natuurlijke overgang van begeleid oefenen naar zelfstandige uitvoering, wat de effectiviteit van de training verhoogt.
+
+\subsection{Heads-Up Display (HUD) en Realtime Analyse}
+Via de \texttt{CenterEyeAnchor} van de Meta Quest 3 wordt een Heads-Up Display (HUD) getoond. Deze interface is zodanig 
+gepositioneerd dat de informatie beschikbaar is zonder dat de cursist de focus van de reanimatiepop hoeft te halen.
+
+\subsubsection{Intelligente Feedback-berichten}
+Om te voorkomen dat de student overspoeld wordt met informatie bij elke kleine afwijking, maakt de applicatie gebruik van een 
+foutenteller (\texttt{foutenVoorWaarschuwing}). Pas wanneer een specifieke fout (bijv. te ondiep drukken) herhaaldelijk achter elkaar wordt gemaakt, 
+wordt er een actieve tip getoond.
+
+\begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
+void CheckVoorFeedbackBericht() {
+    // Controleer of de foutendrempel (bijv. 3) is bereikt
+    if (fouteDiepteTeller >= foutenVoorWaarschuwing) {
+        if (laatsteGemetenPiek > 60f) 
+            ToonTip("Je drukt te diep!\nGeef iets minder druk.");
+        else 
+            ToonTip("Je drukt te ondiep!\nGebruik meer lichaamsgewicht.");
+        
+        fouteDiepteTeller = 0; // Reset teller na weergave
+    }
+}
+\end{minted}
+
+De methode \texttt{ToonTip} zorgt er vervolgens voor dat het bericht een aantal seconden in beeld blijft via een variabele \texttt{verbergTekstTijd}, 
+zodat de student de tijd heeft om de instructie te lezen en op te volgen.
+
+\subsubsection{Dynamische Trainingstimer}
+De timer fungeert niet enkel als informatiebron, maar ook als psychologische trigger. In de \texttt{UpdateTimerUI} methode wordt de resterende tijd 
+berekend en geformatteerd naar een minuten- en secondennotatie.
+
+\begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
+void UpdateTimerUI() {
+    float restTijd = Mathf.Max(0f, maxTrainingTijd - trainingTimer);
+    int minuten = Mathf.FloorToInt(restTijd / 60F);
+    int seconden = Mathf.FloorToInt(restTijd % 60F);
+    
+    timerTekst.text = string.Format("{0:00}:{1:00}", minuten, seconden);
+    
+    // Visuele urgentie bij de laatste 15 seconden
+    if (restTijd <= 15f) timerTekst.color = Color.red;
+    else timerTekst.color = Color.white;
+}
+\end{minted}
+
+Door de kleur van de tekst te veranderen naar rood in de laatste 15 seconden, wordt een gevoel van urgentie gecreëerd dat de 
+stress van een reële reanimatiesituatie nabootst.
+
+\subsection{Ruimtelijke Kalibratie en World Alignment}
+Een cruciaal aspect van een Mixed Reality-applicatie is dat de virtuele gids (de ghost-hands) exact samenvalt met de fysieke reanimatiepop. In deze applicatie is gekozen voor een manuele kalibratiemethode via de \texttt{VRKalibratie}-module, wat een directe en betrouwbare \textit{world alignment} garandeert zonder de noodzaak voor complexe beeldherkenning.
+
+\subsubsection{Manuele Positionering via Controller-tracking}
+Omdat de Meta Quest 3 via \textit{Passthrough} de echte wereld toont, kan de cursist de rechter controller fysiek op de borstkas van de reanimatiepop plaatsen. Door op de 'A'-knop van de controller te drukken (\texttt{OVRInput.Button.One}), wordt de volledige simulatie-omgeving in één keer verplaatst en geroteerd naar de huidige positie van de hardware.
+
+\begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
+void KalibreerEnStart()
+{
+    // 1. Verplaats de hele simulatie naar de fysieke plek van de controller
+    simulatieParent.transform.position = controllerRechts.position;
+
+    // 2. Draai de simulatie horizontaal (Y-as) gelijk aan de controller
+    // De X en Z as worden genegeerd om kanteling te voorkomen
+    Vector3 nieuweRotatie = controllerRechts.eulerAngles;
+    simulatieParent.transform.rotation = Quaternion.Euler(0, nieuweRotatie.y, 0);
+
+    // 3. Start de trainingssessie via de flowManager
+    flowManager.FinalStartTraining();
+}
+\end{minted}
+
+Door enkel de Y-as van de rotatie over te nemen, wordt gegarandeerd dat de virtuele handen altijd perfect horizontaal op de pop blijven staan, 
+ongeacht de hoek waaronder de cursist de controller vasthoudt tijdens het kalibratiemoment.
+
+\section{Sessie-evaluatie en Resultaten}
+Nadat de training is voltooid, is het essentieel dat de student objectieve feedback krijgt over de geleverde prestaties. De \texttt{MockSimulator} 
+verzamelt gedurende de hele sessie data om een eindrapport te genereren dat verder gaat dan loutere observatie.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{results.png}
+    \caption{Het resultatenscherm (\texttt{Panel\_Results}) met de geaggregeerde score, gemiddelde diepte, tempo en een gepersonaliseerde didactische tip.}
+    \label{fig:results_screen}
+\end{figure}
+
+\subsection{Data-aggregatie en Analyse}
+Tijdens de reanimatie worden alle individuele compressiewaarden (diepte en tempo) opgeslagen in dynamische lijsten. Bij het beëindigen van de sessie 
+berekent de \texttt{EindigTraining}-methode de gemiddelden en de nauwkeurigheidsscore.
+
+\begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
+// Berekening van statistieken voor het eindrapport
+float scorePercentage = totaalCompressies > 0 
+    ? ((float)goedeCompressies / totaalCompressies) * 100f : 0f;
+
+// Berekenen van gemiddelde waarden via LINQ
+float gemDiepte = lijstDieptes.Count > 0 ? lijstDieptes.Average() : 0f;
+float gemBPM = lijstBPMs.Count > 0 ? lijstBPMs.Average() : 0f;
+\end{minted}
+
+\subsection{Didactische Feedback}
+Naast de numerieke data toont het \texttt{Panel\_Results} een gepersonaliseerde tip. De applicatie analyseert welke fout het meest 
+frequent voorkwam (bijvoorbeeld te ondiepe compressies) en koppelt hier een specifieke instructie aan via de \texttt{LanguageManager}. 
+Dit zorgt voor een afsluitend leermoment waarbij de student direct weet op welk technisch aspect de focus moet liggen bij een volgende poging.
+
+\section{Conclusie}
+In dit hoofdstuk is aangetoond hoe de theoretische analyse van het Bluetooth-protocol succesvol is vertaald naar een 
+functionele Unity-applicatie voor de Meta Quest 3. Door gebruik te maken van procedurele animaties, adaptieve audio-feedback en een 
+toegankelijk kalibratiesysteem, is een stabiele brug geslagen tussen de fysieke medische hardware en een interactieve Mixed Reality-leeromgeving. De implementatie 
+bewijst dat \textit{reverse engineering} van bestaande apparatuur een waardevol alternatief biedt wanneer officiële SDK-ondersteuning ontbreekt.

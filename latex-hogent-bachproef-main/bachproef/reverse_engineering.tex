@@ -16,8 +16,10 @@ Het onderzoek naar het protocol werd opgedeeld in drie fasen:
 \section{Statische Analyse en de barrière van Obfuscatie}
 De eerste poging tot het begrijpen van het protocol bestond uit het decompileren van de officiële Laerdal QCPR-app (APK-bestand) middels tools zoals \textit{Jadx-GUI}. 
 
-Hoewel de decompilatie succesvol was in het herstellen van de mappenstructuur, stuitte het onderzoek op een fundamentele barrière. Uit de decompilatie (zie Figuur \ref{fig:jadx_obfuscation}) bleek dat de applicatie is gebouwd op het cross-platform Xamarin/Mono framework (te zien aan de \texttt{IGCUserPeer} implementaties). De zichtbare Java-code fungeert uitsluitend als een \textit{wrapper} die de datastromen via \texttt{native} methoden direct doorstuurt naar onderliggende gecompileerde C\#-assemblies (.dll).
-Hierdoor was het onmogelijk om de logica achter de Bluetooth-handshake of de data-interpretatie puur uit de Java-broncode af te leiden. Deze doodlopende weg bevestigde de noodzaak voor een \textit{black-box} benadering via netwerkanalyse op de hardware-interface.
+Hoewel de decompilatie succesvol was in het herstellen van de mappenstructuur, stuitte het onderzoek op een fundamentele barrière. 
+Uit de decompilatie (zie Figuur \ref{fig:jadx_obfuscation}) bleek dat de applicatie is gebouwd op het cross-platform Xamarin/Mono framework (te zien aan de \texttt{IGCUserPeer} implementaties). De zichtbare Java-code fungeert uitsluitend als een \textit{wrapper} die de datastromen via \texttt{native} methoden direct doorstuurt naar onderliggende gecompileerde C\#-assemblies (.dll).
+Hierdoor was het onmogelijk om de logica achter de Bluetooth-handshake of de data-interpretatie puur uit de Java-broncode af te leiden. 
+Deze doodlopende weg bevestigde de noodzaak voor een \textit{black-box} benadering via netwerkanalyse op de hardware-interface.
 
 \begin{figure}[ht]
     \centering
@@ -31,12 +33,14 @@ Om de communicatie te begrijpen zonder leesbare broncode, werd besloten om het a
 
 \subsection{Opzet van de testomgeving}
 Een standaard smartphone staat het onderscheppen van Bluetooth Low Energy (BLE) pakketten op applicatieniveau meestal niet toe vanwege beveiligingsrestricties. 
-Daarom werd een gerouteerd (\textit{rooted}) Android-toestel ingezet. Dit bood de mogelijkheid om de \textit{Bluetooth HCI Snoop Log} te activeren. Deze log legt 
+Daarom werd een gerouteerd (\textit{rooted}) Android-toestel ingezet. Dit bood de mogelijkheid om de \textit{Bluetooth HCI Snoop Log} te activeren. 
+Deze log legt 
 elk pakket vast dat door de Bluetooth-controller van het toestel wordt verwerkt op de \textit{Host Controller Interface} (HCI) laag.
 
 \subsection{Data-acquisitie via Wireshark}
 Na een reanimatiesessie met de officiële app werd het gegenereerde logbestand (\texttt{btsnoop\_hci.log}) geanalyseerd met \textit{Wireshark}. In deze fase werd 
-gezocht naar \textit{GATT (Generic Attribute Profile)} transacties. Voorafgaand aan de analyse werden de specifieke GATT-services in kaart gebracht via nRF Connect (zie Figuur \ref{fig:nrf_uuids}).
+gezocht naar \textit{GATT (Generic Attribute Profile)} transacties. Voorafgaand aan de analyse werden de specifieke GATT-services in kaart 
+gebracht via nRF Connect (zie Figuur \ref{fig:nrf_uuids}).
 
 \begin{figure}[ht]
     \centering
@@ -57,7 +61,8 @@ Er werd vastgesteld dat de pop communiceert via een specifiek Service-UUID-patro
 \end{description}
 
 \subsection{De "Handshake" en Authentificatie}
-Een cruciale ontdekking was dat de pop beveiligd is met een authenticatie-mechanisme. Zonder het versturen van een specifieke \textit{Auth Key} naar de pop, weigert de hardware sensordata te verzenden. De geanalyseerde handshake bestaat uit drie stappen:
+Een cruciale ontdekking was dat de pop beveiligd is met een authenticatie-mechanisme. Zonder het versturen van een specifieke \textit{Auth Key} naar de pop, 
+weigert de hardware sensordata te verzenden. De geanalyseerde handshake bestaat uit drie stappen:
 \begin{enumerate}
     \item \textbf{Authenticatie:} Het schrijven van een 20-byte array (startend met \texttt{0x5C 0x0E...}) naar het \textit{Auth-UUID}.
     \item \textbf{Activatie 1:} Een write-opdracht met payload \texttt{0x03} naar UUID \texttt{...012b}.
@@ -72,10 +77,12 @@ Een cruciale ontdekking was dat de pop beveiligd is met een authenticatie-mechan
 \end{figure}
 
 \section{Data Mapping: Van Bytes naar Millimeters}
-Na de succesvolle handshake begint de pop met het uitzenden van \textit{notifications} op het \textit{Wave}-kanaal (zie Figuur \ref{fig:wireshark_wave}). De data wordt verzonden als een byte-array. 
+Na de succesvolle handshake begint de pop met het uitzenden van \textit{notifications} op het \textit{Wave}-kanaal (zie Figuur \ref{fig:wireshark_wave}). 
+De data wordt verzonden als een byte-array. 
 Uit de implementatie in C\# blijkt dat de relevante informatie over de compressiediepte zich bevindt in de payload van deze pakketten.
 
-De ruwe waarde in deze bytes correleert direct met de fysieke indrukking van de borstkas. In de Unity-omgeving wordt deze waarde genormaliseerd en vertaald naar een procentuele diepte voor de visuele feedback-elementen in de Mixed Reality-ervaring.
+De ruwe waarde in deze bytes correleert direct met de fysieke indrukking van de borstkas. In de Unity-omgeving wordt deze waarde genormaliseerd en 
+vertaald naar een procentuele diepte voor de visuele feedback-elementen in de Mixed Reality-ervaring.
 
 \begin{figure}[ht]
     \centering
@@ -86,4 +93,4 @@ De ruwe waarde in deze bytes correleert direct met de fysieke indrukking van de 
 
 \section{Conclusie}
 Het succesvol \textit{reverse engineeren} van dit protocol heeft de afhankelijkheid van een officiële SDK weggenomen. Door het omzeilen van de obfuscatie via 
-\textit{packet sniffing} en het handmatig implementeren van de handshake in C\#, is een stabiele databrug geslagen tussen de medische hardware en de Meta Quest 3.  TESTEESTTESTTESTTEST
+\textit{packet sniffing} en het handmatig implementeren van de handshake in C\#, is een stabiele databrug geslagen tussen de medische hardware en de Meta Quest 3.

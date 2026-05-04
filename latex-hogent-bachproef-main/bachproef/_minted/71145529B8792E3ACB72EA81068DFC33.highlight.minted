@@ -1,0 +1,13 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{void}\PYG{+w}{ }\PYG{n+nf}{CheckVoorFeedbackBericht}\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{// Controleer of de foutendrempel (bijv. 3) is bereikt}
+\PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{fouteDiepteTeller}\PYG{+w}{ }\PYG{o}{\PYGZgt{}=}\PYG{+w}{ }\PYG{n}{foutenVoorWaarschuwing}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{laatsteGemetenPiek}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m}{60f}\PYG{p}{)}
+\PYG{+w}{            }\PYG{n}{ToonTip}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Je drukt te diep!\PYGZbs{}nGeef iets minder druk.\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{        }\PYG{k}{else}
+\PYG{+w}{            }\PYG{n+nf}{ToonTip}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Je drukt te ondiep!\PYGZbs{}nGebruik meer lichaamsgewicht.\PYGZdq{}}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{n}{fouteDiepteTeller}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// Reset teller na weergave}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

@@ -1,0 +1,18 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// Callback\PYGZhy{}methode die wordt aangeroepen bij elke nieuwe notification}
+\PYG{n}{BluetoothLEHardwareInterface}\PYG{p}{.}\PYG{n}{SubscribeCharacteristic}\PYG{p}{(}\PYG{n}{address}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{sUUID}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cUUID}\PYG{p}{,}
+\PYG{+w}{    }\PYG{p}{(}\PYG{n}{notification}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+cm}{/* Actie bij statuswijziging */}\PYG{+w}{ }\PYG{p}{\PYGZcb{},}
+\PYG{+w}{    }\PYG{p}{(}\PYG{n}{characteristic}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{bytes}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{=\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{bytes}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{k}{null}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{bytes}\PYG{p}{.}\PYG{n}{Length}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m}{0}\PYG{p}{)}
+\PYG{+w}{        }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{c+c1}{// Filter specifiek op het \PYGZsq{}Wave\PYGZsq{} data\PYGZhy{}kanaal (...0027)}
+\PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{characteristic}\PYG{p}{.}\PYG{n}{ToLower}\PYG{p}{().}\PYG{n}{Contains}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}00000027\PYGZdq{}}\PYG{p}{))}
+\PYG{+w}{            }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                }\PYG{c+c1}{// De ruwe sensorwaarde bevindt zich in de laatste byte}
+\PYG{+w}{                }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{diepte}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{bytes}\PYG{p}{[}\PYG{n}{bytes}\PYG{p}{.}\PYG{n}{Length}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m}{1}\PYG{p}{];}
+\PYG{+w}{                }\PYG{n}{huidigeDiepte}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{diepte}\PYG{p}{;}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{);}
+\end{MintedVerbatim}
