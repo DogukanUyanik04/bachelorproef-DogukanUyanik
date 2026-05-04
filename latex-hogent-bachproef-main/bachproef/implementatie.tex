@@ -1,3 +1,19 @@
+\chapter{Implementatie in Unity en Mixed Reality}
+\label{ch:implementatie}
+
+In dit hoofdstuk wordt de technische realisatie van de \textit{Proof of Concept} (PoC) uitgebreid toegelicht. 
+Waar het voorgaande hoofdstuk de focus legde op het ontsluiten van de datacommunicatie, verschuift de nadruk hier 
+naar de integratie van deze data binnen de Unity-omgeving. 
+
+Het doel van de implementatie is om de ruwe Bluetooth-stroom van de Laerdal-pop te transformeren naar een immersieve 
+trainingservaring op de Meta Quest 3. Hierbij wordt gebruikgemaakt van \textit{Passthrough}-technologie om de fysieke pop 
+te verrijken met multisensorische feedback-elementen, zoals visuele gidsen, adaptieve audio en realtime prestatie-analyse. 
+De volgende secties beschrijven de software-architectuur, de verwerking van de sensordata en de didactische vertaalslag naar 
+Mixed Reality.
+
+\section{Applicatie-architectuur en State Management}
+Om de verschillende fasen van de training (scannen, kalibreren, oefenen en evalueren) vloeiend te laten verlopen, is een centrale \texttt{AppFlowManager} geïmplementeerd...
+
 \section{Applicatie-architectuur en State Management}
 Om de verschillende fasen van de training (scannen, kalibreren, oefenen en evalueren) vloeiend te laten verlopen, is een centrale \texttt{AppFlowManager} geïmplementeerd. Deze component fungeert als een \textit{finite state machine} die de actieve gebruikersinterface (UI) en de status van de simulatie beheert.
 
