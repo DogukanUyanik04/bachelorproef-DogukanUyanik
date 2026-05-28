@@ -106,7 +106,8 @@ perfecte reanimatietechniek te begeleiden. Dit proces wordt centraal beheerd doo
 
 \subsection{Visuele Begeleiding: Ghost Hands en Passthrough}
 Door de \textit{Passthrough}-technologie van de Meta Quest 3 blijft de student verbonden met de fysieke realiteit, terwijl een \textit{ghost avatar} 
-van handen over de reanimatiepop wordt geprojecteerd. Deze avatar fungeert als een dynamische visuele gids voor zowel het tempo als de diepte.
+van handen over de reanimatiepop wordt geprojecteerd. Deze avatar fungeert als een dynamische visuele gids voor zowel het tempo als de diepte, 
+wat de concrete praktijkgerichte uitwerking vormt van de \textit{Transparent Target Avatar} uit de theoretische voorstudie (Subsectie \ref{subsec:positionele-feedback}).
 
 \subsubsection{Animatie en Bewegingslogica}
 De beweging van de gids wordt niet aangestuurd door een statische animatieclip, maar door een procedureel script (\texttt{GhostAnimator}). 
@@ -140,7 +141,9 @@ transform.localPosition = new Vector3(rustPositie.x, nieuweY, rustPositie.z);
 
 \subsubsection{Realtime Kleurfeedback en Emissie}
 De belangrijkste indicator voor de student is de kleur van de gids. De \texttt{MockSimulator} berekent bij elke compressie of de cursist binnen de 
-marges van 50-60 mm diepte en 100-120 BPM valt. De overgang tussen de kleuren gebeurt vloeiend via \texttt{Color.Lerp} om visuele onrust te voorkomen.
+marges van 50-60 mm diepte en 100-120 BPM valt. De overgang tussen de kleuren gebeurt vloeiend via \texttt{Color.Lerp} om visuele onrust te voorkomen. 
+Deze methode past het principe van \textit{Color Coding} toe (zie Subsectie \ref{subsec:directionele-abstracte-feedback}) om 
+prestatieresultaten zonder tekstuele afleiding over te brengen.
 
 \begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
 // Bepaling van de feedbackkleur op basis van prestaties
@@ -201,9 +204,10 @@ if (audioTimer >= interval)
 
 \subsubsection{Didactisch Nut}
 Deze vorm van feedback maakt gebruik van \textit{negative reinforcement}: het storende, luide getik fungeert als een prikkel die de student motiveert om de 
-techniek te verbeteren. Zodra de student de juiste diepte en frequentie aanhoudt, vult het virtuele hart zich en neemt de auditieve druk af. Dit creëert een 
-instinctieve drang om de patiënt naar een "stille" en stabiele toestand te brengen, wat de focus op de kwaliteit van de compressies verhoogt zonder dat de student 
-constant naar een UI-scherm hoeft te kijken.
+techniek te verbeteren. Zodra de student de juiste diepte en frequentie aanhoudt, vult het virtuele hart zich en neemt de auditieve druk af. Dit creëert een instinctieve drang om de patiënt naar een 
+\`\`stille'' en stabiele toestand te brengen, wat de focus op de kwaliteit van de compressies verhoogt zonder dat de student constant naar een 
+UI-scherm hoeft te kijken. Dit reduceert effectief het \textit{split-attention effect} (Subsectie \ref{subsec:split-attention}), aangezien 
+de auditieve ondersteuning de visuele kanalen ontlast en de student in staat stelt de fysiologische focus volledig bij de reanimatiepop te houden.
 
 
 
@@ -237,8 +241,9 @@ hartVullingImage.fillAmount = huidigeHartVulling;
 
 \subsubsection{Didactische Scaffolding: Hulpafbouw}
 Een uniek kenmerk van de applicatie is de implementatie van \textit{scaffolding}. Dit houdt in dat de visuele ondersteuning (de \textit{ghost hands}) 
-geleidelijk wordt afgebouwd naarmate de student aantoont de techniek te beheersen. Dit dwingt de cursist om te vertrouwen op het eigen spiergeheugen 
-in plaats van enkel de gids te volgen.
+geleidelijk wordt afgebouwd naarmate de student aantoont de techniek te beheersen. Dit dwingt de cursist om te vertrouwen op het eigen spiergeheugen in plaats van enkel de gids te volgen. 
+Dit mechanisme vormt de directe functionele vertaling van het principe van \textit{fading feedback} en tackelt het risico op afhankelijkheid 
+zoals beschreven binnen de \textit{guidance hypothesis} (Subsectie \ref{subsec:guidance-hypothesis}).
 
 Via de \texttt{hulpAfbouwDrempel} wordt de transparantie (alfa-waarde) van de gids aangepast. Zodra de hartvulling boven de 50\% stijgt, worden de 
 handen minder zichtbaar.
