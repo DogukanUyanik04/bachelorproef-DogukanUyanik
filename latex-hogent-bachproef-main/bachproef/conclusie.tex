@@ -61,63 +61,56 @@ te overbelasten. De binnenkomende byte-arrays worden direct in de Unity \texttt{
 laatste byte uit de \textit{Wave Characteristic} stelt de applicatie in staat om de actuele compressiediepte met een verwaarloosbare latentie 
 om te zetten in visuele, auditieve (de adaptieve metronoom) en gecentraliseerde gamificatie-feedback (\texttt{huidigeHartVulling}).
 
-\section{Beantwoording van de hoofdonderzoeksvraag}
-
-Met de synthese van de deelvragen kan de centrale hoofdonderzoeksvraag van dit onderzoek worden beantwoord: 
-\textit{In welke mate kan een Mixed Reality-applicatie, aangedreven door realtime data-extractie via reverse engineering, 
-de kwaliteit en intuïtie van reanimatietraining verbeteren?}
-
-De resultaten van deze bachelorproef tonen aan dat een dergelijke applicatie de kwaliteit en de intuïtieve beleving van een 
-reanimatietraining in significante mate verhoogt. Door de barrière van tweedimensionale, abstracte monitorsystemen volledig 
-te doorbreken en feedback direct te integreren via stereoscopische \textit{Passthrough}, verandert het leerproces fundamenteel. 
-De student hoeft de fysiologische focus niet langer te splitsen tussen het slachtoffer en een extern scherm, wat de cognitieve 
-belasting drastisch verlaagt. 
-
-De synchronisatie van de adaptieve auditieve feedback (de metronoom) och de visuele \textit{fading scaffolding} (de procedurele gids) 
-creëert een natuurlijke leeromgeving waarin fouten in diepte en tempo onmiddellijk gecorrigeerd worden op basis van kinetisch spiergeheugen. 
-Daarnaast bewijst het succesvolle \textit{reverse engineering}-traject een belangrijk technologisch nevenaspect: het is uitermate haalbaar om 
-hoogwaardige, merkonafhankelijke Mixed Reality-trainingssoftware te ontwikkelen rondom reeds bestaande, klinische simulatiehardware. 
-Hierdoor hoeven onderwijsinstellingen (zoals HOGENT) niet te investeren in nieuwe, kostbare hardware-ecosystemen, wat de drempel voor de 
-adoptie van MR binnen de medische didactiek aanzienlijk verlaagt.
-
-\section{Kritische Reflectie en Expert-Validatie}
-\label{sec:validatie}
+\section{Kritische reflectie, expert-validatie en synthese}
+\label{sec:validatie_synthese}
 
 Vanwege praktische beperkingen binnen het tijdsbestek van dit onderzoek kon de applicatie niet worden onderworpen aan een grootschalige, 
-statistische evaluatie met een studenten-testgroep. In de context van een software-technische bachelorproef Toegepaste Informatica ligt de 
-primaire focus echter op de architecturale realisatie en de technische haalbaarheid van de innovatieve koppeling. 
-Om de didactische en functionele waarde van de opgeleverde \textit{Proof of Concept} (PoC) kritisch te beoordelen, is de 
-applicatie onderworpen aan een kwalitatieve \textit{expert-review} door co-promotor en healthcare-expert Thomas Cuelenaere. 
+kwantitatieve evaluatie met een studenten-testgroep. Om de didactische en functionele waarde van de 
+opgeleverde \textit{Proof of Concept} (PoC) alsnog kritisch en objectief te beoordelen, is het systeem onderworpen aan een kwalitatieve \textit{expert-review} door 
+co-promotor en healthcare-expert Thomas Cuelenaere. 
 
-De bevindingen uit deze expert-validatie waren uiterst positief en bevestigen dat het systeem op cruciale vlakken een significante 
-meerwaarde biedt ten opzichte van traditionele reanimatietrainingen. De expert vatte zijn evaluatie samen aan de hand van vier 
-didactische en ergonomische kernpunten:
+Deze expert-validatie, gecombineerd met de theoretische fundamenten uit de literatuurstudie, maakt het mogelijk om een sluitend en onderbouwd antwoord te 
+formuleren op de centrale hoofdonderzoeksvraag: \textit{In welke mate kan een Mixed Reality-applicatie de kwaliteit van feedback tijdens reanimatietraining 
+verbeteren in vergelijking met de huidige tablet-gebaseerde methoden?}
+
+De synthese van de resultaten toont aan dat de MR-applicatie de kwaliteit van de feedback in significante mate verbetert ten opzichte van de huidige 
+tablet-gebaseerde platformen. Deze conclusie is fundamenteel tweeledig onderbouwd:
 
 \begin{itemize}
-    \item \textbf{Gebruiksvriendelijkheid en Toegankelijkheid:} De applicatie werd beoordeeld als zeer intuïtief. 
-    Specifiek de manuele ruimtelijke kalibratiemethode via de Quest-controller werd geprezen, omdat deze een student in 
-    staat stelt om de virtuele omgeving snel, betrouwbaar en foutloos uit te lijnen met de fysieke pop.
-    \item \textbf{Duidelijke Visuele Feedback:} De directe projectie van de \textit{ghost hands} over de borstkas van de 
-    reanimatiepop biedt onmiddellijke kinetische duidelijkheid. Doordat de gids realtime reageert op de Bluetooth-datastroom, 
-    ziet de student direct zijn prestaties zonder de blik te hoeven wenden van het slachtoffer.
-    \item \textbf{Gerichte Groeikansenfeedback:} Het systeem blinkt uit in het inzichtelijk maken van "groeikansen". 
-    De HUD-tips en kleurindicaties (zoals gedemonstreerd in Figuur \ref{fig:live_feedback_comparison}) pinpointen fouten in 
-    tempo (te snel of te traag) en diepte (te diep of te ondiep) direct, wat de student concrete handvatten biedt om zijn techniek 
-    proactief bij te sturen.
-    \item \textbf{Aanpasbaarheid van de Omgeving:} De flexibiliteit van de Mixed Reality-omgeving werd aangemerkt als een grote troef. 
-    Omdat de virtuele elementen en fysiologische scenario's softwarematig aanpasbaar zijn, kan de training eenvoudig worden opgeschaald naar 
-    diverse didactische settings en stressniveaus.
+    \item \textbf{Verlaging van de cognitieve belasting (Theoretische validatie):} Waar traditionele tablets de student dwingen om zijn fysiologische focus continu te 
+    splitsen tussen de reanimatiepop en een extern, tweedimensionaal scherm, doorbreekt de ontwikkelde MR-applicatie deze barrière volledig. Door de feedback via 
+    stereoscopische \textit{Passthrough} rechtstreeks op de borstkas van de pop te integreren, wordt voldaan aan het didactische principe van \textit{spatial contiguity} 
+    (Hoofdstuk 3). De student hoeft zijn blik niet meer te wenden, wat de focus en de natuurlijke cadans van de hulpverlener beschermt.
+    \item \textbf{Intuïtieve kinetische sturing (Praktische validatie):} De healthcare-expert bevestigde dat de realtime synchronisatie van de adaptieve auditieve 
+    feedback (de metronoom) en de visuele \textit{fading scaffolding} (de procedurele gids) een natuurlijke leeromgeving creëert. Fouten in diepte en tempo worden 
+    onmiddellijk gecorrigeerd op basis van kinetisch spiergeheugen, in plaats van een achterwaartse of abstracte numerieke analyse op een tablet.
 \end{itemize}
 
-De expert concludeerde dat de gerealiseerde applicatie een substantiële en effectieve meerwaarde levert om studenten binnen de geneeskunde op 
-een correcte, autonome en intuïtieve manier te leren reanimeren. 
-Het resultaat weerlegt hiermee de initiële twijfel of een reverse engineering-traject zonder officiële SDK stabiel genoeg zou zijn voor een 
-realtime medische simulatortraining.
+De expert vatte de specifieke functionele meerwaarde van de PoC samen aan de hand van de volgende vier kernpunten:
+
+\begin{itemize}
+    \item \textbf{Gebruiksvriendelijkheid en Toegankelijkheid:} Het systeem is uiterst intuïtief in gebruik. Specifiek de manuele ruimtelijke kalibratiemethode via de 
+    Quest-controller werd geprezen, omdat deze een student in staat stelt om de virtuele omgeving snel, betrouwbaar en foutloos uit te lijnen met de fysieke hardware.
+    \item \textbf{Duidelijke Visuele Feedback:} De directe projectie van de \textit{ghost hands} over de borstkas biedt onmiddellijke kinetische duidelijkheid. 
+    Doordat de gids realtime reageert op de gecapteerde Bluetooth-datastroom, ziet de student direct zijn prestaties.
+    \item \textbf{Gerichte Groeikansenfeedback:} Het systeem blinkt uit in het inzichtelijk maken van "groeikansen". 
+    De HUD-tips en kleurindicaties (Figuur \ref{fig:live_feedback_comparison}) pinpointen fouten in tempo (te snel of te traag) en diepte (te diep of te ondiep) 
+    direct, wat de student concrete handvatten biedt om zijn techniek proactief bij te sturen.
+    \item \textbf{Aanpasbaarheid van de Omgeving:} De flexibiliteit van de Mixed Reality-omgeving is een grote troef. Omdat fysiologische scenario's softwarematig 
+    aanpasbaar zijn, kan de training eenvoudig worden opgeschaald naar diverse didactische settings en stressniveaus.
+\end{itemize}
+
+De expert concludeerde dan ook dat de gerealiseerde applicatie een substantiële en effectieve meerwaarde levert om studenten binnen de geneeskunde op een correcte, 
+autonome en intuïtieve manier te leren reanimeren. Het resultaat weerlegt hiermee de initiële twijfel of een reverse engineering-traject zonder officiële SDK stabiel 
+genoeg zou zijn voor een realtime medische simulatortraining. Daarnaast bewijst het een belangrijk technologisch nevenaspect: het is uitermate haalbaar om hoogwaardige, 
+merkonafhankelijke Mixed Reality-trainingssoftware te ontwikkelen rondom reeds bestaande hardware, waardoor onderwijsinstellingen niet hoeven te investeren 
+in nieuwe, kostbare hardware-ecosystemen.
 
 \section{Toekomstig werk}
 \label{sec:toekomstig_werk}
 
-Hoofdstuk \ref{ch:implementatie} en de daaropvolgende expert-validatie hebben aangetoond dat de ontwikkelde \textit{Proof of Concept} functioneel en didactisch slaagt in zijn opzet. Desalniettemin opent dit verkennende onderzoek verschillende deuren voor toekomstige academische en software-technische uitbreidingen:
+Hoofdstuk \ref{ch:implementatie} en de daaropvolgende expert-validatie hebben aangetoond dat de ontwikkelde \textit{Proof of Concept} functioneel en didactisch slaagt in zijn opzet. 
+Toch opent dit verkennende onderzoek verschillende deuren voor toekomstige academische en software-technische uitbreidingen:
 
 \begin{enumerate}
     \item \textbf{Geautomatiseerde Ruimtelijke Uitlijning (Object Tracking):} De huidige manuele kalibratie via de Meta Quest-controller werkt 
