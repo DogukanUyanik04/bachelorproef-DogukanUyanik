@@ -18,5 +18,120 @@ reanimatiepop succesvol ontsloten. Deze realtime datastroom is vervolgens geïnt
 die de student via multisensorische feedback bestaande uit procedurele visuele hulpmiddelen, adaptieve audio en 
 gamificatie-elementen direct op het fysieke interactiepunt stuurt. In dit afsluitende hoofdstuk worden de 
 resultaten geëvalueerd aan de hand van de initiële deel- en hoofdonderzoeksvragen, gevolgd door een kwalitatieve 
-expert-validatie en een kritische blik op de toekomstige ontwikkelingsmogelijkheden van het systeem.    TESTTEST
+expert-validatie en een kritische blik op de toekomstige ontwikkelingsmogelijkheden van het systeem.
+\section{Beantwoording van de deelvragen}
 
+Om tot een sluitende academische synthese te komen, worden de in de inleiding geformuleerde deelvragen systematisch geëvalueerd op basis van de theoretische voorstudie en de praktische realisatie.
+
+\subsection*{Deelvraag 1 (Probleemdomein): Welke veelvoorkomende reanimatiefouten worden door de huidige hardware onvoldoende gevisualiseerd? 
+En hoe ervaren studenten de vertaalslag van abstracte data naar fysieke handeling?}
+
+Uit de protocol-analyse en de reverse engineering van de Laerdal Little Anne QCPR (Hoofdstuk \ref{ch:reverse_engineering}) is gebleken dat 
+kritieke mechanische foutelementen, zoals een incomplete decompressie (het onvoldoende laten opkomen van de borstkas waarbij het hart zich 
+niet volledig kan vullen met bloed) en subtiele, kortstondige afwijkingen in de frequentie, realtime onvoldoende helder worden gevisualiseerd 
+door standaardsystemen. Hoewel de interne sensoren van de pop deze micro-fluctuaties in diepte en timing wel degelijk registreren als ruwe data, 
+blijft de weergave in de officiële, commerciële softwarepakketten beperkt tot post-hoc statistieken of numerieke dashboards op externe schermen.
+
+Wat betreft de gebruikerservaring wijst de literatuurstudie (Hoofdstuk 3) uit dat studenten de vertaalslag van deze abstracte, tweedimensionale 
+data naar een driedimensionale, motorische handeling ervaren als een bron van hoge cognitieve belasting. Het noodgedwongen moeten wegkijken van 
+de patiënt of reanimatiepop naar een tablet of monitor verstoort de fysiologische focus en de natuurlijke cadans van de hulpverlener. 
+Feedback die niet rechtstreeks op het fysiologische interactiepunt, de borstkas van het slachtoffer, wordt geprojecteerd, belemmert het 
+instinctief en onmiddellijk corrigeren van de reanimatietechniek. Dit sluit direct aan bij het didactische principe van 
+\textit{spatial contiguity}, waarbij het fysiek scheiden van de informatiebron en de actieplaats het leerproces negatief beïnvloedt.
+
+\subsection*{Deelvraag 2 (Oplossingsdomein): Welke visualisatietechnieken binnen Mixed Reality zijn het meest effectief voor het aanleren van 
+motorische vaardigheden? Hoe kan sensordata van de oefenpop real-time verwerkt worden binnen een MR-omgeving?}
+
+De praktische realisatie en de daaropvolgende evaluatie (Hoofdstuk \ref{ch:implementatie}) tonen aan dat \textit{co-locatie} 
+via stereoscopische \textit{Passthrough} in combinatie met \textit{didactische scaffolding} (hulpafbouw) de meest effectieve 
+visualisatiemethoden vormen binnen Mixed Reality voor het aanleren van motorische vaardigheden. Door een procedurele \textit{ghost avatar} 
+van reanimatiehanden rechtstreeks over de fysieke pop te positioneren en deze realtime te kleuren via \textit{emissive materials} 
+(zoals gedocumenteerd in de transitie tussen Figuur \ref{fig:live_feedback_comparison}a en \ref{fig:live_feedback_comparison}b), 
+krijgt de student onmiddellijke kinetische sturing.
+
+Het stapsgewijs verlagen van de transparantie (alfa-waarde) van deze gids zodra de student boven de ingestelde \texttt{hulpAfbouwDrempel} 
+van 50\% presteert, dwingt de cursist bovendien om de transitie te maken van visuele afhankelijkheid naar het eigen spiergeheugen. 
+Dit sluit aan bij de geldende literatuur rond \textit{fading feedback}, die stelt dat het permanent aanbieden van visuele hulpmiddelen 
+het langetermijn-leereffect juist verzwakt omdat de student stopt met zelfstandig reflecteren.
+
+De realtime verwerking van de sensordata werd succesvol gerealiseerd door het omzeilen van de fabrikant-restricties op het 
+Bluetooth Low Energy (BLE) protocol. Door de implementatie van een geautomatiseerde, sequentiële handshake middels een asynchrone 
+\texttt{IEnumerator} (\texttt{ConnectionFlow}) worden de notificaties op het data-kanaal geactiveerd zonder de hardware-chip van de pop 
+te overbelasten. De binnenkomende byte-arrays worden direct in de Unity \texttt{Update}-loop opgevangen en geparsed. De extractie van de 
+laatste byte uit de \textit{Wave Characteristic} stelt de applicatie in staat om de actuele compressiediepte met een verwaarloosbare latentie 
+om te zetten in visuele, auditieve (de adaptieve metronoom) en gecentraliseerde gamificatie-feedback (\texttt{huidigeHartVulling}).
+
+\section{Beantwoording van de hoofdonderzoeksvraag}
+
+Met de synthese van de deelvragen kan de centrale hoofdonderzoeksvraag van dit onderzoek worden beantwoord: 
+\textit{In welke mate kan een Mixed Reality-applicatie, aangedreven door realtime data-extractie via reverse engineering, 
+de kwaliteit en intuïtie van reanimatietraining verbeteren?}
+
+De resultaten van deze bachelorproef tonen aan dat een dergelijke applicatie de kwaliteit en de intuïtieve beleving van een 
+reanimatietraining in significante mate verhoogt. Door de barrière van tweedimensionale, abstracte monitorsystemen volledig 
+te doorbreken en feedback direct te integreren via stereoscopische \textit{Passthrough}, verandert het leerproces fundamenteel. 
+De student hoeft de fysiologische focus niet langer te splitsen tussen het slachtoffer en een extern scherm, wat de cognitieve 
+belasting drastisch verlaagt. 
+
+De synchronisatie van de adaptieve auditieve feedback (de metronoom) och de visuele \textit{fading scaffolding} (de procedurele gids) 
+creëert een natuurlijke leeromgeving waarin fouten in diepte en tempo onmiddellijk gecorrigeerd worden op basis van kinetisch spiergeheugen. 
+Daarnaast bewijst het succesvolle \textit{reverse engineering}-traject een belangrijk technologisch nevenaspect: het is uitermate haalbaar om 
+hoogwaardige, merkonafhankelijke Mixed Reality-trainingssoftware te ontwikkelen rondom reeds bestaande, klinische simulatiehardware. 
+Hierdoor hoeven onderwijsinstellingen (zoals HOGENT) niet te investeren in nieuwe, kostbare hardware-ecosystemen, wat de drempel voor de 
+adoptie van MR binnen de medische didactiek aanzienlijk verlaagt.
+
+\section{Kritische Reflectie en Expert-Validatie}
+\label{sec:validatie}
+
+Vanwege praktische beperkingen binnen het tijdsbestek van dit onderzoek kon de applicatie niet worden onderworpen aan een grootschalige, 
+statistische evaluatie met een studenten-testgroep. In de context van een software-technische bachelorproef Toegepaste Informatica ligt de 
+primaire focus echter op de architecturale realisatie en de technische haalbaarheid van de innovatieve koppeling. 
+Om de didactische en functionele waarde van de opgeleverde \textit{Proof of Concept} (PoC) kritisch te beoordelen, is de 
+applicatie onderworpen aan een kwalitatieve \textit{expert-review} door co-promotor en healthcare-expert Thomas Cuelenaere. 
+
+De bevindingen uit deze expert-validatie waren uiterst positief en bevestigen dat het systeem op cruciale vlakken een significante 
+meerwaarde biedt ten opzichte van traditionele reanimatietrainingen. De expert vatte zijn evaluatie samen aan de hand van vier 
+didactische en ergonomische kernpunten:
+
+\begin{itemize}
+    \item \textbf{Gebruiksvriendelijkheid en Toegankelijkheid:} De applicatie werd beoordeeld als zeer intuïtief. 
+    Specifiek de manuele ruimtelijke kalibratiemethode via de Quest-controller werd geprezen, omdat deze een student in 
+    staat stelt om de virtuele omgeving snel, betrouwbaar en foutloos uit te lijnen met de fysieke pop.
+    \item \textbf{Duidelijke Visuele Feedback:} De directe projectie van de \textit{ghost hands} over de borstkas van de 
+    reanimatiepop biedt onmiddellijke kinetische duidelijkheid. Doordat de gids realtime reageert op de Bluetooth-datastroom, 
+    ziet de student direct zijn prestaties zonder de blik te hoeven wenden van het slachtoffer.
+    \item \textbf{Gerichte Groeikansenfeedback:} Het systeem blinkt uit in het inzichtelijk maken van "groeikansen". 
+    De HUD-tips en kleurindicaties (zoals gedemonstreerd in Figuur \ref{fig:live_feedback_comparison}) pinpointen fouten in 
+    tempo (te snel of te traag) en diepte (te diep of te ondiep) direct, wat de student concrete handvatten biedt om zijn techniek 
+    proactief bij te sturen.
+    \item \textbf{Aanpasbaarheid van de Omgeving:} De flexibiliteit van de Mixed Reality-omgeving werd aangemerkt als een grote troef. 
+    Omdat de virtuele elementen en fysiologische scenario's softwarematig aanpasbaar zijn, kan de training eenvoudig worden opgeschaald naar 
+    diverse didactische settings en stressniveaus.
+\end{itemize}
+
+De expert concludeerde dat de gerealiseerde applicatie een substantiële en effectieve meerwaarde levert om studenten binnen de geneeskunde op 
+een correcte, autonome en intuïtieve manier te leren reanimeren. 
+Het resultaat weerlegt hiermee de initiële twijfel of een reverse engineering-traject zonder officiële SDK stabiel genoeg zou zijn voor een 
+realtime medische simulatortraining.
+
+\section{Toekomstig werk}
+\label{sec:toekomstig_werk}
+
+Hoofdstuk \ref{ch:implementatie} en de daaropvolgende expert-validatie hebben aangetoond dat de ontwikkelde \textit{Proof of Concept} functioneel en didactisch slaagt in zijn opzet. Desalniettemin opent dit verkennende onderzoek verschillende deuren voor toekomstige academische en software-technische uitbreidingen:
+
+\begin{enumerate}
+    \item \textbf{Geautomatiseerde Ruimtelijke Uitlijning (Object Tracking):} De huidige manuele kalibratie via de Meta Quest-controller werkt 
+    betrouwbaar, maar vereist een actieve handeling van de student. Toekomstig werk kan zich richten op de integratie van de geavanceerde 
+    \textit{Object Tracking SDK} of \textit{Spatial Anchors} van Meta. Door computervisie en \textit{deep learning} in te zetten om de 
+    fysiologische vormen van de reanimatiepop automatisch te herkennen via de camera's van de headset, kan de virtuele gids 
+    (de \textit{ghost hands}) zonder enige manuele kalibratie direct en foutloos over de pop gecentreerd worden.
+    \item \textbf{Integratie van Ventilatie- en Beademingsdata:} In dit onderzoek lag de nadruk puur op de mechanische compressies 
+    (diepte en tempo). Het uitgevoerde protocol-onderzoek (Hoofdstuk \ref{ch:reverse_engineering}) kan echter worden geëxtrapoleerd om 
+    ook de data-notificaties van het beademingsvolume te identificeren. Door deze sensordata te parsen, kan de applicatie worden uitgebreid 
+    naar een volwaardige 30:2-reanimatiecyclus, inclusief realtime feedback op de effectiviteit van de beademing.
+    \item \textbf{Kwantitatieve Empirische Validatiestudie:} Nu de stabiliteit van de technische infrastructuur is bewezen, verdient het 
+    aanbeveling om een grootschalige, kwantitatieve studie op te zetten binnen de opleiding Gezondheidszorg van HOGENT. 
+    Door een testgroep (die traint met de ontwikkelde Mixed Reality-applicatie) statistisch te vergelijken met een controlegroep 
+    (die traint via de traditionele methode), kan de effectiviteit van de leerefficiëntie, de retentie van motorische vaardigheden en 
+    de reductie van stress empirisch worden vastgelegd.
+\end{enumerate}
