@@ -15,7 +15,8 @@ Mixed Reality.
 Om de verschillende fasen van de training (scannen, kalibreren, oefenen en evalueren) vloeiend te laten verlopen, is een centrale \texttt{AppFlowManager} geïmplementeerd...
 
 \section{Applicatie-architectuur en State Management}
-Om de verschillende fasen van de training (scannen, kalibreren, oefenen en evalueren) vloeiend te laten verlopen, is een centrale \texttt{AppFlowManager} geïmplementeerd. Deze component fungeert als een \textit{finite state machine} die de actieve gebruikersinterface (UI) en de status van de simulatie beheert.
+Om de verschillende fasen van de training (scannen, kalibreren, oefenen en evalueren) vloeiend te laten verlopen, is een centrale \texttt{AppFlowManager} geïmplementeerd. 
+Deze component fungeert als een \textit{finite state machine} die de actieve gebruikersinterface (UI) en de status van de simulatie beheert.
 
 De \texttt{AppFlowManager} zorgt voor de transitie tussen de volgende \textit{states}:
 \begin{itemize}
@@ -25,7 +26,8 @@ De \texttt{AppFlowManager} zorgt voor de transitie tussen de volgende \textit{st
     \item \textbf{Results:} Het aggregeren van de data en het tonen van het eindrapport.
 \end{itemize}
 
-Door deze gecentraliseerde aanpak blijven de individuele scripts (zoals de Bluetooth-handler en de simulator) ontkoppeld, wat de stabiliteit en onderhoudbaarheid van de code ten goede komt.
+Door deze gecentraliseerde aanpak blijven de individuele scripts (zoals de Bluetooth-handler en de simulator) ontkoppeld, wat de stabiliteit en onderhoudbaarheid van de code 
+ten goede komt.
 
 \section{Protocol-implementatie en Data-verwerking}
 Nadat de stabiele communicatielaag was opgezet, is de logica uit de \textit{reverse engineering} fase (Hoofdstuk \ref{ch:reverse_engineering}) 
@@ -49,6 +51,7 @@ Tussen elke stap is een pauze van 0,5 seconden ingebouwd middels \texttt{yield r
 stabiliteit van het systeem; het geeft de hardware van de pop de nodige tijd om de inkomende bytes te verwerken en de interne status aan te passen voordat het 
 volgende commando arriveert.
 
+\begin{listing}[htbp]
 \begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
 // Sequentiële handshake met pauzes voor hardware-stabiliteit
 BluetoothLEHardwareInterface.WriteCharacteristic(address, authSvc, authUUID, 
@@ -63,6 +66,9 @@ BluetoothLEHardwareInterface.WriteCharacteristic(address, act1Svc, act1UUID,
     Debug.Log("RADAR\_LOG: [OK] Act-1 geaccepteerd.");
 });
 \end{minted}
+\caption{C\#-implementatie van de sequentiële BLE-handshake.}
+\label{lst:ble_handshake}
+\end{listing}
 
 \subsection{Realtime Data Parsing}
 Zodra de handshake succesvol is afgerond, begint de reanimatiepop met het verzenden van \textit{notifications} op de \textit{Wave Characteristic}. In tegenstelling 
@@ -73,6 +79,7 @@ De binnenkomende data wordt ontvangen als een \texttt{byte}-array. Uit de correl
 compressiediepte zich bevindt in de laatste byte van deze array. In de C\#-implementatie wordt deze waarde geëxtraheerd en opgeslagen in de variabele 
 \texttt{huidigeDiepte}.
 
+\begin{listing}[htbp]
 \begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
 // Callback-methode die wordt aangeroepen bij elke nieuwe notification
 BluetoothLEHardwareInterface.SubscribeCharacteristic(address, sUUID, cUUID, 
@@ -91,6 +98,9 @@ BluetoothLEHardwareInterface.SubscribeCharacteristic(address, sUUID, cUUID,
     }
 );
 \end{minted}
+\caption{Realtime parsing en filtering van de binnengekomen BLE-sensordata.}
+\label{lst:realtime_data_parsing}
+\end{listing}
 
 De ruwe waarde die op deze manier wordt verkregen, is een integer variërend van 0 (geen compressie) tot circa 74 (maximale compressie, overeenkomend met hex 
 \texttt{0x4A}). Deze waarde vormt de basis voor de visuele representatie. Door deze data direct in de \texttt{Update}-loop van Unity beschikbaar te maken,
@@ -113,6 +123,7 @@ wat de concrete praktijkgerichte uitwerking vormt van de \textit{Transparent Tar
 De beweging van de gids wordt niet aangestuurd door een statische animatieclip, maar door een procedureel script (\texttt{GhostAnimator}). 
 Om een realistisch compressieritme te simuleren, is gekozen voor een lineaire beweging in plaats van een vloeiende sinusgolf. Dit is gerealiseerd met de \texttt{Mathf.PingPong}-functie.
 
+\begin{listing}[htbp]
 \begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
 // Berekening van de gids-beweging (110 BPM, 6 cm diepte)
 float pingPongWaarde = Mathf.PingPong(Time.time * snelheid, 1f);
@@ -121,6 +132,9 @@ float pingPongWaarde = Mathf.PingPong(Time.time * snelheid, 1f);
 float nieuweY = rustPositie.y - (pingPongWaarde * ideaalDiepte);
 transform.localPosition = new Vector3(rustPositie.x, nieuweY, rustPositie.z);
 \end{minted}
+\caption{Procedurele berekening van de gidsbeweging via de \texttt{Mathf.PingPong}-functie.}
+\label{lst:ghost_hands_movement}
+\end{listing}
 
 \begin{figure}[ht]
     \centering
@@ -145,6 +159,7 @@ marges van 50-60 mm diepte en 100-120 BPM valt. De overgang tussen de kleuren ge
 Deze methode past het principe van \textit{Color Coding} toe (zie Subsectie \ref{subsec:directionele-abstracte-feedback}) om 
 prestatieresultaten zonder tekstuele afleiding over te brengen.
 
+\begin{listing}[htbp]
 \begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
 // Bepaling van de feedbackkleur op basis van prestaties
 Color doelKleur = (goedeDiepte && goedeBPM) ? Color.green : Color.red;
@@ -156,6 +171,9 @@ foreach (Renderer r in ghostRenderers) {
     r.material.SetColor("\_EmissionColor", huidigeKleur * emissieKracht);
 }
 \end{minted}
+\caption{Realtime berekening van de feedbackkleur en emissie via \texttt{Color.Lerp}.}
+\label{lst:color_feedback_emissie}
+\end{listing}
 
 De emissiewaarde zorgt ervoor dat de handen oplichten in de Mixed Reality-omgeving, waardoor ze ook bij fel omgevingslicht (via Passthrough) duidelijk 
 zichtbaar blijven voor de student.
@@ -188,6 +206,7 @@ In de \texttt{MockSimulator} wordt een timer bijgehouden die gebaseerd is op de 
 wordt het volume van de \texttt{AudioSource} opnieuw berekend op basis van de \texttt{huidigeHartVulling}. Dit zorgt ervoor dat het geluid luider is wanneer 
 de patiënt in kritieke toestand verkeert, en wegsterft naarmate de stabilisatie vordert.
 
+\begin{listing}[htbp]
 \begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
 // Berekening van het interval op basis van de gewenste BPM
 float interval = 60f / perfecteBPM;
@@ -201,6 +220,9 @@ if (audioTimer >= interval)
     audioTimer = 0f;
 }
 \end{minted}
+\caption{Dynamische volumeaanpassing en tijdsintervalberekening van de adaptieve metronoom.}
+\label{lst:adaptive_metronome}
+\end{listing}
 
 \subsubsection{Didactisch Nut}
 Deze vorm van feedback maakt gebruik van \textit{negative reinforcement}: het storende, luide getik fungeert als een prikkel die de student motiveert om de 
@@ -218,6 +240,7 @@ De vulgraad (\texttt{fillAmount}) van dit hart fungeert als een metafoor voor de
 \subsubsection{Dynamische Vullogica}
 De variabele \texttt{huidigeHartVulling} wordt realtime berekend op basis van de kwaliteit van de uitgevoerde compressies. Wanneer de student zowel het juiste tempo als de juiste diepte aanhoudt, stijgt de waarde. Bij inactiviteit of foutieve handelingen treedt er een "leegloop-effect" op, wat de urgentie van de handeling benadrukt.
 
+\begin{listing}[htbp]
 \begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
 // Logica voor het vullen en leeglopen van het hart
 if (goedeDiepte && goedeBPM) 
@@ -238,6 +261,9 @@ if (huidigeBPMCursist < 10f)
 // UI-update
 hartVullingImage.fillAmount = huidigeHartVulling;
 \end{minted}
+\caption{Dynamische vullogica en leegloopeffect van het virtuele hart.}
+\label{lst:hart_vullogica}
+\end{listing}
 
 \subsubsection{Didactische Scaffolding: Hulpafbouw}
 Een uniek kenmerk van de applicatie is de implementatie van \textit{scaffolding}. Dit houdt in dat de visuele ondersteuning (de \textit{ghost hands}) 
@@ -248,6 +274,7 @@ zoals beschreven binnen de \textit{guidance hypothesis} (Subsectie \ref{subsec:g
 Via de \texttt{hulpAfbouwDrempel} wordt de transparantie (alfa-waarde) van de gids aangepast. Zodra de hartvulling boven de 50\% stijgt, worden de 
 handen minder zichtbaar.
 
+\begin{listing}[htbp]
 \begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
 // Afbouw van visuele hulp op basis van prestaties
 if (huidigeHartVulling > hulpAfbouwDrempel) 
@@ -262,6 +289,9 @@ foreach (Renderer r in ghostRenderers) {
         r.material.color.g, r.material.color.b, hulpAlpha));
 }
 \end{minted}
+\caption{Algoritme voor de stapsgewijze visuele hulpafbouw (scaffolding) via \texttt{Mathf.Lerp}.}
+\label{lst:scaffolding_hulpafbouw}
+\end{listing}
 
 Dit mechanisme zorgt voor een natuurlijke overgang van begeleid oefenen naar zelfstandige uitvoering, wat de effectiviteit van de training verhoogt.
 
@@ -274,6 +304,7 @@ Om te voorkomen dat de student overspoeld wordt met informatie bij elke kleine a
 foutenteller (\texttt{foutenVoorWaarschuwing}). Pas wanneer een specifieke fout (bijv. te ondiep drukken) herhaaldelijk achter elkaar wordt gemaakt, 
 wordt er een actieve tip getoond.
 
+\begin{listing}[htbp]
 \begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
 void CheckVoorFeedbackBericht() {
     // Controleer of de foutendrempel (bijv. 3) is bereikt
@@ -287,6 +318,9 @@ void CheckVoorFeedbackBericht() {
     }
 }
 \end{minted}
+\caption{Logica voor het intelligent filteren en weergeven van corrigerende feedbackberichten op de HUD.}
+\label{lst:hud_feedback_messages}
+\end{listing}
 
 De methode \texttt{ToonTip} zorgt er vervolgens voor dat het bericht een aantal seconden in beeld blijft via een variabele \texttt{verbergTekstTijd}, 
 zodat de student de tijd heeft om de instructie te lezen en op te volgen.
@@ -295,6 +329,7 @@ zodat de student de tijd heeft om de instructie te lezen en op te volgen.
 De timer fungeert niet enkel als informatiebron, maar ook als psychologische trigger. In de \texttt{UpdateTimerUI} methode wordt de resterende tijd 
 berekend en geformatteerd naar een minuten- en secondennotatie.
 
+\begin{listing}[htbp]
 \begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
 void UpdateTimerUI() {
     float restTijd = Mathf.Max(0f, maxTrainingTijd - trainingTimer);
@@ -308,6 +343,9 @@ void UpdateTimerUI() {
     else timerTekst.color = Color.white;
 }
 \end{minted}
+\caption{Dynamische berekening, formattering en kleurcodering van de trainingstimer op de HUD.}
+\label{lst:hud_timer_ui}
+\end{listing}
 
 Door de kleur van de tekst te veranderen naar rood in de laatste 15 seconden, wordt een gevoel van urgentie gecreëerd dat de 
 stress van een reële reanimatiesituatie nabootst.
@@ -318,6 +356,7 @@ Een cruciaal aspect van een Mixed Reality-applicatie is dat de virtuele gids (de
 \subsubsection{Manuele Positionering via Controller-tracking}
 Omdat de Meta Quest 3 via \textit{Passthrough} de echte wereld toont, kan de cursist de rechter controller fysiek op de borstkas van de reanimatiepop plaatsen. Door op de 'A'-knop van de controller te drukken (\texttt{OVRInput.Button.One}), wordt de volledige simulatie-omgeving in één keer verplaatst en geroteerd naar de huidige positie van de hardware.
 
+\begin{listing}[htbp]
 \begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
 void KalibreerEnStart()
 {
@@ -333,6 +372,9 @@ void KalibreerEnStart()
     flowManager.FinalStartTraining();
 }
 \end{minted}
+\caption{Manuele ruimtelijke kalibratie en world alignment op basis van controller-tracking.}
+\label{lst:spatial_calibration}
+\end{listing}
 
 Door enkel de Y-as van de rotatie over te nemen, wordt gegarandeerd dat de virtuele handen altijd perfect horizontaal op de pop blijven staan, 
 ongeacht de hoek waaronder de cursist de controller vasthoudt tijdens het kalibratiemoment.
@@ -352,6 +394,7 @@ verzamelt gedurende de hele sessie data om een eindrapport te genereren dat verd
 Tijdens de reanimatie worden alle individuele compressiewaarden (diepte en tempo) opgeslagen in dynamische lijsten. Bij het beëindigen van de sessie 
 berekent de \texttt{EindigTraining}-methode de gemiddelden en de nauwkeurigheidsscore.
 
+\begin{listing}[htbp]
 \begin{minted}[frame=lines, framesep=2mm, bgcolor=lightgray!10, fontsize=\footnotesize, linenos]{csharp}
 // Berekening van statistieken voor het eindrapport
 float scorePercentage = totaalCompressies > 0 
@@ -361,6 +404,9 @@ float scorePercentage = totaalCompressies > 0
 float gemDiepte = lijstDieptes.Count > 0 ? lijstDieptes.Average() : 0f;
 float gemBPM = lijstBPMs.Count > 0 ? lijstBPMs.Average() : 0f;
 \end{minted}
+\caption{Data-aggregatie en statistische analyse van de reanimatieparameters via LINQ ten behoeve van het eindrapport.}
+\label{lst:data_aggregation_linq}
+\end{listing}
 
 \subsection{Didactische Feedback}
 Naast de numerieke data toont het \texttt{Panel\_Results} een gepersonaliseerde tip. De applicatie analyseert welke fout het meest 
